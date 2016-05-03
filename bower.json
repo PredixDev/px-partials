@@ -6,7 +6,7 @@
     "Jonnie Spratley <jonnie.spratley@ge.com>"
   ],
   "description": "HTML Partials",
-  "main": "",
+  "main": "px-partials.html",
   "moduleType": [],
   "license": "MIT",
   "ignore": [
@@ -15,5 +15,12 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "polymer": "latest"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.3"
+  }
 }
