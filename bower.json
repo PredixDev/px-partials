@@ -1,0 +1,19 @@
+{
+  "name": "px-partials",
+  "version": "0.0.1",
+  "homepage": "https://github.com/PredixDev/px-partials",
+  "authors": [
+    "Jonnie Spratley <jonnie.spratley@ge.com>"
+  ],
+  "description": "HTML Partials",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

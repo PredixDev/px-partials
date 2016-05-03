@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<!-- TODO: Dependencies -->
+		<script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../iron-demo-helpers/demo-snippet.html"/>
+		<link rel='stylesheet' href='https://predixdev.github.io/px-library-design/css/style.css'>
+		<title>px-partials demo</title>
+	</head>
+	<body>
+		<div class="viewport">
+			<h2>px-header</h2>
+			<demo-snippet>
+				<template>
+					<div style="background-color: #3B3B3F;">
+						<link rel="import" href="px-header.html">
+						<px-header title="My App" subtitle="Some View"></px-header>
+					</div>
+				</template>
+			</demo-snippet>
+
+			<h2>px-footer</h2>
+			<demo-snippet>
+				<template>
+					<div style="background-color: #3B3B3F;">
+						<link rel="import" href="px-footer.html">
+						<px-footer copywrite="Copywrite &copy; 2016">This is the footer</px-footer>
+					</div>
+				</template>
+			</demo-snippet>
+
+			<h2>px-title-bar</h2>
+			<demo-snippet>
+				<template>
+					<link rel="import" href="px-title-bar.html">
+					<px-title-bar title="My Title Bar">
+						<button class="btn btn--icon btn--tertiary">
+							<i class="fa fa-download"></i>
+						</button>
+						<button class="btn btn--icon btn--tertiary">
+							<i class="fa fa-pencil"></i>
+						</button>
+					</px-title-bar>
+				</template>
+			</demo-snippet>
+		</div>
+	</body>
+</html>
