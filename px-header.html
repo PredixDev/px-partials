@@ -10,12 +10,12 @@ This element provides an easy way to create the header commonly used in Predix a
 <dom-module id="px-header">
 	<style>
 		:host {
-			display: flex;
+			display: block;
 		}
 		:host header {
-      width: 100%;
 			color: #D1D0D8;
 		}
+
 		:host header a {
 			text-decoration: none;
 			color: #D1D0D8;
@@ -23,14 +23,16 @@ This element provides an easy way to create the header commonly used in Predix a
 		:host header .brand {
 			height: 32px;
 			width: 32px;
+			align-self: center;
 		}
 		:host header .title {
 			user-select: none;
-
+			flex: 1;
+			align-self: center;
 		}
 	</style>
 	<template>
-		<header class="clearfix u-bg--gray10 flex flex--row">
+		<header class="u-m clearfix u-bg--gray10 flex flex--row">
 			<div class="brand">
 				<span class="logo">
 					<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 44 44" enable-background="new 0 0 44 44"><path
@@ -40,7 +42,7 @@ This element provides an easy way to create the header commonly used in Predix a
 			</div>
 			<div class="title">
 				<span>{{title}}</span>
-				|
+				<span class="seperator">|</span>
 				<span class="muted subtitle">{{subtitle}}</span>
 			</div>
 			<div class="muted u-mt--">

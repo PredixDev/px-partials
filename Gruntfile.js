@@ -100,9 +100,20 @@ module.exports = function(grunt) {
           logConcurrentOutput: true
         }
       }
-    }
+    },
+		'wct-test': {
+			local: {
+				options: {remote: false},
+			},
+			remote: {
+				options: {remote: true}
+			},
+			chrome: {
+				options: {browsers: ['chrome']}
+			}
+		}
   });
-
+	grunt.loadNpmTasks('web-component-tester');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -133,7 +144,7 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('test', 'Test', [
     'jshint',
-    'webdriver'
+    'wct-test:local'
   ]);
 
   grunt.registerTask('release', 'Release', [
