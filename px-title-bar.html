@@ -1,6 +1,17 @@
 <link rel="import" href="../polymer/polymer.html" />
 
+<!--
+This element provides an easy way to create the section title bar commonly used in Predix apps.
 
+## Usage
+
+```
+<px-title-bar></px-title-bar>
+```
+@element px-title-bar
+@demo demo/demo-px-title-bar.html
+@homepage index.html
+-->
 <dom-module id="px-title-bar">
 	<template>
 		<style>
@@ -38,6 +49,7 @@
 		Polymer({
 			is: 'px-title-bar',
 			properties: {
+				//The title for the title bar
 			  title: {
 			    type: String
 			  }

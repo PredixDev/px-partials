@@ -5,7 +5,7 @@
 		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
 		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html" />
 		<link rel='stylesheet' href='https://predixdev.github.io/px-library-design/css/style.css'>
-		<title>px-header demo</title>
+		<title>px-footer demo</title>
 		<style media="screen">
 			.box{
 				position: relative;
@@ -17,13 +17,13 @@
 	<body>
 
 		<div class="viewport">
-			<h2>px-header</h2>
+			<h2>px-footer</h2>
 			<div class="u-mb++">
 				<demo-snippet>
 					<template>
 						<div class="box box--tiny">
 							<link rel="import" href="../px-partials.html">
-							<px-header title="My App" subtitle="My Product"></px-header>
+							<px-footer copywrite="2016 &copy;" links='[{"title": "About", "href": "about.html"}]'></px-footer>
 						</div>
 					</template>
 				</demo-snippet>
@@ -34,7 +34,7 @@
 					<template>
 						<div class="box box--tiny">
 							<link rel="import" href="../px-partials.html">
-							<px-header title="My App" subtitle=" "></px-header>
+							<px-footer copywrite="2016 &copy;"></px-footer>
 						</div>
 					</template>
 				</demo-snippet>
@@ -45,7 +45,7 @@
 					<template>
 						<div class="box box--tiny">
 							<link rel="import" href="../px-partials.html">
-							<px-header title="" subtitle=" " powered=" "></px-header>
+							<px-footer copywrite="" links=""></px-footer>
 						</div>
 					</template>
 				</demo-snippet>

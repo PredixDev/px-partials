@@ -1,10 +1,14 @@
 <link rel="import" href="../polymer/polymer.html" />
 <!--
-```
 This element provides an easy way to create the header commonly used in Predix apps.
+
+## Usage
+
+```
+<px-header title="My Application Name" subtitle="My Product Name"></px-header>
 ```
 @element px-header
-@demo demo.html
+@demo demo/demo-px-header.html
 @homepage index.html
 -->
 <dom-module id="px-header">
@@ -45,8 +49,8 @@ This element provides an easy way to create the header commonly used in Predix a
 			</div>
 			<div class="title">
 				<span>{{title}}</span>
-				<span class="seperator">|</span>
-				<span class="muted subtitle">{{subtitle}}</span>
+				<span class="seperator" hidden="{{!subtitle}}">  </span>
+				<span class="muted subtitle" hidden="{{!subtitle}}">{{subtitle}}</span>
 			</div>
 			<div class="muted u-mt--">
 				<span class="powered">{{powered}}</span>
