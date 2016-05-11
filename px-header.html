@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer.html" />
+<link rel="import" href="../polymer/polymer.html"/>
 <!--
 This element provides an easy way to create the header commonly used in Predix apps.
 
@@ -37,6 +37,7 @@ This element provides an easy way to create the header commonly used in Predix a
 			flex: 1;
 			align-self: center;
 		}
+
 	</style>
 	<template>
 		<header class="u-m clearfix flex flex--row">
@@ -49,8 +50,8 @@ This element provides an easy way to create the header commonly used in Predix a
 			</div>
 			<div class="title">
 				<span>{{title}}</span>
-				<span class="seperator" hidden="{{!subtitle}}">  </span>
-				<span class="muted subtitle" hidden="{{!subtitle}}">{{subtitle}}</span>
+				<span class="seperator" hidden$="{{!subtitle}}"></span>
+				<span class="muted subtitle" hidden$="{{!subtitle}}">{{subtitle}}</span>
 			</div>
 			<div class="muted u-mt--">
 				<span class="powered">{{powered}}</span>
@@ -74,7 +75,7 @@ This element provides an easy way to create the header commonly used in Predix a
 					value: 'Powered by Predix'
 				}
 			},
-			created: function() {
+			created: function () {
 				console.log(this.tagName, 'created');
 			}
 		});
