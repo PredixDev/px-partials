@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 
-<link rel="import" href="../px-icon/px-icon.html"/>
+<link rel="import" href="px-icon.html"/>
 
 <!--
 A simple web components for creating PX Design System buttons.
@@ -16,78 +16,78 @@ A simple web components for creating PX Design System buttons.
 @homepage index.html
 -->
 <dom-module id="px-button">
-  <link rel="import" href="../px-theme/px-theme.html"/>
-  <style>
-    :host {
+	<link rel="import" href="../px-theme/px-theme.html"/>
+	<style>
+		:host {
+			}
 
-    }
-  </style>
-  <template>
-    <button id="btn" type="button" class="btn" on-tap="_clickHandler">
-      <template is="dom-if" if="{{icon}}">
-        <px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}"></px-icon>
-      </template>
+	</style>
+	<template>
+		<button id="btn" type="button" class="btn" on-tap="_clickHandler">
+			<template is="dom-if" if="{{icon}}">
+				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}"></px-icon>
+			</template>
 
-      <template is="dom-if" if="{{label}}">
-        <span>{{label}}</span>
-      </template>
-      <content select="*"></content>
-    </button>
-  </template>
-  <script type="text/javascript">
-    Polymer({
-      is: "px-button",
-      properties: {
-        //The button label
-        label: {
-          type: String
-        },
-        //The button theme
-        theme: {
-          type: String
-        },
-        //The class name for the icon
-        icon: {
-          type: String
-        },
-        //The size for the icon
-        iconSize: {
-          type: String
-        },
-        //The icon size
-        size: {
-          type: String
-        }
-      },
-      attached: function(){
-        var self = this;
-        this.async(function(){
-          if(self.theme){
-            var themes = self.theme.split(' ');
-            themes.forEach(function(t){
-              console.log('this.$', self.$.btn);
-              console.log( 'theme', t);
-              self.toggleClass( 'btn--' + t, true, self.$.btn);
-            });
-          }
-          if(self.size){
-            self.toggleClass( 'btn--' + self.size, true, self.$.btn);
-          }
+			<template is="dom-if" if="{{label}}">
+				<span>{{label}}</span>
+			</template>
+			<content select="*"></content>
+		</button>
+	</template>
+	<script type="text/javascript">
+		Polymer({
+			is: "px-button",
+			properties: {
+				//The button label
+				label: {
+					type: String
+				},
+				//The button theme
+				theme: {
+					type: String
+				},
+				//The class name for the icon
+				icon: {
+					type: String
+				},
+				//The size for the icon
+				iconSize: {
+					type: String
+				},
+				//The icon size
+				size: {
+					type: String
+				}
+			},
+			attached: function () {
+				var self = this;
+				this.async(function () {
+					if (self.theme) {
+						var themes = self.theme.split(' ');
+						themes.forEach(function (t) {
+							console.log('this.$', self.$.btn);
+							console.log('theme', t);
+							self.toggleClass('btn--' + t, true, self.$.btn);
+						});
+					}
+					if (self.size) {
+						self.toggleClass('btn--' + self.size, true, self.$.btn);
+					}
 
-          if(self.icon){
-            console.log('this.$', self.$.ico);
-            var ico = self.queryEffectiveChildren('px-icon');
-            if(ico){
-              ico.icon = self.icon;
-              ico.size = self.iconSize;  
-            }
+					if (self.icon) {
+						console.log('this.$', self.$.ico);
+						var ico = self.queryEffectiveChildren('px-icon');
+						if (ico) {
+							ico.icon = self.icon;
+							ico.size = self.iconSize;
+						}
 
-          }
-        })
-      },
-      _clickHandler: function(e){
-        this.fire('click', e);
-      }
-    });
-  </script>
+					}
+				})
+			},
+			_clickHandler: function (e) {
+				this.fire('click', e);
+			}
+		});
+	</script>
 </dom-module>
