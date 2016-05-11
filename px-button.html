@@ -12,18 +12,18 @@ A simple web components for creating PX Design System buttons.
 ```
 @element px-button
 @blurb Element for creating buttons.
-@demo demo.html
+@demo demo/demo-px-button.html
 @homepage index.html
 -->
 <dom-module id="px-button">
-	<link rel="import" href="../px-theme/px-theme.html"/>
+	<link rel="stylesheet" href="px-partials.css">
 	<style>
 		:host {
 			}
 
 	</style>
 	<template>
-		<button id="btn" type="button" class="btn" on-tap="_clickHandler">
+		<button id="btn" type="button" class="btn" on-tap="_clickHandler" on-click="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
 				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}"></px-icon>
 			</template>
