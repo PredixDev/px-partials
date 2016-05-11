@@ -4,7 +4,6 @@
 		<!-- TODO: Dependencies -->
 		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
 		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html" />
-		<link rel='stylesheet' href='https://predixdev.github.io/px-library-design/css/style.css'>
 		<title>px-title-bar demo</title>
 		<style media="screen">
 			.box{
@@ -17,11 +16,17 @@
 	<body>
 
 		<div class="viewport">
-			<h2>px-header</h2>
+			<div class="box u-mb++">
+				<h2>px-title-bar</h2>
+				<p>
+					The title bar is best used to display the name of a widget or the contents within a view and may provide actions associated to the widget or content. There are different variations of the title bar. The type of title bar will be dependent on the content or actions.
+				</p>
+			</div>
 			<div class="u-mb++">
+				<h2>Title bar with leader</h2>
 				<demo-snippet>
 					<template>
-						<div class="box box--tiny">
+						<div class="u-m">
 							<link rel="import" href="../px-partials.html">
 							<px-title-bar title="Widget Title"></px-title-bar>
 						</div>
@@ -30,12 +35,14 @@
 			</div>
 
 			<div class="u-mb++">
+				<h2>Title bar with leader and buttons with icon</h2>
 				<demo-snippet>
 					<template>
-						<div class="box box--tiny">
+						<div class="u-m">
 							<link rel="import" href="../px-partials.html">
 							<px-title-bar title="Widget Title">
-								<button class="btn btn--icon"><i class="fa fa-edit"></i></button>
+								<button class="btn btn--tertiary btn--icon"><i class="fa fa-download"></i></button>
+								<button class="btn btn--tertiary btn--icon"><i class="fa fa-edit"></i></button>
 							</px-title-bar>
 						</div>
 					</template>
@@ -43,11 +50,15 @@
 			</div>
 
 			<div class="u-mb++">
+				<h2>Title bar with leader and tertiary buttons</h2>
 				<demo-snippet>
 					<template>
-						<div class="box box--tiny">
+						<div class="u-m">
 							<link rel="import" href="../px-partials.html">
-							<px-title-bar title="Some Section"></px-title-bar>
+							<px-title-bar title="Widget Title">
+								<button class="btn btn--tertiary">Action 1</button>
+								<button class="btn btn--tertiary">Action 2</button>
+							</px-title-bar>
 						</div>
 					</template>
 				</demo-snippet>

@@ -1,0 +1,2601 @@
+<dom-module id="px-partials">
+    <template>
+        <style>
+            @charset &quot;UTF-8&quot;;
+            &#x2F;*
+             * Copyright (c) 2014 GE Global Research. All rights reserved.
+             *
+             * The copyright to the computer software herein is the property of
+             * GE Global Research. The software may be used and&#x2F;or copied only
+             * with the written permission of GE Global Research or in accordance
+             * with the terms and conditions stipulated in the agreement&#x2F;contract
+             * under which the software has been supplied.
+             *&#x2F;
+            &#x2F;*
+            THIS FILE SHOULD CONTAIN ONLY ABSTRACT&#x2F;&#39;SKETCH&#39; THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
+            Predix branding rules go in px-partials-predix.scss, not in this file.
+            *&#x2F;
+            &#x2F;*! normalize.css v3.0.2 | MIT License | git.io&#x2F;normalize *&#x2F;
+            &#x2F;**
+             *
+             * 1. Set the default `font-size` and `line-height` for the entire project,
+             *    sourced from our default variables. The `font-size` is calculated to exist
+             *    in ems, the `line-height` is calculated to exist unitlessly.
+             * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+             *    navigating between pages that do&#x2F;do not have enough content to produce
+             *    scrollbars naturally.
+             * 3. Ensure the page always fills at least the entire height of the viewport.
+             * 4. Prevent certain mobile browsers from automatically zooming fonts.
+             * 5. Fonts on OSX will look more consistent with other systems that do not
+             *    render text using sub-pixel anti-aliasing.
+             *&#x2F;
+            html {
+              font-size: 0.9375em;
+              &#x2F;* [1] *&#x2F;
+              line-height: 1.3333333333;
+              &#x2F;* [1] *&#x2F;
+              background-color: white;
+              color: black;
+              overflow-y: scroll;
+              &#x2F;* [2] *&#x2F;
+              min-height: 100%;
+              &#x2F;* [3] *&#x2F;
+              text-size-adjust: 100%;
+              &#x2F;* [4] *&#x2F;
+              -moz-osx-font-smoothing: grayscale;
+              &#x2F;* [5] *&#x2F;
+              -webkit-font-smoothing: antialiased;
+              &#x2F;* [5] *&#x2F; }
+            &#x2F;**
+             * Remove default margin.
+             *&#x2F;
+            body {
+              margin: 0; }
+            &#x2F;* HTML5 display definitions
+               ========================================================================== *&#x2F;
+            &#x2F;**
+             * Correct `block` display not defined for any HTML5 element in IE 8&#x2F;9.
+             * Correct `block` display not defined for `details` or `summary` in IE 10&#x2F;11
+             * and Firefox.
+             * Correct `block` display not defined for `main` in IE 11.
+             *&#x2F;
+            article,
+            aside,
+            details,
+            figcaption,
+            figure,
+            footer,
+            header,
+            hgroup,
+            main,
+            menu,
+            nav,
+            section,
+            summary {
+              display: block; }
+            &#x2F;**
+             * 1. Correct `inline-block` display not defined in IE 8&#x2F;9.
+             * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+             *&#x2F;
+            audio,
+            canvas,
+            progress,
+            video {
+              display: inline-block;
+              &#x2F;* 1 *&#x2F;
+              vertical-align: baseline;
+              &#x2F;* 2 *&#x2F; }
+            &#x2F;**
+             * Prevent modern browsers from displaying `audio` without controls.
+             * Remove excess height in iOS 5 devices.
+             *&#x2F;
+            audio:not([controls]) {
+              display: none;
+              height: 0; }
+            &#x2F;**
+             * Address `[hidden]` styling not present in IE 8&#x2F;9&#x2F;10.
+             * Hide the `template` element in IE 8&#x2F;9&#x2F;11, Safari, and Firefox &lt; 22.
+             *&#x2F;
+            [hidden],
+            template {
+              display: none; }
+            &#x2F;* Margins
+               ========================================================================== *&#x2F;
+            &#x2F;**
+             * Where `margin-bottom` is concerned,this value will be the same as the
+             * base line-height. This allows us to keep a consistent vertical rhythm.
+             * As per: csswizardry.com&#x2F;2012&#x2F;06&#x2F;single-direction-margin-declarations
+             *&#x2F;
+            h1, h2, h3, h4, h5, h6,
+            ul, ol, dl,
+            blockquote, p, address,
+            hr,
+            table,
+            fieldset, figure,
+            pre {
+              margin-bottom: 1rem; }
+            &#x2F;**
+             * Remove extra vertical spacing when nesting lists.
+             *&#x2F;
+            li &gt; ul,
+            li &gt; ol {
+              margin-bottom: 0; }
+            &#x2F;**
+             * Where `margin-left` is concerned we want to try and indent certain elements
+             * by a consistent amount. Define that amount once,here.
+             *&#x2F;
+            ul, ol, dd {
+              margin-left: 2rem; }
+            &#x2F;* Embedded content
+               ========================================================================== *&#x2F;
+            &#x2F;**
+             * Remove border when inside `a` element in IE 8&#x2F;9&#x2F;10. Make images shrink from their largest size.
+             *&#x2F;
+            img {
+              max-width: 100%;
+              border: 0; }
+            &#x2F;**
+             * Correct overflow not hidden in IE 9&#x2F;10&#x2F;11.
+             *&#x2F;
+            svg:not(:root) {
+              overflow: hidden; }
+            &#x2F;* Grouping content
+               ========================================================================== *&#x2F;
+            &#x2F;**
+             * Zero margins for figure.
+             *&#x2F;
+            figure {
+              margin: 0; }
+            &#x2F;**
+             * Address differences between Firefox and other browsers.
+             *&#x2F;
+            hr {
+              box-sizing: content-box;
+              height: 0; }
+            &#x2F;**
+             * Contain overflow in all browsers.
+             *&#x2F;
+            pre {
+              overflow: auto; }
+            &#x2F;**
+             * Set the global `box-sizing` state to `border-box`.
+             *
+             * css-tricks.com&#x2F;inheriting-box-sizing-probably-slightly-better-best-practice
+             * paulirish.com&#x2F;2012&#x2F;box-sizing-border-box-ftw
+             *&#x2F;
+            html {
+              box-sizing: border-box; }
+            :host {
+              &#x2F;*! Comment to prevent cssmin munging this rule with html above and borking Safari *&#x2F;
+              box-sizing: border-box; }
+            *, *:before, *:after {
+              box-sizing: inherit; }
+            &#x2F;**
+             * A series of helper classes to use arbitrarily. Only use a helper class if an
+             * element&#x2F;component doesn’t already have a class to which you could apply this
+             * styling, e.g. if you need to float `.main-nav` left then add `float:left;` to
+             * that ruleset as opposed to adding the `.float--left` class to the markup.
+             *
+             * A lot of these classes carry `!important` as you will always want them to win
+             * out over other selectors.
+             *&#x2F;
+            &#x2F;*------------------------------------*    #PX-COLORS-DESIGN
+            \*------------------------------------*&#x2F;
+            &#x2F;**
+             * Brand Colors
+             *&#x2F;
+            &#x2F;**
+                 * Primary
+                 *&#x2F;
+            &#x2F;**
+                 * Light
+                 *&#x2F;
+            &#x2F;**
+                 * Dark
+                 *&#x2F;
+            &#x2F;**
+             * Monochromatic (gray10 is darkest, gray1 is lightest)
+             *&#x2F;
+            &#x2F;**
+             * Define grey = gray to avoid dev typos
+             *&#x2F;
+            &#x2F;**
+             * Buttons
+             *&#x2F;
+            &#x2F;**
+             * Selection
+             *&#x2F;
+            &#x2F;**
+             * Alerts
+             *&#x2F;
+            &#x2F;**
+             * Data Visualization
+             *&#x2F;
+            &#x2F;**
+                 * Basic
+                 *&#x2F;
+            &#x2F;**
+                 * Light
+                 *&#x2F;
+            &#x2F;**
+                 * Dark
+                 *&#x2F;
+            &#x2F;* Links
+               ========================================================================== *&#x2F;
+            &#x2F;**
+             * Remove the gray background color from active links in IE 10.
+             *&#x2F;
+            a {
+              background-color: transparent;
+              &#x2F;**
+             * Default link colors
+             *&#x2F;
+              &#x2F;**
+             * Improve readability when focused and also mouse hovered in all browsers.
+             *&#x2F; }
+              a:link, a:visited {
+                color: #3e87e8; }
+              a:hover {
+                color: #3573c5; }
+              a:active {
+                color: #2b5ea2; }
+              a:active, a:hover {
+                outline: 0; }
+            &#x2F;**
+             * Add&#x2F;remove floats
+             *&#x2F;
+            .float--right {
+              float: right !important; }
+            .float--left {
+              float: left !important; }
+            .float--none {
+              float: none !important; }
+            &#x2F;**
+             * Text alignment
+             *&#x2F;
+            .text--left {
+              text-align: left !important; }
+            .text--center {
+              text-align: center !important; }
+            .text--right {
+              text-align: right !important; }
+            &#x2F;**
+             * Full height element
+             *&#x2F;
+            .full-height {
+              height: 100% !important; }
+            &#x2F;**
+             * Add a help cursor to any element that gives the user extra information on
+             * `:hover`.
+             *&#x2F;
+            .informative {
+              cursor: help !important; }
+            &#x2F;**
+             * Mute an object by reducing its opacity.
+             *&#x2F;
+            .muted {
+              opacity: 0.5 !important; }
+            &#x2F;**
+             * Align items to the right where they imply progression&#x2F;movement forward, e.g.:
+             *
+               &lt;p class=proceed&gt;&lt;a href=#&gt;Read more...&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+             *
+             *&#x2F;
+            .proceed {
+              text-align: right !important; }
+            &#x2F;**
+             * Apply capital case to an element (usually a `strong`).
+             *&#x2F;
+            .caps {
+              text-transform: uppercase !important; }
+            &#x2F;**
+             * Hide visually and from screen readers:
+             * http:&#x2F;&#x2F;juicystudio.com&#x2F;article&#x2F;screen-readers-display-none.php
+             *&#x2F;
+            .hidden {
+              display: none !important;
+              visibility: hidden; }
+            &#x2F;**
+             * Hide content off-screen without resorting to `display:none;`
+             *&#x2F;
+            .a11y,
+            .visuallyhidden {
+              position: absolute !important;
+              overflow: hidden !important;
+              width: 1px !important;
+              height: 1px !important;
+              margin: -1px !important;
+              border: 0 !important;
+              padding: 0 !important;
+              clip: rect(0 0 0 0) !important; }
+            .a11y.focusable:active, .a11y.focusable:focus,
+            .visuallyhidden.focusable:active,
+            .visuallyhidden.focusable:focus {
+              position: static;
+              overflow: visible;
+              width: auto;
+              height: auto;
+              margin: 0;
+              clip: auto; }
+            @media screen and (max-width: 44.9375em) {
+              .a11y-palm,
+              .visuallyhidden-palm {
+                position: absolute !important;
+                overflow: hidden !important;
+                width: 1px !important;
+                height: 1px !important;
+                margin: -1px !important;
+                border: 0 !important;
+                padding: 0 !important;
+                clip: rect(0 0 0 0) !important; } }
+            @media screen and (min-width: 45em) and (max-width: 63.9375em) {
+              .a11y-lap,
+              .visuallyhidden-lap {
+                position: absolute !important;
+                overflow: hidden !important;
+                width: 1px !important;
+                height: 1px !important;
+                margin: -1px !important;
+                border: 0 !important;
+                padding: 0 !important;
+                clip: rect(0 0 0 0) !important; } }
+            @media screen and (min-width: 45em) {
+              .a11y-lap-and-up,
+              .visuallyhidden-lap-and-up {
+                position: absolute !important;
+                overflow: hidden !important;
+                width: 1px !important;
+                height: 1px !important;
+                margin: -1px !important;
+                border: 0 !important;
+                padding: 0 !important;
+                clip: rect(0 0 0 0) !important; } }
+            @media screen and (max-width: 63.9375em) {
+              .a11y-portable,
+              .visuallyhidden-portable {
+                position: absolute !important;
+                overflow: hidden !important;
+                width: 1px !important;
+                height: 1px !important;
+                margin: -1px !important;
+                border: 0 !important;
+                padding: 0 !important;
+                clip: rect(0 0 0 0) !important; } }
+            @media screen and (min-width: 64em) {
+              .a11y-desk,
+              .visuallyhidden-desk {
+                position: absolute !important;
+                overflow: hidden !important;
+                width: 1px !important;
+                height: 1px !important;
+                margin: -1px !important;
+                border: 0 !important;
+                padding: 0 !important;
+                clip: rect(0 0 0 0) !important; } }
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+              .a11y-retina,
+              .visuallyhidden-retina {
+                position: absolute !important;
+                overflow: hidden !important;
+                width: 1px !important;
+                height: 1px !important;
+                margin: -1px !important;
+                border: 0 !important;
+                padding: 0 !important;
+                clip: rect(0 0 0 0) !important; } }
+            &#x2F;**
+             * Hide visually and from screen readers, but maintain layout
+             *&#x2F;
+            .invisible {
+              visibility: hidden !important; }
+            .flex {
+              display: flex; }
+            .flex--row {
+              flex-direction: row; }
+            .flex--row--rev {
+              flex-direction: row-reverse; }
+            .flex--col {
+              flex-direction: column; }
+            .flex--col--rev {
+              flex-direction: column-reverse; }
+            .flex--nowrap {
+              flex-wrap: nowrap; }
+            .flex--wrap {
+              flex-wrap: wrap; }
+            .flex--wrap--rev {
+              flex-wrap: wrap-reverse; }
+            .flex--left {
+              justify-content: flex-start; }
+            .flex--center {
+              justify-content: center; }
+            .flex--right {
+              justify-content: flex-end; }
+            .flex--justify {
+              justify-content: space-between; }
+            .flex--spaced {
+              justify-content: space-around; }
+            .flex--top {
+              align-items: flex-start; }
+            .flex--middle {
+              align-items: center; }
+            .flex--bottom {
+              align-items: flex-end; }
+            .flex--stretch {
+              align-items: stretch; }
+            .flex--baseline {
+              align-items: baseline; }
+            .flex--top--multi {
+              align-content: flex-start; }
+            .flex--middle--multi {
+              align-content: center; }
+            .flex--bottom--multi {
+              align-content: flex-end; }
+            .flex--stretch--multi {
+              align-content: stretch; }
+            .flex--justify--multi {
+              align-content: space-between; }
+            .flex--spaced--multi {
+              align-content: space-around; }
+            .flex__item {
+              flex: 1; }
+            .flex__item--top {
+              align-self: flex-start; }
+            .flex__item--middle {
+              align-self: center; }
+            .flex__item--bottom {
+              align-self: flex-end; }
+            .flex__item--baseline,
+            .flex .btn {
+              align-self: baseline; }
+            .viewport {
+              width: 100%;
+              max-width: 80rem;
+              margin-right: auto;
+              margin-left: auto; }
+            .viewport--full-height {
+              min-height: 100vh; }
+            @font-face {
+              font-family: &quot;GE Inspira&quot;;
+              font-weight: normal;
+              font-style: normal;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMd.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMd.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMd.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMd.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMd.svg#GE Inspira&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira&quot;;
+              font-weight: normal;
+              font-style: italic;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMdIt.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMdIt.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMdIt.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMdIt.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspMdIt.svg#GE Inspira&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira&quot;;
+              font-weight: bold;
+              font-style: normal;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBd.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBd.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBd.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBd.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBd.svg#GE Inspira&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira&quot;;
+              font-weight: bold;
+              font-style: italic;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBI.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBI.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBI.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBI.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspBI.svg#GE Inspira&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Sans&quot;;
+              font-weight: normal;
+              font-style: normal;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Regular-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Regular-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Regular-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Regular-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Regular-v01.svg#GE Inspira Sans&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Sans&quot;;
+              font-weight: normal;
+              font-style: italic;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Italic-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Italic-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Italic-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Italic-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Italic-v01.svg#GE Inspira Sans&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Sans&quot;;
+              font-weight: bold;
+              font-style: normal;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Bold-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Bold-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Bold-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Bold-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-Bold-v01.svg#GE Inspira Sans&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Sans&quot;;
+              font-weight: bold;
+              font-style: italic;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-BoldItalic-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-BoldItalic-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-BoldItalic-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-BoldItalic-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Serif&quot;;
+              font-weight: normal;
+              font-style: normal;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Regular-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Regular-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Regular-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Regular-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Regular-v01.svg#GE Inspira Serif&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Serif&quot;;
+              font-weight: normal;
+              font-style: italic;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Italic-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Italic-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Italic-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Italic-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Italic-v01.svg#GE Inspira Serif&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Serif&quot;;
+              font-weight: bold;
+              font-style: normal;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Bold-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Bold-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Bold-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Bold-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-Bold-v01.svg#GE Inspira Serif&quot;) format(&quot;svg&quot;); }
+            @font-face {
+              font-family: &quot;GE Inspira Serif&quot;;
+              font-weight: bold;
+              font-style: italic;
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-BoldItalic-v01.eot&quot;);
+              src: url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-BoldItalic-v01.eot?#iefix&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-BoldItalic-v01.woff&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-BoldItalic-v01.ttf&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;px-typography-design&#x2F;type&#x2F;GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif&quot;) format(&quot;svg&quot;); }
+            html {
+              font-family: &quot;GE Inspira Sans&quot;, sans-serif; }
+            :host {
+              font-family: &quot;GE Inspira Sans&quot;, sans-serif; }
+            &#x2F;**
+             * Font weights
+             *&#x2F;
+            .weight--light {
+              font-weight: 300 !important; }
+            .weight--normal {
+              font-weight: 400 !important; }
+            .weight--semibold {
+              font-weight: 600 !important; }
+            &#x2F;* Text-level semantics
+               ========================================================================== *&#x2F;
+            &#x2F;**
+             * Address styling not present in IE 8&#x2F;9&#x2F;10&#x2F;11, Safari, and Chrome.
+             *&#x2F;
+            abbr[title] {
+              border-bottom: 1px dotted; }
+            &#x2F;**
+             * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+             *&#x2F;
+            b,
+            strong {
+              font-weight: bold; }
+            &#x2F;**
+             * Address styling not present in Safari and Chrome.
+             *&#x2F;
+            dfn {
+              font-style: italic; }
+            &#x2F;**
+             * Address styling not present in IE 8&#x2F;9.
+             *&#x2F;
+            mark {
+              background: #ff0;
+              color: #000; }
+            &#x2F;**
+             * Address inconsistent and variable font size in all browsers.
+             *&#x2F;
+            small {
+              font-size: 80%; }
+            &#x2F;**
+             * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+             *&#x2F;
+            sub,
+            sup {
+              font-size: 75%;
+              line-height: 0;
+              position: relative;
+              vertical-align: baseline; }
+            sup {
+              top: -0.5em; }
+            sub {
+              bottom: -0.25em; }
+            code {
+              font-size: 1rem;
+              font-family: monospace, monospace; }
+            .code {
+              border: 1px solid #e4e4ea;
+              padding: 1rem;
+              border-radius: 3px;
+              background-color: #f7f7fc;
+              color: #2b5ea2; }
+            &#x2F;**
+               * Slight tweaks for code inline.
+               *&#x2F;
+            .code--inline {
+              border-radius: 0;
+              padding: 0 0.3333333333rem;
+              font-size: inherit; }
+            &#x2F;*!
+             *  Font Awesome 4.4.0 by @davegandy - http:&#x2F;&#x2F;fontawesome.io - @fontawesome
+             *  License - http:&#x2F;&#x2F;fontawesome.io&#x2F;license (Font: SIL OFL 1.1, CSS: MIT License)
+             *&#x2F;
+            &#x2F;* FONT PATH
+             * -------------------------- *&#x2F;
+            @font-face {
+              font-family: &#39;FontAwesome&#39;;
+              src: url(&quot;..&#x2F;font-awesome&#x2F;fonts&#x2F;fontawesome-webfont.eot?v=4.4.0&quot;);
+              src: url(&quot;..&#x2F;font-awesome&#x2F;fonts&#x2F;fontawesome-webfont.eot?#iefix&amp;v=4.4.0&quot;) format(&quot;embedded-opentype&quot;), url(&quot;..&#x2F;font-awesome&#x2F;fonts&#x2F;fontawesome-webfont.woff2?v=4.4.0&quot;) format(&quot;woff2&quot;), url(&quot;..&#x2F;font-awesome&#x2F;fonts&#x2F;fontawesome-webfont.woff?v=4.4.0&quot;) format(&quot;woff&quot;), url(&quot;..&#x2F;font-awesome&#x2F;fonts&#x2F;fontawesome-webfont.ttf?v=4.4.0&quot;) format(&quot;truetype&quot;), url(&quot;..&#x2F;font-awesome&#x2F;fonts&#x2F;fontawesome-webfont.svg?v=4.4.0#fontawesomeregular&quot;) format(&quot;svg&quot;);
+              font-weight: normal;
+              font-style: normal; }
+            .fa {
+              display: inline-block;
+              font: normal normal normal 14px&#x2F;1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale; }
+            &#x2F;* makes the font 33% larger relative to the icon container *&#x2F;
+            .fa-lg {
+              font-size: 1.3333333333em;
+              line-height: 0.75em;
+              vertical-align: -15%; }
+            .fa-2x {
+              font-size: 2em; }
+            .fa-3x {
+              font-size: 3em; }
+            .fa-4x {
+              font-size: 4em; }
+            .fa-5x {
+              font-size: 5em; }
+            .fa-fw {
+              width: 1.2857142857em;
+              text-align: center; }
+            .fa-ul {
+              padding-left: 0;
+              margin-left: 2.1428571429em;
+              list-style-type: none; }
+              .fa-ul &gt; li {
+                position: relative; }
+            .fa-li {
+              position: absolute;
+              left: -2.1428571429em;
+              width: 2.1428571429em;
+              top: 0.1428571429em;
+              text-align: center; }
+              .fa-li.fa-lg {
+                left: -1.8571428571em; }
+            .fa-border {
+              padding: .2em .25em .15em;
+              border: solid 0.08em #eee;
+              border-radius: .1em; }
+            .fa-pull-left {
+              float: left; }
+            .fa-pull-right {
+              float: right; }
+            .fa.fa-pull-left {
+              margin-right: .3em; }
+            .fa.fa-pull-right {
+              margin-left: .3em; }
+            &#x2F;* Deprecated as of 4.4.0 *&#x2F;
+            .pull-right {
+              float: right; }
+            .pull-left {
+              float: left; }
+            .fa.pull-left {
+              margin-right: .3em; }
+            .fa.pull-right {
+              margin-left: .3em; }
+            .fa-spin {
+              -webkit-animation: fa-spin 2s infinite linear;
+              animation: fa-spin 2s infinite linear; }
+            .fa-pulse {
+              -webkit-animation: fa-spin 1s infinite steps(8);
+              animation: fa-spin 1s infinite steps(8); }
+            @-webkit-keyframes fa-spin {
+              0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
+              100% {
+                -webkit-transform: rotate(359deg);
+                transform: rotate(359deg); } }
+            @keyframes fa-spin {
+              0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
+              100% {
+                -webkit-transform: rotate(359deg);
+                transform: rotate(359deg); } }
+            .fa-rotate-90 {
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+              -webkit-transform: rotate(90deg);
+              -ms-transform: rotate(90deg);
+              transform: rotate(90deg); }
+            .fa-rotate-180 {
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+              -webkit-transform: rotate(180deg);
+              -ms-transform: rotate(180deg);
+              transform: rotate(180deg); }
+            .fa-rotate-270 {
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+              -webkit-transform: rotate(270deg);
+              -ms-transform: rotate(270deg);
+              transform: rotate(270deg); }
+            .fa-flip-horizontal {
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+              -webkit-transform: scale(-1, 1);
+              -ms-transform: scale(-1, 1);
+              transform: scale(-1, 1); }
+            .fa-flip-vertical {
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+              -webkit-transform: scale(1, -1);
+              -ms-transform: scale(1, -1);
+              transform: scale(1, -1); }
+            :root .fa-rotate-90,
+            :root .fa-rotate-180,
+            :root .fa-rotate-270,
+            :root .fa-flip-horizontal,
+            :root .fa-flip-vertical {
+              filter: none; }
+            .fa-stack {
+              position: relative;
+              display: inline-block;
+              width: 2em;
+              height: 2em;
+              line-height: 2em;
+              vertical-align: middle; }
+            .fa-stack-1x, .fa-stack-2x {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              text-align: center; }
+            .fa-stack-1x {
+              line-height: inherit; }
+            .fa-stack-2x {
+              font-size: 2em; }
+            .fa-inverse {
+              color: #fff; }
+            &#x2F;* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+               readers do not read off random characters that represent icons *&#x2F;
+            .fa-glass:before {
+              content: &quot;&quot;; }
+            .fa-music:before {
+              content: &quot;&quot;; }
+            .fa-search:before {
+              content: &quot;&quot;; }
+            .fa-envelope-o:before {
+              content: &quot;&quot;; }
+            .fa-heart:before {
+              content: &quot;&quot;; }
+            .fa-star:before {
+              content: &quot;&quot;; }
+            .fa-star-o:before {
+              content: &quot;&quot;; }
+            .fa-user:before {
+              content: &quot;&quot;; }
+            .fa-film:before {
+              content: &quot;&quot;; }
+            .fa-th-large:before {
+              content: &quot;&quot;; }
+            .fa-th:before {
+              content: &quot;&quot;; }
+            .fa-th-list:before {
+              content: &quot;&quot;; }
+            .fa-check:before {
+              content: &quot;&quot;; }
+            .fa-remove:before,
+            .fa-close:before,
+            .fa-times:before {
+              content: &quot;&quot;; }
+            .fa-search-plus:before {
+              content: &quot;&quot;; }
+            .fa-search-minus:before {
+              content: &quot;&quot;; }
+            .fa-power-off:before {
+              content: &quot;&quot;; }
+            .fa-signal:before {
+              content: &quot;&quot;; }
+            .fa-gear:before,
+            .fa-cog:before {
+              content: &quot;&quot;; }
+            .fa-trash-o:before {
+              content: &quot;&quot;; }
+            .fa-home:before {
+              content: &quot;&quot;; }
+            .fa-file-o:before {
+              content: &quot;&quot;; }
+            .fa-clock-o:before {
+              content: &quot;&quot;; }
+            .fa-road:before {
+              content: &quot;&quot;; }
+            .fa-download:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-o-down:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-o-up:before {
+              content: &quot;&quot;; }
+            .fa-inbox:before {
+              content: &quot;&quot;; }
+            .fa-play-circle-o:before {
+              content: &quot;&quot;; }
+            .fa-rotate-right:before,
+            .fa-repeat:before {
+              content: &quot;&quot;; }
+            .fa-refresh:before {
+              content: &quot;&quot;; }
+            .fa-list-alt:before {
+              content: &quot;&quot;; }
+            .fa-lock:before {
+              content: &quot;&quot;; }
+            .fa-flag:before {
+              content: &quot;&quot;; }
+            .fa-headphones:before {
+              content: &quot;&quot;; }
+            .fa-volume-off:before {
+              content: &quot;&quot;; }
+            .fa-volume-down:before {
+              content: &quot;&quot;; }
+            .fa-volume-up:before {
+              content: &quot;&quot;; }
+            .fa-qrcode:before {
+              content: &quot;&quot;; }
+            .fa-barcode:before {
+              content: &quot;&quot;; }
+            .fa-tag:before {
+              content: &quot;&quot;; }
+            .fa-tags:before {
+              content: &quot;&quot;; }
+            .fa-book:before {
+              content: &quot;&quot;; }
+            .fa-bookmark:before {
+              content: &quot;&quot;; }
+            .fa-print:before {
+              content: &quot;&quot;; }
+            .fa-camera:before {
+              content: &quot;&quot;; }
+            .fa-font:before {
+              content: &quot;&quot;; }
+            .fa-bold:before {
+              content: &quot;&quot;; }
+            .fa-italic:before {
+              content: &quot;&quot;; }
+            .fa-text-height:before {
+              content: &quot;&quot;; }
+            .fa-text-width:before {
+              content: &quot;&quot;; }
+            .fa-align-left:before {
+              content: &quot;&quot;; }
+            .fa-align-center:before {
+              content: &quot;&quot;; }
+            .fa-align-right:before {
+              content: &quot;&quot;; }
+            .fa-align-justify:before {
+              content: &quot;&quot;; }
+            .fa-list:before {
+              content: &quot;&quot;; }
+            .fa-dedent:before,
+            .fa-outdent:before {
+              content: &quot;&quot;; }
+            .fa-indent:before {
+              content: &quot;&quot;; }
+            .fa-video-camera:before {
+              content: &quot;&quot;; }
+            .fa-photo:before,
+            .fa-image:before,
+            .fa-picture-o:before {
+              content: &quot;&quot;; }
+            .fa-pencil:before {
+              content: &quot;&quot;; }
+            .fa-map-marker:before {
+              content: &quot;&quot;; }
+            .fa-adjust:before {
+              content: &quot;&quot;; }
+            .fa-tint:before {
+              content: &quot;&quot;; }
+            .fa-edit:before,
+            .fa-pencil-square-o:before {
+              content: &quot;&quot;; }
+            .fa-share-square-o:before {
+              content: &quot;&quot;; }
+            .fa-check-square-o:before {
+              content: &quot;&quot;; }
+            .fa-arrows:before {
+              content: &quot;&quot;; }
+            .fa-step-backward:before {
+              content: &quot;&quot;; }
+            .fa-fast-backward:before {
+              content: &quot;&quot;; }
+            .fa-backward:before {
+              content: &quot;&quot;; }
+            .fa-play:before {
+              content: &quot;&quot;; }
+            .fa-pause:before {
+              content: &quot;&quot;; }
+            .fa-stop:before {
+              content: &quot;&quot;; }
+            .fa-forward:before {
+              content: &quot;&quot;; }
+            .fa-fast-forward:before {
+              content: &quot;&quot;; }
+            .fa-step-forward:before {
+              content: &quot;&quot;; }
+            .fa-eject:before {
+              content: &quot;&quot;; }
+            .fa-chevron-left:before {
+              content: &quot;&quot;; }
+            .fa-chevron-right:before {
+              content: &quot;&quot;; }
+            .fa-plus-circle:before {
+              content: &quot;&quot;; }
+            .fa-minus-circle:before {
+              content: &quot;&quot;; }
+            .fa-times-circle:before {
+              content: &quot;&quot;; }
+            .fa-check-circle:before {
+              content: &quot;&quot;; }
+            .fa-question-circle:before {
+              content: &quot;&quot;; }
+            .fa-info-circle:before {
+              content: &quot;&quot;; }
+            .fa-crosshairs:before {
+              content: &quot;&quot;; }
+            .fa-times-circle-o:before {
+              content: &quot;&quot;; }
+            .fa-check-circle-o:before {
+              content: &quot;&quot;; }
+            .fa-ban:before {
+              content: &quot;&quot;; }
+            .fa-arrow-left:before {
+              content: &quot;&quot;; }
+            .fa-arrow-right:before {
+              content: &quot;&quot;; }
+            .fa-arrow-up:before {
+              content: &quot;&quot;; }
+            .fa-arrow-down:before {
+              content: &quot;&quot;; }
+            .fa-mail-forward:before,
+            .fa-share:before {
+              content: &quot;&quot;; }
+            .fa-expand:before {
+              content: &quot;&quot;; }
+            .fa-compress:before {
+              content: &quot;&quot;; }
+            .fa-plus:before {
+              content: &quot;&quot;; }
+            .fa-minus:before {
+              content: &quot;&quot;; }
+            .fa-asterisk:before {
+              content: &quot;&quot;; }
+            .fa-exclamation-circle:before {
+              content: &quot;&quot;; }
+            .fa-gift:before {
+              content: &quot;&quot;; }
+            .fa-leaf:before {
+              content: &quot;&quot;; }
+            .fa-fire:before {
+              content: &quot;&quot;; }
+            .fa-eye:before {
+              content: &quot;&quot;; }
+            .fa-eye-slash:before {
+              content: &quot;&quot;; }
+            .fa-warning:before,
+            .fa-exclamation-triangle:before {
+              content: &quot;&quot;; }
+            .fa-plane:before {
+              content: &quot;&quot;; }
+            .fa-calendar:before {
+              content: &quot;&quot;; }
+            .fa-random:before {
+              content: &quot;&quot;; }
+            .fa-comment:before {
+              content: &quot;&quot;; }
+            .fa-magnet:before {
+              content: &quot;&quot;; }
+            .fa-chevron-up:before {
+              content: &quot;&quot;; }
+            .fa-chevron-down:before {
+              content: &quot;&quot;; }
+            .fa-retweet:before {
+              content: &quot;&quot;; }
+            .fa-shopping-cart:before {
+              content: &quot;&quot;; }
+            .fa-folder:before {
+              content: &quot;&quot;; }
+            .fa-folder-open:before {
+              content: &quot;&quot;; }
+            .fa-arrows-v:before {
+              content: &quot;&quot;; }
+            .fa-arrows-h:before {
+              content: &quot;&quot;; }
+            .fa-bar-chart-o:before,
+            .fa-bar-chart:before {
+              content: &quot;&quot;; }
+            .fa-twitter-square:before {
+              content: &quot;&quot;; }
+            .fa-facebook-square:before {
+              content: &quot;&quot;; }
+            .fa-camera-retro:before {
+              content: &quot;&quot;; }
+            .fa-key:before {
+              content: &quot;&quot;; }
+            .fa-gears:before,
+            .fa-cogs:before {
+              content: &quot;&quot;; }
+            .fa-comments:before {
+              content: &quot;&quot;; }
+            .fa-thumbs-o-up:before {
+              content: &quot;&quot;; }
+            .fa-thumbs-o-down:before {
+              content: &quot;&quot;; }
+            .fa-star-half:before {
+              content: &quot;&quot;; }
+            .fa-heart-o:before {
+              content: &quot;&quot;; }
+            .fa-sign-out:before {
+              content: &quot;&quot;; }
+            .fa-linkedin-square:before {
+              content: &quot;&quot;; }
+            .fa-thumb-tack:before {
+              content: &quot;&quot;; }
+            .fa-external-link:before {
+              content: &quot;&quot;; }
+            .fa-sign-in:before {
+              content: &quot;&quot;; }
+            .fa-trophy:before {
+              content: &quot;&quot;; }
+            .fa-github-square:before {
+              content: &quot;&quot;; }
+            .fa-upload:before {
+              content: &quot;&quot;; }
+            .fa-lemon-o:before {
+              content: &quot;&quot;; }
+            .fa-phone:before {
+              content: &quot;&quot;; }
+            .fa-square-o:before {
+              content: &quot;&quot;; }
+            .fa-bookmark-o:before {
+              content: &quot;&quot;; }
+            .fa-phone-square:before {
+              content: &quot;&quot;; }
+            .fa-twitter:before {
+              content: &quot;&quot;; }
+            .fa-facebook-f:before,
+            .fa-facebook:before {
+              content: &quot;&quot;; }
+            .fa-github:before {
+              content: &quot;&quot;; }
+            .fa-unlock:before {
+              content: &quot;&quot;; }
+            .fa-credit-card:before {
+              content: &quot;&quot;; }
+            .fa-feed:before,
+            .fa-rss:before {
+              content: &quot;&quot;; }
+            .fa-hdd-o:before {
+              content: &quot;&quot;; }
+            .fa-bullhorn:before {
+              content: &quot;&quot;; }
+            .fa-bell:before {
+              content: &quot;&quot;; }
+            .fa-certificate:before {
+              content: &quot;&quot;; }
+            .fa-hand-o-right:before {
+              content: &quot;&quot;; }
+            .fa-hand-o-left:before {
+              content: &quot;&quot;; }
+            .fa-hand-o-up:before {
+              content: &quot;&quot;; }
+            .fa-hand-o-down:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-left:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-right:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-up:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-down:before {
+              content: &quot;&quot;; }
+            .fa-globe:before {
+              content: &quot;&quot;; }
+            .fa-wrench:before {
+              content: &quot;&quot;; }
+            .fa-tasks:before {
+              content: &quot;&quot;; }
+            .fa-filter:before {
+              content: &quot;&quot;; }
+            .fa-briefcase:before {
+              content: &quot;&quot;; }
+            .fa-arrows-alt:before {
+              content: &quot;&quot;; }
+            .fa-group:before,
+            .fa-users:before {
+              content: &quot;&quot;; }
+            .fa-chain:before,
+            .fa-link:before {
+              content: &quot;&quot;; }
+            .fa-cloud:before {
+              content: &quot;&quot;; }
+            .fa-flask:before {
+              content: &quot;&quot;; }
+            .fa-cut:before,
+            .fa-scissors:before {
+              content: &quot;&quot;; }
+            .fa-copy:before,
+            .fa-files-o:before {
+              content: &quot;&quot;; }
+            .fa-paperclip:before {
+              content: &quot;&quot;; }
+            .fa-save:before,
+            .fa-floppy-o:before {
+              content: &quot;&quot;; }
+            .fa-square:before {
+              content: &quot;&quot;; }
+            .fa-navicon:before,
+            .fa-reorder:before,
+            .fa-bars:before {
+              content: &quot;&quot;; }
+            .fa-list-ul:before {
+              content: &quot;&quot;; }
+            .fa-list-ol:before {
+              content: &quot;&quot;; }
+            .fa-strikethrough:before {
+              content: &quot;&quot;; }
+            .fa-underline:before {
+              content: &quot;&quot;; }
+            .fa-table:before {
+              content: &quot;&quot;; }
+            .fa-magic:before {
+              content: &quot;&quot;; }
+            .fa-truck:before {
+              content: &quot;&quot;; }
+            .fa-pinterest:before {
+              content: &quot;&quot;; }
+            .fa-pinterest-square:before {
+              content: &quot;&quot;; }
+            .fa-google-plus-square:before {
+              content: &quot;&quot;; }
+            .fa-google-plus:before {
+              content: &quot;&quot;; }
+            .fa-money:before {
+              content: &quot;&quot;; }
+            .fa-caret-down:before {
+              content: &quot;&quot;; }
+            .fa-caret-up:before {
+              content: &quot;&quot;; }
+            .fa-caret-left:before {
+              content: &quot;&quot;; }
+            .fa-caret-right:before {
+              content: &quot;&quot;; }
+            .fa-columns:before {
+              content: &quot;&quot;; }
+            .fa-unsorted:before,
+            .fa-sort:before {
+              content: &quot;&quot;; }
+            .fa-sort-down:before,
+            .fa-sort-desc:before {
+              content: &quot;&quot;; }
+            .fa-sort-up:before,
+            .fa-sort-asc:before {
+              content: &quot;&quot;; }
+            .fa-envelope:before {
+              content: &quot;&quot;; }
+            .fa-linkedin:before {
+              content: &quot;&quot;; }
+            .fa-rotate-left:before,
+            .fa-undo:before {
+              content: &quot;&quot;; }
+            .fa-legal:before,
+            .fa-gavel:before {
+              content: &quot;&quot;; }
+            .fa-dashboard:before,
+            .fa-tachometer:before {
+              content: &quot;&quot;; }
+            .fa-comment-o:before {
+              content: &quot;&quot;; }
+            .fa-comments-o:before {
+              content: &quot;&quot;; }
+            .fa-flash:before,
+            .fa-bolt:before {
+              content: &quot;&quot;; }
+            .fa-sitemap:before {
+              content: &quot;&quot;; }
+            .fa-umbrella:before {
+              content: &quot;&quot;; }
+            .fa-paste:before,
+            .fa-clipboard:before {
+              content: &quot;&quot;; }
+            .fa-lightbulb-o:before {
+              content: &quot;&quot;; }
+            .fa-exchange:before {
+              content: &quot;&quot;; }
+            .fa-cloud-download:before {
+              content: &quot;&quot;; }
+            .fa-cloud-upload:before {
+              content: &quot;&quot;; }
+            .fa-user-md:before {
+              content: &quot;&quot;; }
+            .fa-stethoscope:before {
+              content: &quot;&quot;; }
+            .fa-suitcase:before {
+              content: &quot;&quot;; }
+            .fa-bell-o:before {
+              content: &quot;&quot;; }
+            .fa-coffee:before {
+              content: &quot;&quot;; }
+            .fa-cutlery:before {
+              content: &quot;&quot;; }
+            .fa-file-text-o:before {
+              content: &quot;&quot;; }
+            .fa-building-o:before {
+              content: &quot;&quot;; }
+            .fa-hospital-o:before {
+              content: &quot;&quot;; }
+            .fa-ambulance:before {
+              content: &quot;&quot;; }
+            .fa-medkit:before {
+              content: &quot;&quot;; }
+            .fa-fighter-jet:before {
+              content: &quot;&quot;; }
+            .fa-beer:before {
+              content: &quot;&quot;; }
+            .fa-h-square:before {
+              content: &quot;&quot;; }
+            .fa-plus-square:before {
+              content: &quot;&quot;; }
+            .fa-angle-double-left:before {
+              content: &quot;&quot;; }
+            .fa-angle-double-right:before {
+              content: &quot;&quot;; }
+            .fa-angle-double-up:before {
+              content: &quot;&quot;; }
+            .fa-angle-double-down:before {
+              content: &quot;&quot;; }
+            .fa-angle-left:before {
+              content: &quot;&quot;; }
+            .fa-angle-right:before {
+              content: &quot;&quot;; }
+            .fa-angle-up:before {
+              content: &quot;&quot;; }
+            .fa-angle-down:before {
+              content: &quot;&quot;; }
+            .fa-desktop:before {
+              content: &quot;&quot;; }
+            .fa-laptop:before {
+              content: &quot;&quot;; }
+            .fa-tablet:before {
+              content: &quot;&quot;; }
+            .fa-mobile-phone:before,
+            .fa-mobile:before {
+              content: &quot;&quot;; }
+            .fa-circle-o:before {
+              content: &quot;&quot;; }
+            .fa-quote-left:before {
+              content: &quot;&quot;; }
+            .fa-quote-right:before {
+              content: &quot;&quot;; }
+            .fa-spinner:before {
+              content: &quot;&quot;; }
+            .fa-circle:before {
+              content: &quot;&quot;; }
+            .fa-mail-reply:before,
+            .fa-reply:before {
+              content: &quot;&quot;; }
+            .fa-github-alt:before {
+              content: &quot;&quot;; }
+            .fa-folder-o:before {
+              content: &quot;&quot;; }
+            .fa-folder-open-o:before {
+              content: &quot;&quot;; }
+            .fa-smile-o:before {
+              content: &quot;&quot;; }
+            .fa-frown-o:before {
+              content: &quot;&quot;; }
+            .fa-meh-o:before {
+              content: &quot;&quot;; }
+            .fa-gamepad:before {
+              content: &quot;&quot;; }
+            .fa-keyboard-o:before {
+              content: &quot;&quot;; }
+            .fa-flag-o:before {
+              content: &quot;&quot;; }
+            .fa-flag-checkered:before {
+              content: &quot;&quot;; }
+            .fa-terminal:before {
+              content: &quot;&quot;; }
+            .fa-code:before {
+              content: &quot;&quot;; }
+            .fa-mail-reply-all:before,
+            .fa-reply-all:before {
+              content: &quot;&quot;; }
+            .fa-star-half-empty:before,
+            .fa-star-half-full:before,
+            .fa-star-half-o:before {
+              content: &quot;&quot;; }
+            .fa-location-arrow:before {
+              content: &quot;&quot;; }
+            .fa-crop:before {
+              content: &quot;&quot;; }
+            .fa-code-fork:before {
+              content: &quot;&quot;; }
+            .fa-unlink:before,
+            .fa-chain-broken:before {
+              content: &quot;&quot;; }
+            .fa-question:before {
+              content: &quot;&quot;; }
+            .fa-info:before {
+              content: &quot;&quot;; }
+            .fa-exclamation:before {
+              content: &quot;&quot;; }
+            .fa-superscript:before {
+              content: &quot;&quot;; }
+            .fa-subscript:before {
+              content: &quot;&quot;; }
+            .fa-eraser:before {
+              content: &quot;&quot;; }
+            .fa-puzzle-piece:before {
+              content: &quot;&quot;; }
+            .fa-microphone:before {
+              content: &quot;&quot;; }
+            .fa-microphone-slash:before {
+              content: &quot;&quot;; }
+            .fa-shield:before {
+              content: &quot;&quot;; }
+            .fa-calendar-o:before {
+              content: &quot;&quot;; }
+            .fa-fire-extinguisher:before {
+              content: &quot;&quot;; }
+            .fa-rocket:before {
+              content: &quot;&quot;; }
+            .fa-maxcdn:before {
+              content: &quot;&quot;; }
+            .fa-chevron-circle-left:before {
+              content: &quot;&quot;; }
+            .fa-chevron-circle-right:before {
+              content: &quot;&quot;; }
+            .fa-chevron-circle-up:before {
+              content: &quot;&quot;; }
+            .fa-chevron-circle-down:before {
+              content: &quot;&quot;; }
+            .fa-html5:before {
+              content: &quot;&quot;; }
+            .fa-css3:before {
+              content: &quot;&quot;; }
+            .fa-anchor:before {
+              content: &quot;&quot;; }
+            .fa-unlock-alt:before {
+              content: &quot;&quot;; }
+            .fa-bullseye:before {
+              content: &quot;&quot;; }
+            .fa-ellipsis-h:before {
+              content: &quot;&quot;; }
+            .fa-ellipsis-v:before {
+              content: &quot;&quot;; }
+            .fa-rss-square:before {
+              content: &quot;&quot;; }
+            .fa-play-circle:before {
+              content: &quot;&quot;; }
+            .fa-ticket:before {
+              content: &quot;&quot;; }
+            .fa-minus-square:before {
+              content: &quot;&quot;; }
+            .fa-minus-square-o:before {
+              content: &quot;&quot;; }
+            .fa-level-up:before {
+              content: &quot;&quot;; }
+            .fa-level-down:before {
+              content: &quot;&quot;; }
+            .fa-check-square:before {
+              content: &quot;&quot;; }
+            .fa-pencil-square:before {
+              content: &quot;&quot;; }
+            .fa-external-link-square:before {
+              content: &quot;&quot;; }
+            .fa-share-square:before {
+              content: &quot;&quot;; }
+            .fa-compass:before {
+              content: &quot;&quot;; }
+            .fa-toggle-down:before,
+            .fa-caret-square-o-down:before {
+              content: &quot;&quot;; }
+            .fa-toggle-up:before,
+            .fa-caret-square-o-up:before {
+              content: &quot;&quot;; }
+            .fa-toggle-right:before,
+            .fa-caret-square-o-right:before {
+              content: &quot;&quot;; }
+            .fa-euro:before,
+            .fa-eur:before {
+              content: &quot;&quot;; }
+            .fa-gbp:before {
+              content: &quot;&quot;; }
+            .fa-dollar:before,
+            .fa-usd:before {
+              content: &quot;&quot;; }
+            .fa-rupee:before,
+            .fa-inr:before {
+              content: &quot;&quot;; }
+            .fa-cny:before,
+            .fa-rmb:before,
+            .fa-yen:before,
+            .fa-jpy:before {
+              content: &quot;&quot;; }
+            .fa-ruble:before,
+            .fa-rouble:before,
+            .fa-rub:before {
+              content: &quot;&quot;; }
+            .fa-won:before,
+            .fa-krw:before {
+              content: &quot;&quot;; }
+            .fa-bitcoin:before,
+            .fa-btc:before {
+              content: &quot;&quot;; }
+            .fa-file:before {
+              content: &quot;&quot;; }
+            .fa-file-text:before {
+              content: &quot;&quot;; }
+            .fa-sort-alpha-asc:before {
+              content: &quot;&quot;; }
+            .fa-sort-alpha-desc:before {
+              content: &quot;&quot;; }
+            .fa-sort-amount-asc:before {
+              content: &quot;&quot;; }
+            .fa-sort-amount-desc:before {
+              content: &quot;&quot;; }
+            .fa-sort-numeric-asc:before {
+              content: &quot;&quot;; }
+            .fa-sort-numeric-desc:before {
+              content: &quot;&quot;; }
+            .fa-thumbs-up:before {
+              content: &quot;&quot;; }
+            .fa-thumbs-down:before {
+              content: &quot;&quot;; }
+            .fa-youtube-square:before {
+              content: &quot;&quot;; }
+            .fa-youtube:before {
+              content: &quot;&quot;; }
+            .fa-xing:before {
+              content: &quot;&quot;; }
+            .fa-xing-square:before {
+              content: &quot;&quot;; }
+            .fa-youtube-play:before {
+              content: &quot;&quot;; }
+            .fa-dropbox:before {
+              content: &quot;&quot;; }
+            .fa-stack-overflow:before {
+              content: &quot;&quot;; }
+            .fa-instagram:before {
+              content: &quot;&quot;; }
+            .fa-flickr:before {
+              content: &quot;&quot;; }
+            .fa-adn:before {
+              content: &quot;&quot;; }
+            .fa-bitbucket:before {
+              content: &quot;&quot;; }
+            .fa-bitbucket-square:before {
+              content: &quot;&quot;; }
+            .fa-tumblr:before {
+              content: &quot;&quot;; }
+            .fa-tumblr-square:before {
+              content: &quot;&quot;; }
+            .fa-long-arrow-down:before {
+              content: &quot;&quot;; }
+            .fa-long-arrow-up:before {
+              content: &quot;&quot;; }
+            .fa-long-arrow-left:before {
+              content: &quot;&quot;; }
+            .fa-long-arrow-right:before {
+              content: &quot;&quot;; }
+            .fa-apple:before {
+              content: &quot;&quot;; }
+            .fa-windows:before {
+              content: &quot;&quot;; }
+            .fa-android:before {
+              content: &quot;&quot;; }
+            .fa-linux:before {
+              content: &quot;&quot;; }
+            .fa-dribbble:before {
+              content: &quot;&quot;; }
+            .fa-skype:before {
+              content: &quot;&quot;; }
+            .fa-foursquare:before {
+              content: &quot;&quot;; }
+            .fa-trello:before {
+              content: &quot;&quot;; }
+            .fa-female:before {
+              content: &quot;&quot;; }
+            .fa-male:before {
+              content: &quot;&quot;; }
+            .fa-gittip:before,
+            .fa-gratipay:before {
+              content: &quot;&quot;; }
+            .fa-sun-o:before {
+              content: &quot;&quot;; }
+            .fa-moon-o:before {
+              content: &quot;&quot;; }
+            .fa-archive:before {
+              content: &quot;&quot;; }
+            .fa-bug:before {
+              content: &quot;&quot;; }
+            .fa-vk:before {
+              content: &quot;&quot;; }
+            .fa-weibo:before {
+              content: &quot;&quot;; }
+            .fa-renren:before {
+              content: &quot;&quot;; }
+            .fa-pagelines:before {
+              content: &quot;&quot;; }
+            .fa-stack-exchange:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-o-right:before {
+              content: &quot;&quot;; }
+            .fa-arrow-circle-o-left:before {
+              content: &quot;&quot;; }
+            .fa-toggle-left:before,
+            .fa-caret-square-o-left:before {
+              content: &quot;&quot;; }
+            .fa-dot-circle-o:before {
+              content: &quot;&quot;; }
+            .fa-wheelchair:before {
+              content: &quot;&quot;; }
+            .fa-vimeo-square:before {
+              content: &quot;&quot;; }
+            .fa-turkish-lira:before,
+            .fa-try:before {
+              content: &quot;&quot;; }
+            .fa-plus-square-o:before {
+              content: &quot;&quot;; }
+            .fa-space-shuttle:before {
+              content: &quot;&quot;; }
+            .fa-slack:before {
+              content: &quot;&quot;; }
+            .fa-envelope-square:before {
+              content: &quot;&quot;; }
+            .fa-wordpress:before {
+              content: &quot;&quot;; }
+            .fa-openid:before {
+              content: &quot;&quot;; }
+            .fa-institution:before,
+            .fa-bank:before,
+            .fa-university:before {
+              content: &quot;&quot;; }
+            .fa-mortar-board:before,
+            .fa-graduation-cap:before {
+              content: &quot;&quot;; }
+            .fa-yahoo:before {
+              content: &quot;&quot;; }
+            .fa-google:before {
+              content: &quot;&quot;; }
+            .fa-reddit:before {
+              content: &quot;&quot;; }
+            .fa-reddit-square:before {
+              content: &quot;&quot;; }
+            .fa-stumbleupon-circle:before {
+              content: &quot;&quot;; }
+            .fa-stumbleupon:before {
+              content: &quot;&quot;; }
+            .fa-delicious:before {
+              content: &quot;&quot;; }
+            .fa-digg:before {
+              content: &quot;&quot;; }
+            .fa-pied-piper:before {
+              content: &quot;&quot;; }
+            .fa-pied-piper-alt:before {
+              content: &quot;&quot;; }
+            .fa-drupal:before {
+              content: &quot;&quot;; }
+            .fa-joomla:before {
+              content: &quot;&quot;; }
+            .fa-language:before {
+              content: &quot;&quot;; }
+            .fa-fax:before {
+              content: &quot;&quot;; }
+            .fa-building:before {
+              content: &quot;&quot;; }
+            .fa-child:before {
+              content: &quot;&quot;; }
+            .fa-paw:before {
+              content: &quot;&quot;; }
+            .fa-spoon:before {
+              content: &quot;&quot;; }
+            .fa-cube:before {
+              content: &quot;&quot;; }
+            .fa-cubes:before {
+              content: &quot;&quot;; }
+            .fa-behance:before {
+              content: &quot;&quot;; }
+            .fa-behance-square:before {
+              content: &quot;&quot;; }
+            .fa-steam:before {
+              content: &quot;&quot;; }
+            .fa-steam-square:before {
+              content: &quot;&quot;; }
+            .fa-recycle:before {
+              content: &quot;&quot;; }
+            .fa-automobile:before,
+            .fa-car:before {
+              content: &quot;&quot;; }
+            .fa-cab:before,
+            .fa-taxi:before {
+              content: &quot;&quot;; }
+            .fa-tree:before {
+              content: &quot;&quot;; }
+            .fa-spotify:before {
+              content: &quot;&quot;; }
+            .fa-deviantart:before {
+              content: &quot;&quot;; }
+            .fa-soundcloud:before {
+              content: &quot;&quot;; }
+            .fa-database:before {
+              content: &quot;&quot;; }
+            .fa-file-pdf-o:before {
+              content: &quot;&quot;; }
+            .fa-file-word-o:before {
+              content: &quot;&quot;; }
+            .fa-file-excel-o:before {
+              content: &quot;&quot;; }
+            .fa-file-powerpoint-o:before {
+              content: &quot;&quot;; }
+            .fa-file-photo-o:before,
+            .fa-file-picture-o:before,
+            .fa-file-image-o:before {
+              content: &quot;&quot;; }
+            .fa-file-zip-o:before,
+            .fa-file-archive-o:before {
+              content: &quot;&quot;; }
+            .fa-file-sound-o:before,
+            .fa-file-audio-o:before {
+              content: &quot;&quot;; }
+            .fa-file-movie-o:before,
+            .fa-file-video-o:before {
+              content: &quot;&quot;; }
+            .fa-file-code-o:before {
+              content: &quot;&quot;; }
+            .fa-vine:before {
+              content: &quot;&quot;; }
+            .fa-codepen:before {
+              content: &quot;&quot;; }
+            .fa-jsfiddle:before {
+              content: &quot;&quot;; }
+            .fa-life-bouy:before,
+            .fa-life-buoy:before,
+            .fa-life-saver:before,
+            .fa-support:before,
+            .fa-life-ring:before {
+              content: &quot;&quot;; }
+            .fa-circle-o-notch:before {
+              content: &quot;&quot;; }
+            .fa-ra:before,
+            .fa-rebel:before {
+              content: &quot;&quot;; }
+            .fa-ge:before,
+            .fa-empire:before {
+              content: &quot;&quot;; }
+            .fa-git-square:before {
+              content: &quot;&quot;; }
+            .fa-git:before {
+              content: &quot;&quot;; }
+            .fa-y-combinator-square:before,
+            .fa-yc-square:before,
+            .fa-hacker-news:before {
+              content: &quot;&quot;; }
+            .fa-tencent-weibo:before {
+              content: &quot;&quot;; }
+            .fa-qq:before {
+              content: &quot;&quot;; }
+            .fa-wechat:before,
+            .fa-weixin:before {
+              content: &quot;&quot;; }
+            .fa-send:before,
+            .fa-paper-plane:before {
+              content: &quot;&quot;; }
+            .fa-send-o:before,
+            .fa-paper-plane-o:before {
+              content: &quot;&quot;; }
+            .fa-history:before {
+              content: &quot;&quot;; }
+            .fa-circle-thin:before {
+              content: &quot;&quot;; }
+            .fa-header:before {
+              content: &quot;&quot;; }
+            .fa-paragraph:before {
+              content: &quot;&quot;; }
+            .fa-sliders:before {
+              content: &quot;&quot;; }
+            .fa-share-alt:before {
+              content: &quot;&quot;; }
+            .fa-share-alt-square:before {
+              content: &quot;&quot;; }
+            .fa-bomb:before {
+              content: &quot;&quot;; }
+            .fa-soccer-ball-o:before,
+            .fa-futbol-o:before {
+              content: &quot;&quot;; }
+            .fa-tty:before {
+              content: &quot;&quot;; }
+            .fa-binoculars:before {
+              content: &quot;&quot;; }
+            .fa-plug:before {
+              content: &quot;&quot;; }
+            .fa-slideshare:before {
+              content: &quot;&quot;; }
+            .fa-twitch:before {
+              content: &quot;&quot;; }
+            .fa-yelp:before {
+              content: &quot;&quot;; }
+            .fa-newspaper-o:before {
+              content: &quot;&quot;; }
+            .fa-wifi:before {
+              content: &quot;&quot;; }
+            .fa-calculator:before {
+              content: &quot;&quot;; }
+            .fa-paypal:before {
+              content: &quot;&quot;; }
+            .fa-google-wallet:before {
+              content: &quot;&quot;; }
+            .fa-cc-visa:before {
+              content: &quot;&quot;; }
+            .fa-cc-mastercard:before {
+              content: &quot;&quot;; }
+            .fa-cc-discover:before {
+              content: &quot;&quot;; }
+            .fa-cc-amex:before {
+              content: &quot;&quot;; }
+            .fa-cc-paypal:before {
+              content: &quot;&quot;; }
+            .fa-cc-stripe:before {
+              content: &quot;&quot;; }
+            .fa-bell-slash:before {
+              content: &quot;&quot;; }
+            .fa-bell-slash-o:before {
+              content: &quot;&quot;; }
+            .fa-trash:before {
+              content: &quot;&quot;; }
+            .fa-copyright:before {
+              content: &quot;&quot;; }
+            .fa-at:before {
+              content: &quot;&quot;; }
+            .fa-eyedropper:before {
+              content: &quot;&quot;; }
+            .fa-paint-brush:before {
+              content: &quot;&quot;; }
+            .fa-birthday-cake:before {
+              content: &quot;&quot;; }
+            .fa-area-chart:before {
+              content: &quot;&quot;; }
+            .fa-pie-chart:before {
+              content: &quot;&quot;; }
+            .fa-line-chart:before {
+              content: &quot;&quot;; }
+            .fa-lastfm:before {
+              content: &quot;&quot;; }
+            .fa-lastfm-square:before {
+              content: &quot;&quot;; }
+            .fa-toggle-off:before {
+              content: &quot;&quot;; }
+            .fa-toggle-on:before {
+              content: &quot;&quot;; }
+            .fa-bicycle:before {
+              content: &quot;&quot;; }
+            .fa-bus:before {
+              content: &quot;&quot;; }
+            .fa-ioxhost:before {
+              content: &quot;&quot;; }
+            .fa-angellist:before {
+              content: &quot;&quot;; }
+            .fa-cc:before {
+              content: &quot;&quot;; }
+            .fa-shekel:before,
+            .fa-sheqel:before,
+            .fa-ils:before {
+              content: &quot;&quot;; }
+            .fa-meanpath:before {
+              content: &quot;&quot;; }
+            .fa-buysellads:before {
+              content: &quot;&quot;; }
+            .fa-connectdevelop:before {
+              content: &quot;&quot;; }
+            .fa-dashcube:before {
+              content: &quot;&quot;; }
+            .fa-forumbee:before {
+              content: &quot;&quot;; }
+            .fa-leanpub:before {
+              content: &quot;&quot;; }
+            .fa-sellsy:before {
+              content: &quot;&quot;; }
+            .fa-shirtsinbulk:before {
+              content: &quot;&quot;; }
+            .fa-simplybuilt:before {
+              content: &quot;&quot;; }
+            .fa-skyatlas:before {
+              content: &quot;&quot;; }
+            .fa-cart-plus:before {
+              content: &quot;&quot;; }
+            .fa-cart-arrow-down:before {
+              content: &quot;&quot;; }
+            .fa-diamond:before {
+              content: &quot;&quot;; }
+            .fa-ship:before {
+              content: &quot;&quot;; }
+            .fa-user-secret:before {
+              content: &quot;&quot;; }
+            .fa-motorcycle:before {
+              content: &quot;&quot;; }
+            .fa-street-view:before {
+              content: &quot;&quot;; }
+            .fa-heartbeat:before {
+              content: &quot;&quot;; }
+            .fa-venus:before {
+              content: &quot;&quot;; }
+            .fa-mars:before {
+              content: &quot;&quot;; }
+            .fa-mercury:before {
+              content: &quot;&quot;; }
+            .fa-intersex:before,
+            .fa-transgender:before {
+              content: &quot;&quot;; }
+            .fa-transgender-alt:before {
+              content: &quot;&quot;; }
+            .fa-venus-double:before {
+              content: &quot;&quot;; }
+            .fa-mars-double:before {
+              content: &quot;&quot;; }
+            .fa-venus-mars:before {
+              content: &quot;&quot;; }
+            .fa-mars-stroke:before {
+              content: &quot;&quot;; }
+            .fa-mars-stroke-v:before {
+              content: &quot;&quot;; }
+            .fa-mars-stroke-h:before {
+              content: &quot;&quot;; }
+            .fa-neuter:before {
+              content: &quot;&quot;; }
+            .fa-genderless:before {
+              content: &quot;&quot;; }
+            .fa-facebook-official:before {
+              content: &quot;&quot;; }
+            .fa-pinterest-p:before {
+              content: &quot;&quot;; }
+            .fa-whatsapp:before {
+              content: &quot;&quot;; }
+            .fa-server:before {
+              content: &quot;&quot;; }
+            .fa-user-plus:before {
+              content: &quot;&quot;; }
+            .fa-user-times:before {
+              content: &quot;&quot;; }
+            .fa-hotel:before,
+            .fa-bed:before {
+              content: &quot;&quot;; }
+            .fa-viacoin:before {
+              content: &quot;&quot;; }
+            .fa-train:before {
+              content: &quot;&quot;; }
+            .fa-subway:before {
+              content: &quot;&quot;; }
+            .fa-medium:before {
+              content: &quot;&quot;; }
+            .fa-yc:before,
+            .fa-y-combinator:before {
+              content: &quot;&quot;; }
+            .fa-optin-monster:before {
+              content: &quot;&quot;; }
+            .fa-opencart:before {
+              content: &quot;&quot;; }
+            .fa-expeditedssl:before {
+              content: &quot;&quot;; }
+            .fa-battery-4:before,
+            .fa-battery-full:before {
+              content: &quot;&quot;; }
+            .fa-battery-3:before,
+            .fa-battery-three-quarters:before {
+              content: &quot;&quot;; }
+            .fa-battery-2:before,
+            .fa-battery-half:before {
+              content: &quot;&quot;; }
+            .fa-battery-1:before,
+            .fa-battery-quarter:before {
+              content: &quot;&quot;; }
+            .fa-battery-0:before,
+            .fa-battery-empty:before {
+              content: &quot;&quot;; }
+            .fa-mouse-pointer:before {
+              content: &quot;&quot;; }
+            .fa-i-cursor:before {
+              content: &quot;&quot;; }
+            .fa-object-group:before {
+              content: &quot;&quot;; }
+            .fa-object-ungroup:before {
+              content: &quot;&quot;; }
+            .fa-sticky-note:before {
+              content: &quot;&quot;; }
+            .fa-sticky-note-o:before {
+              content: &quot;&quot;; }
+            .fa-cc-jcb:before {
+              content: &quot;&quot;; }
+            .fa-cc-diners-club:before {
+              content: &quot;&quot;; }
+            .fa-clone:before {
+              content: &quot;&quot;; }
+            .fa-balance-scale:before {
+              content: &quot;&quot;; }
+            .fa-hourglass-o:before {
+              content: &quot;&quot;; }
+            .fa-hourglass-1:before,
+            .fa-hourglass-start:before {
+              content: &quot;&quot;; }
+            .fa-hourglass-2:before,
+            .fa-hourglass-half:before {
+              content: &quot;&quot;; }
+            .fa-hourglass-3:before,
+            .fa-hourglass-end:before {
+              content: &quot;&quot;; }
+            .fa-hourglass:before {
+              content: &quot;&quot;; }
+            .fa-hand-grab-o:before,
+            .fa-hand-rock-o:before {
+              content: &quot;&quot;; }
+            .fa-hand-stop-o:before,
+            .fa-hand-paper-o:before {
+              content: &quot;&quot;; }
+            .fa-hand-scissors-o:before {
+              content: &quot;&quot;; }
+            .fa-hand-lizard-o:before {
+              content: &quot;&quot;; }
+            .fa-hand-spock-o:before {
+              content: &quot;&quot;; }
+            .fa-hand-pointer-o:before {
+              content: &quot;&quot;; }
+            .fa-hand-peace-o:before {
+              content: &quot;&quot;; }
+            .fa-trademark:before {
+              content: &quot;&quot;; }
+            .fa-registered:before {
+              content: &quot;&quot;; }
+            .fa-creative-commons:before {
+              content: &quot;&quot;; }
+            .fa-gg:before {
+              content: &quot;&quot;; }
+            .fa-gg-circle:before {
+              content: &quot;&quot;; }
+            .fa-tripadvisor:before {
+              content: &quot;&quot;; }
+            .fa-odnoklassniki:before {
+              content: &quot;&quot;; }
+            .fa-odnoklassniki-square:before {
+              content: &quot;&quot;; }
+            .fa-get-pocket:before {
+              content: &quot;&quot;; }
+            .fa-wikipedia-w:before {
+              content: &quot;&quot;; }
+            .fa-safari:before {
+              content: &quot;&quot;; }
+            .fa-chrome:before {
+              content: &quot;&quot;; }
+            .fa-firefox:before {
+              content: &quot;&quot;; }
+            .fa-opera:before {
+              content: &quot;&quot;; }
+            .fa-internet-explorer:before {
+              content: &quot;&quot;; }
+            .fa-tv:before,
+            .fa-television:before {
+              content: &quot;&quot;; }
+            .fa-contao:before {
+              content: &quot;&quot;; }
+            .fa-500px:before {
+              content: &quot;&quot;; }
+            .fa-amazon:before {
+              content: &quot;&quot;; }
+            .fa-calendar-plus-o:before {
+              content: &quot;&quot;; }
+            .fa-calendar-minus-o:before {
+              content: &quot;&quot;; }
+            .fa-calendar-times-o:before {
+              content: &quot;&quot;; }
+            .fa-calendar-check-o:before {
+              content: &quot;&quot;; }
+            .fa-industry:before {
+              content: &quot;&quot;; }
+            .fa-map-pin:before {
+              content: &quot;&quot;; }
+            .fa-map-signs:before {
+              content: &quot;&quot;; }
+            .fa-map-o:before {
+              content: &quot;&quot;; }
+            .fa-map:before {
+              content: &quot;&quot;; }
+            .fa-commenting:before {
+              content: &quot;&quot;; }
+            .fa-commenting-o:before {
+              content: &quot;&quot;; }
+            .fa-houzz:before {
+              content: &quot;&quot;; }
+            .fa-vimeo:before {
+              content: &quot;&quot;; }
+            .fa-black-tie:before {
+              content: &quot;&quot;; }
+            .fa-fonticons:before {
+              content: &quot;&quot;; }
+            [dir=rtl] .fa-chevron-left,
+            [dir=rtl] .fa-chevron-right,
+            [dir=rtl] .fa-chevron-circle-left,
+            [dir=rtl] .fa-chevron-circle-right,
+            [dir=rtl] .fa-angle-left,
+            [dir=rtl] .fa-angle-right,
+            [dir=rtl] .fa-angle-double-left,
+            [dir=rtl] .fa-angle-double-right,
+            [dir=rtl] .fa-arrow-circle-left,
+            [dir=rtl] .fa-arrow-circle-right,
+            [dir=rtl] .fa-arrow-circle-o-left,
+            [dir=rtl] .fa-arrow-circle-o-right {
+              transform: scale(-1, 1); }
+            .btn {
+              display: inline-block;
+              overflow: visible;
+              height: 2em;
+              margin: 0;
+              border: 1px solid #b1b1bc;
+              border-radius: 3px;
+              padding: 0 1em;
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+              font: inherit;
+              line-height: calc(2em - 2px);
+              -webkit-font-smoothing: antialiased;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+              text-transform: none;
+              white-space: nowrap;
+              background-color: #e4e4ea; }
+              .btn, .btn:link, .btn:visited, .btn:hover, .btn:active {
+                color: black; }
+              .btn:hover {
+                border-color: #9999a3;
+                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+                background-color: #b1b1bc; }
+              .btn:active {
+                border-color: #7c7c84;
+                box-shadow: none;
+                background-color: #9999a3; }
+              .btn:active {
+                outline: none; }
+            &#x2F;** Workaround for FF since it does not support calc().
+              * Other buttons appear ok with the height declaration, but non-button elements do not.
+            **&#x2F;
+            @-moz-document url-prefix() {
+              .btn:not(button) {
+                line-height: 1.8em; } }
+            button.btn {
+              -webkit-appearance: button; }
+            &#x2F;**
+            * Establish default space between adjacent buttons
+            *&#x2F;
+            .btn + .btn {
+              margin-left: 0.6666666667rem; }
+            &#x2F;**
+               * Buttons with no styles (good a11y practice to use &lt;button&gt; for actions rather than &lt;a&gt;).
+               *&#x2F;
+            .btn--bare {
+              height: auto;
+              border: 0;
+              border-radius: 0;
+              padding: 0;
+              line-height: inherit; }
+              .btn--bare, .btn--bare:link, .btn--bare:visited, .btn--bare:hover, .btn--bare:active, .btn--bare:focus {
+                box-shadow: none;
+                background: none;
+                color: inherit; }
+            &#x2F;**
+               * Change button colors for primary buttons
+               *&#x2F;
+            .btn--primary {
+              border-color: #2b5ea2;
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+              background-color: #3e87e8; }
+              .btn--primary, .btn--primary:link, .btn--primary:visited, .btn--primary:hover, .btn--primary:active {
+                color: white; }
+              .btn--primary:hover {
+                border-color: transparent;
+                background-color: #3573c5; }
+              .btn--primary:active {
+                border-color: transparent;
+                background-color: #2b5ea2; }
+            &#x2F;**
+               * Change button colors for tertiary buttons
+               *&#x2F;
+            .btn--tertiary {
+              border-color: #b1b1bc;
+              box-shadow: none;
+              background-color: white; }
+              .btn--tertiary, .btn--tertiary:link, .btn--tertiary:visited, .btn--tertiary:hover, .btn--tertiary:active {
+                color: #3e87e8; }
+              .btn--tertiary:hover {
+                border-color: #9999a3;
+                box-shadow: none;
+                background-color: #e4e4ea; }
+              .btn--tertiary:active {
+                border-color: #7c7c84;
+                box-shadow: none;
+                background-color: #b1b1bc; }
+            &#x2F;**
+               * Change button colors for disabled buttons
+               *&#x2F;
+            .btn--disabled, .btn--disabled:link, .btn--disabled:visited, .btn--disabled:hover, .btn--disabled:active,
+            .btn[disabled],
+            .btn[disabled]:link,
+            .btn[disabled]:visited,
+            .btn[disabled]:hover,
+            .btn[disabled]:active {
+              border-color: #d1d0d8;
+              box-shadow: none;
+              cursor: not-allowed;
+              background-color: white;
+              color: #d1d0d8; }
+            &#x2F;**
+               * Small buttons.
+               *&#x2F;
+            .btn--small {
+              height: 1.6666666667em;
+              font-size: 0.8rem;
+              line-height: calc($inuit-btn-height--small - 2px); }
+            &#x2F;** Workaround for FF since it does not support calc().
+                * Other buttons appear ok with the height declaration, but non-button elements do not.
+              **&#x2F;
+            @-moz-document url-prefix() {
+              .btn--small {
+                line-height: 1.4em; } }
+            &#x2F;**
+               * Large buttons.
+               *&#x2F;
+            .btn--large {
+              font-size: 1.3333333333rem; }
+            &#x2F;**
+               * Call-to-action buttons.
+               *&#x2F;
+            .btn--huge {
+              font-size: 2rem; }
+            &#x2F;**
+               * Full-width buttons.
+               *&#x2F;
+            .btn--full {
+              width: 100%; }
+            &#x2F;**
+               * Round-ended buttons.
+               *
+               * 1. Overly-large value to ensure the radius rounds the whole end of the
+               *    button.
+               *&#x2F;
+            .btn--icon {
+              width: 2em;
+              border-radius: 6.6666666667em;
+              padding: 1px 0 0 1px; }
+            &#x2F;** Workaround for FF since it does not support calc().
+              **&#x2F;
+            @-moz-document url-prefix() {
+              .btn--icon {
+                line-height: 1.8em; } }
+            &#x2F;**
+             * Margin and padding helper classes with breakpoint prefixes. Use these to tweak layout on a micro
+             * level based on viewport widths.
+             *
+             * `.u-[breakpoint]-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - breakpoint - margin&#x2F;padding top&#x2F;right&#x2F;bottom&#x2F;left&#x2F;horizontal&#x2F;vertical less&#x2F;more&#x2F;none
+             *&#x2F;
+            &#x2F;**
+             * Margin and padding helper classes. Use these to tweak layout on a micro
+             * level.
+             *
+             * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin&#x2F;padding top&#x2F;right&#x2F;bottom&#x2F;left&#x2F;horizontal&#x2F;vertical less&#x2F;more&#x2F;none
+             *&#x2F;
+            &#x2F;**
+                 * Margin helper classes.
+                 *
+                 * Add margins.
+                 *&#x2F;
+            .u-m {
+              margin: 1rem !important; }
+            .u-mt {
+              margin-top: 1rem !important; }
+            .u-mr {
+              margin-right: 1rem !important; }
+            .u-mb {
+              margin-bottom: 1rem !important; }
+            .u-ml {
+              margin-left: 1rem !important; }
+            .u-mh {
+              margin-right: 1rem !important;
+              margin-left: 1rem !important; }
+            .u-mv {
+              margin-top: 1rem !important;
+              margin-bottom: 1rem !important; }
+            &#x2F;**
+                 * Add tiny margins.
+                 *&#x2F;
+            .u-m-- {
+              margin: 0.3333333333rem !important; }
+            .u-mt-- {
+              margin-top: 0.3333333333rem !important; }
+            .u-mr-- {
+              margin-right: 0.3333333333rem !important; }
+            .u-mb-- {
+              margin-bottom: 0.3333333333rem !important; }
+            .u-ml-- {
+              margin-left: 0.3333333333rem !important; }
+            .u-mh-- {
+              margin-right: 0.3333333333rem !important;
+              margin-left: 0.3333333333rem !important; }
+            .u-mv-- {
+              margin-top: 0.3333333333rem !important;
+              margin-bottom: 0.3333333333rem !important; }
+            &#x2F;**
+                 * Add large margins.
+                 *&#x2F;
+            .u-m\00002b
+            {
+              margin: 1.3333333333rem !important; }
+            .u-mt\00002b
+            {
+              margin-top: 1.3333333333rem !important; }
+            .u-mr\00002b
+            {
+              margin-right: 1.3333333333rem !important; }
+            .u-mb\00002b
+            {
+              margin-bottom: 1.3333333333rem !important; }
+            .u-ml\00002b
+            {
+              margin-left: 1.3333333333rem !important; }
+            .u-mh\00002b
+            {
+              margin-right: 1.3333333333rem !important;
+              margin-left: 1.3333333333rem !important; }
+            .u-mv\00002b
+            {
+              margin-top: 1.3333333333rem !important;
+              margin-bottom: 1.3333333333rem !important; }
+            &#x2F;**
+                 * Add huge margins.
+                 *&#x2F;
+            .u-m\00002b\00002b
+            {
+              margin: 2rem !important; }
+            .u-mt\00002b\00002b
+            {
+              margin-top: 2rem !important; }
+            .u-mr\00002b\00002b
+            {
+              margin-right: 2rem !important; }
+            .u-mb\00002b\00002b
+            {
+              margin-bottom: 2rem !important; }
+            .u-ml\00002b\00002b
+            {
+              margin-left: 2rem !important; }
+            .u-mh\00002b\00002b
+            {
+              margin-right: 2rem !important;
+              margin-left: 2rem !important; }
+            .u-mv\00002b\00002b
+            {
+              margin-top: 2rem !important;
+              margin-bottom: 2rem !important; }
+            &#x2F;**
+                 * Remove margins.
+                 *&#x2F;
+            .u-m0 {
+              margin: 0 !important; }
+            .u-mt0 {
+              margin-top: 0 !important; }
+            .u-mr0 {
+              margin-right: 0 !important; }
+            .u-mb0 {
+              margin-bottom: 0 !important; }
+            .u-ml0 {
+              margin-left: 0 !important; }
+            .u-mh0 {
+              margin-right: 0 !important;
+              margin-left: 0 !important; }
+            .u-mv0 {
+              margin-top: 0 !important;
+              margin-bottom: 0 !important; }
+            .circle {
+              cursor: pointer;
+              user-select: none;
+              box-sizing: content-box;
+              &#x2F;* Even though we use shadow DOM in this component, Safari insists on bleeding styles through from outside, so reset the resetting of this *&#x2F;
+              border: 1px black dashed;
+              font-size: 2rem;
+              text-align: center;
+              padding: 1.25rem .4rem .4rem;
+              border-radius: 50%; }
+            .counter {
+              display: inline-block;
+              min-width: 6.5rem;
+              height: 3rem; }
+            &#x2F;*------------------------------------*    #CLEARFIX
+            \*------------------------------------*&#x2F;
+            &#x2F;**
+             * Micro clearfix, as per: css-101.org&#x2F;articles&#x2F;clearfix&#x2F;latest-new-clearfix-so-far.php
+             * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
+             * over and over in your markup.
+             *&#x2F;
+            .clearfix:after {
+              content: &quot;&quot;;
+              display: table;
+              clear: both; }
+            &#x2F;**
+             * A series of width helper classes that you can use to size things like grid
+             * systems. Classes can take a fraction-like format (e.g. `.u-2&#x2F;3`) or a spoken-
+             * word format (e.g. `.u-2-of-3`).
+             *
+             *&#x2F;
+            .u-1\&#x2F;1 {
+              width: 100% !important; }
+            .u-1\&#x2F;2 {
+              width: 50% !important;
+              flex: none !important; }
+            .u-1\&#x2F;3 {
+              width: 33.3333333333% !important;
+              flex: none !important; }
+            .u-2\&#x2F;3 {
+              width: 66.6666666667% !important;
+              flex: none !important; }
+            .u-1\&#x2F;4 {
+              width: 25% !important;
+              flex: none !important; }
+            .u-2\&#x2F;4 {
+              width: 50% !important;
+              flex: none !important; }
+            .u-3\&#x2F;4 {
+              width: 75% !important;
+              flex: none !important; }
+            .u-1\&#x2F;6 {
+              width: 16.6666666667% !important;
+              flex: none !important; }
+            .u-2\&#x2F;6 {
+              width: 33.3333333333% !important;
+              flex: none !important; }
+            .u-3\&#x2F;6 {
+              width: 50% !important;
+              flex: none !important; }
+            .u-4\&#x2F;6 {
+              width: 66.6666666667% !important;
+              flex: none !important; }
+            .u-5\&#x2F;6 {
+              width: 83.3333333333% !important;
+              flex: none !important; }
+            @media screen and (max-width: 47.9rem) {
+              .u-1\&#x2F;1-palm {
+                width: 100% !important; }
+              .u-1\&#x2F;2-palm {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-palm {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-palm {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-palm {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-palm {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-palm {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-palm {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-palm {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-palm {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-palm {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-palm {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+            @media screen and (min-width: 48rem) and (max-width: 63.9rem) {
+              .u-1\&#x2F;1-lap {
+                width: 100% !important; }
+              .u-1\&#x2F;2-lap {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-lap {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-lap {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-lap {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-lap {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-lap {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-lap {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-lap {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-lap {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-lap {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-lap {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+            @media screen and (min-width: 48rem) {
+              .u-1\&#x2F;1-lap-and-up {
+                width: 100% !important; }
+              .u-1\&#x2F;2-lap-and-up {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-lap-and-up {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-lap-and-up {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-lap-and-up {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-lap-and-up {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-lap-and-up {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-lap-and-up {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-lap-and-up {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-lap-and-up {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-lap-and-up {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-lap-and-up {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+            @media screen and (max-width: 63.9rem) {
+              .u-1\&#x2F;1-portable {
+                width: 100% !important; }
+              .u-1\&#x2F;2-portable {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-portable {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-portable {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-portable {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-portable {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-portable {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-portable {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-portable {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-portable {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-portable {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-portable {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+            @media screen and (min-width: 63.9rem) {
+              .u-1\&#x2F;1-desk {
+                width: 100% !important; }
+              .u-1\&#x2F;2-desk {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-desk {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-desk {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-desk {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-desk {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-desk {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-desk {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-desk {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-desk {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-desk {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-desk {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+            @media screen and (min-width: 100%) {
+              .u-1\&#x2F;1-desk-wide {
+                width: 100% !important; }
+              .u-1\&#x2F;2-desk-wide {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-desk-wide {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-desk-wide {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-desk-wide {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-desk-wide {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-desk-wide {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-desk-wide {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-desk-wide {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-desk-wide {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-desk-wide {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-desk-wide {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+              .u-1\&#x2F;1-retina {
+                width: 100% !important; }
+              .u-1\&#x2F;2-retina {
+                width: 50% !important;
+                flex: none !important; }
+              .u-1\&#x2F;3-retina {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-2\&#x2F;3-retina {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-1\&#x2F;4-retina {
+                width: 25% !important;
+                flex: none !important; }
+              .u-2\&#x2F;4-retina {
+                width: 50% !important;
+                flex: none !important; }
+              .u-3\&#x2F;4-retina {
+                width: 75% !important;
+                flex: none !important; }
+              .u-1\&#x2F;6-retina {
+                width: 16.6666666667% !important;
+                flex: none !important; }
+              .u-2\&#x2F;6-retina {
+                width: 33.3333333333% !important;
+                flex: none !important; }
+              .u-3\&#x2F;6-retina {
+                width: 50% !important;
+                flex: none !important; }
+              .u-4\&#x2F;6-retina {
+                width: 66.6666666667% !important;
+                flex: none !important; }
+              .u-5\&#x2F;6-retina {
+                width: 83.3333333333% !important;
+                flex: none !important; } }
+        </style>
+    </template>
+</dom-module>

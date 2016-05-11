@@ -1,7 +1,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   var importOnce = require('node-sass-import-once');
   // Project configuration.
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/<%= pkg.name %>.css': 'sass/<%= pkg.name %>-sketch.scss',
+          '<%= pkg.name %>.css': 'sass/<%= pkg.name %>-sketch.scss',
           'css/noprefix/<%= pkg.name %>-sketch.css': 'sass/<%= pkg.name %>-sketch.scss',
           'css/noprefix/<%= pkg.name %>-predix.css': 'sass/<%= pkg.name %>-predix.scss'
         }
@@ -54,9 +54,9 @@ module.exports = function(grunt) {
 
     jshint: {
       all: [
-        'Gruntfile.js',
-        'js/**/*.js'
-      ],
+				'Gruntfile.js',
+				'js/**/*.js'
+			],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -101,19 +101,36 @@ module.exports = function(grunt) {
         }
       }
     },
-		'wct-test': {
-			local: {
-				options: {remote: false},
-			},
-			remote: {
-				options: {remote: true}
-			},
-			chrome: {
-				options: {browsers: ['chrome']}
-			}
-		}
+    'wct-test': {
+      local: {
+        options: {
+          remote: false
+        },
+      },
+      remote: {
+        options: {
+          remote: true
+        }
+      },
+      chrome: {
+        options: {
+          browsers: ['chrome']
+        }
+      }
+    },
+    'polymer-css-compiler': {
+      default: {
+        files: [{
+          expand: true,
+          cwd: '.',
+          dest: '../',
+          src: 'css/px-partials.css',
+          ext: '.html'
+				}]
+      }
+    }
   });
-	grunt.loadNpmTasks('web-component-tester');
+  grunt.loadNpmTasks('web-component-tester');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -123,19 +140,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('webdriver-support');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('polymer-css-compiler');
 
   // Default task.
   grunt.registerTask('default', 'Basic build', [
-    'sass',
-    'autoprefixer'
-  ]);
+		'sass',
+		'autoprefixer'
+	]);
 
   grunt.registerTask('devmode', 'Development Mode', [
-    'concurrent:devmode'
-  ]);
+		'concurrent:devmode'
+	]);
 
   // First run task.
-  grunt.registerTask('firstrun', 'Basic first run', function() {
+  grunt.registerTask('firstrun', 'Basic first run', function () {
     grunt.config.set('depserveOpenUrl', '/index.html');
     grunt.task.run('default');
     grunt.task.run('depserve');
@@ -143,15 +161,15 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('test', 'Test', [
-    'jshint',
-    'wct-test:local'
-  ]);
+		'jshint',
+		'wct-test:local'
+	]);
 
   grunt.registerTask('release', 'Release', [
-    'clean',
-    'shell:bower',
-    'default',
-    'test'
-  ]);
+		'clean',
+		'shell:bower',
+		'default',
+		'test'
+	]);
 
 };
