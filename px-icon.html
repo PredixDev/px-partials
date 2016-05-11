@@ -1,0 +1,47 @@
+<link rel="import" href="../polymer/polymer.html">
+<!--
+Usage:
+
+```
+<px-icon side="" icon="dashboard"></px-icon>
+<px-icon side="lg" icon="dashboard"></px-icon>
+<px-icon side="2x" icon="dashboard"></px-icon>
+<px-icon side="3x" icon="dashboard"></px-icon>
+<px-icon side="4x" icon="dashboard"></px-icon>
+```
+@element px-icon
+@blurb Element for creating icons.
+@demo demo.html
+@homepage index.html
+-->
+<dom-module id="px-icon">
+	<style>
+		:host {}
+	</style>
+	<template>
+		<i id="icn" class="fa"></i>
+	</template>
+	<script type="text/javascript">
+		Polymer({
+			is: "px-icon",
+			properties: {
+				//The name of the icon (All font-awesome icons)
+				icon: {
+					type: String
+				},
+				//The size of the icon. (lg, 2x, 3x, 4x, 5x)
+				size: {
+					type: String
+				}
+			},
+			attached: function () {
+				if (this.size) {
+					this.toggleClass('fa-' + this.size, true, this.$.icn);
+				}
+				if (this.icon) {
+					this.toggleClass('fa-' + this.icon, true, this.$.icn);
+				}
+			}
+		});
+	</script>
+</dom-module>

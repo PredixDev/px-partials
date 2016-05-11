@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../web-component-tester/browser.js"></script>
+	<script src="../px-mobile.js/dist/px-mobile.js"></script>
+	<link rel="import" href="px-button.html">
+</head>
+
+<body>
+
+	<px-button id="fixture" icon="home" size="large" theme="primary" label="Button"></px-button>
+
+	<script>
+		suite('<px-button>', function() {
+			var element = document.getElementById('fixture');
+			test('renders', function() {
+				assert.ok(element);
+			});
+			test('has correct label', function() {
+				assert.equal(element.label, 'Button');
+			});
+			test('has correct icon', function() {
+				assert.equal(element.icon, 'home');
+			});
+			test('has correct theme', function() {
+				assert.equal(element.theme, 'primary');
+			});
+			suite('elements', function() {
+				test('has correct class theme', function() {
+					assert(document.querySelectorAll('.btn--primary'), 'has correct style');
+				});
+				test('has correct class size', function() {
+					assert(document.querySelectorAll('.btn'), 'has large style');
+				});
+				test('has correct class icon', function() {
+					assert(document.querySelectorAll('.fa'), 'has icon style');
+				});
+			});
+
+		});
+	</script>
+</body>
+
+</html>

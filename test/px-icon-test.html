@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../web-component-tester/browser.js"></script>
+		<link rel="import" href="px-icon.html">
+	</head>
+	<body>
+		<px-icon id="fixture" icon="home" size="2x"></px-icon>
+
+		<script>
+			suite('<px-icon>', function () {
+				var element = document.getElementById('fixture');
+				test('renders', function () {
+					assert.ok(element);
+				});
+				test('has correct icon', function () {
+					assert.ok(element.icon === 'home');
+				});
+				test('has correct size', function () {
+					assert.ok(element.size === '2x');
+				});
+				test('has correct class size', function () {
+					assert(element.querySelector('.fa-2x'), 'has icon size');
+				});
+				test('has correct class icon', function () {
+					assert(element.querySelector('.fa-home'), 'has icon');
+				});
+
+			});
+		</script>
+	</body>
+</html>
