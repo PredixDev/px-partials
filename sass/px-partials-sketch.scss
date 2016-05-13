@@ -19,23 +19,10 @@ THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PRE
 Predix branding rules go in px-partials-predix.scss, not in this file.
 */
 
-// Generic
-@import "px-normalize-design/_generic.normalize.scss";
-@import "px-box-sizing-design/_generic.box-sizing.scss";
-@import "px-helpers-design/_generic.helpers.scss";
-@import "px-defaults-design/_settings.defaults.scss";
 
-$inuit-webfont-path: '../px-typography-design';
-// Base
-@import "px-typography-design/_base.typography.scss";
-@import "px-flexbox-design/_base.flexbox.scss";
-@import "px-viewport-design/_base.viewport.scss";
-@import "px-buttons-design/src/style.scss";
 
-// Trumps
-@import "inuit-clearfix/_trumps.clearfix.scss";
-@import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
-@import "px-widths-responsive-design/_trumps.widths-responsive.scss";
+
+
 // Component
 @import '_px-header.scss';
 @import '_px-title-bar.scss';

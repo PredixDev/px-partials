@@ -12,73 +12,80 @@ This element provides an easy way to create the header commonly used in Predix a
 @homepage index.html
 -->
 <dom-module id="px-footer">
-	<link rel="stylesheet" href="px-partials.css">
+  <link rel="stylesheet" href="px-partials.css">
 
-	<style>
-		:host {
-			display: block;
-		}
-		:host footer {
-			padding: 15px 10px;
-			color: #9999A3;
-			display: block;
-		}
-		:host footer nav {
-			padding: 15px 12px;
-			font-size: 0.8rem;
-		}
-		:host a {
-			text-decoration: none;
-			color: #B1B1BC;
-		}
-	</style>
-	<template>
-		<footer class="footer flex flex--middle clearfix u-bg--gray10">
-			<div class="viewport">
-				<nav class="flex flex--right flex--middle" role="navigation">
-					<ul class="list-inline">
-						<template is="dom-repeat" items="{{links}}">
-							<li class="u-mh-">
-								<a href$="{{item.href}}" target="_blank">{{item.title}}</a>
-							</li>
-						</template>
-					</ul>
-					<span class="u-ml+ muted">{{copywrite}}</span>
-				</nav>
-			</div>
-			<content select="*"></content>
-		</footer>
-	</template>
-	<script>
-		Polymer({
-			is: 'px-footer',
-			properties: {
-				copywrite: {
-					type: String,
-					value: '&copy;2016 General Electric'
-				},
-				links: {
-					type: Array,
-					value: [
-						{
-							href: 'http://www.ge.com/privacy',
-							title: 'Privacy'
-						}, {
-							href: 'http://www.ge.com/terms',
-							title: 'Terms'
-						}, {
-							href: 'http://www.ge.com/contact',
-							title: 'Contact'
-						}, {
-							href: 'http://www.ge.com/access',
-							title: 'Accessibility'
-						}
-					]
-				}
-			},
-			created: function () {
-				console.warn(this.tagName, 'created');
-			}
-		});
-	</script>
+  <style>
+    :host {
+      display: block;
+    }
+
+    :host ul li {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    :host footer {
+
+      color: #9999A3;
+      display: block;
+    }
+
+    :host footer nav {
+
+      font-size: 0.8rem;
+    }
+
+    :host a {
+      text-decoration: none;
+      color: #B1B1BC;
+    }
+  </style>
+  <template>
+    <footer class="flex flex--middle clearfix u-bg--gray10">
+      <nav class="flex flex--right flex--middle" role="navigation">
+        <ul class="flex flex--row flex--spaced">
+          <template is="dom-repeat" items="{{links}}">
+            <li class="u-mr">
+              <a href$="{{item.href}}" target="_blank">{{item.title}}</a>
+            </li>
+          </template>
+        </ul>
+        <span class="u-ml+ muted">{{copywrite}}</span>
+      </nav>
+      <content select="*"></content>
+    </footer>
+  </template>
+  <script>
+    Polymer({
+      is: 'px-footer',
+      properties: {
+        copywrite: {
+          type: String,
+          value: '&copy;2016 General Electric'
+        },
+        links: {
+          type: Array,
+          value: [
+            {
+              href: 'http://www.ge.com/privacy',
+              title: 'Privacy'
+            }, {
+              href: 'http://www.ge.com/terms',
+              title: 'Terms'
+            }, {
+              href: 'http://www.ge.com/contact',
+              title: 'Contact'
+            }, {
+              href: 'http://www.ge.com/access',
+              title: 'Accessibility'
+            }
+          ]
+        }
+      },
+      created: function () {
+        console.warn(this.tagName, 'created');
+      }
+    });
+  </script>
 </dom-module>
