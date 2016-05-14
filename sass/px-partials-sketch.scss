@@ -24,5 +24,6 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 
 
 // Component
+@import '_px-box.scss';
 @import '_px-header.scss';
 @import '_px-title-bar.scss';

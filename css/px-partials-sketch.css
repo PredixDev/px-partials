@@ -58,6 +58,50 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
+.box-section__tab {
+  padding: 1rem 0.6666666667rem;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  outline: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-transform: uppercase; }
+  .box-section__tab:after {
+    content: "+";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    padding: 0.6666666667rem; }
+  .box-section__tab.active {
+    background: rgba(0, 0, 0, 0.2); }
+    .box-section__tab.active:after {
+      content: "-"; }
+  @media (min-width: 992px) {
+    .box-section__tab {
+      cursor: default; }
+      .box-section__tab.active {
+        background: none; }
+      .box-section__tab.active:after, .box-section__tab:after {
+        content: ''; } }
+
+.box-section__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out; }
+  .box-section__panel.active {
+    max-height: 30em; }
+  .box-section__panel:last-child {
+    margin: 0; }
+  @media (min-width: 992px) {
+    .box-section__panel {
+      max-height: none; }
+      .box-section__panel.active {
+        max-height: none; } }
+
 .header {
   padding: 1rem 0.3333333333rem;
   color: #b1b1bc; }
@@ -70,19 +114,16 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center; }
+  -ms-flex: 1;
+      flex: 1;
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 .header__brand {
   height: 32px;
   width: 32px;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center; }
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 .title-bar {
   padding: 0.3333333333rem;

@@ -1,0 +1,74 @@
+@import "px-colors-design/_settings.colors.scss";
+@import 'px-spacing-design/_trumps.spacing.scss';
+@import 'px-mobile-design/sass/_mixins.scss';
+
+$tab--after: '+';
+$tab--active--after: '-';
+$tab-background-color--active: rgba(0, 0, 0, 0.2);
+$tab-transition: max-height 0.3s ease-out;
+
+.box-section {
+	@include element ('tab') {
+		padding    : $inuit-base-spacing-unit $inuit-base-spacing-unit--small;
+		margin     : 0;
+		position   : relative;
+		cursor     : pointer;
+		outline    : 0;
+		user-select: none;
+		text-transform: uppercase;
+
+		&:after {
+			content : $tab--after;
+			position: absolute;
+			top     : 0;
+			right   : 0;
+			display : block;
+			padding : $inuit-base-spacing-unit--small;
+		}
+
+		&.active {
+			background: $tab-background-color--active;
+			&:after {
+				content: $tab--active--after;
+			}
+		}
+
+
+
+		@include media-breakpoint-up(lg) {
+			cursor: default;
+
+			&.active {
+				background: none;
+			}
+
+			&.active:after,
+			&:after {
+				content: '';
+			}
+		}
+	}
+
+	@include element ('panel') {
+		overflow  : hidden;
+		max-height: 0;
+		transition: $tab-transition;
+
+		&.active {
+			max-height: 30em;
+		}
+
+		&:last-child {
+			margin: 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			max-height: none;
+
+			&.active {
+				max-height: none;
+			}
+		}
+	}
+
+}
