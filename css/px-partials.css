@@ -9,8 +9,8 @@
  * under which the software has been supplied.
  */
 /*
-THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
-Predix branding rules go in px-partials-predix.scss, not in this file.
+THIS FILE SHOULD CONTAIN ONLY RULES SPECIFIC TO PREDIX BRANDING
+common/abstract rules go in px-partials-sketch.scss, not in this file.
 */
 /*------------------------------------*    #PX-COLORS-DESIGN
 \*------------------------------------*/
@@ -53,6 +53,19 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 /**
      * Dark
      */
+/*
+ * Copyright (c) 2014 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+/*
+THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
+Predix branding rules go in px-partials-predix.scss, not in this file.
+*/
 /**
  * Margin and padding helper classes. Use these to tweak layout on a micro
  * level.
@@ -179,3 +192,11 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
   margin-right: 0.3333333333rem; }
   .title-bar .title-bar__actions .btn:last-child {
     margin-right: 0; }
+
+.circle {
+  border-style: none;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.5); }
+
+.counter {
+  background-color: #005cb9;
+  color: white; }

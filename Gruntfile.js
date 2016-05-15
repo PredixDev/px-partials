@@ -1,7 +1,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   var importOnce = require('node-sass-import-once');
   // Project configuration.
@@ -23,9 +23,9 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          '<%= pkg.name %>.css': 'sass/<%= pkg.name %>-sketch.scss',
-          'css/noprefix/<%= pkg.name %>-sketch.css': 'sass/<%= pkg.name %>-sketch.scss',
-          'css/noprefix/<%= pkg.name %>-predix.css': 'sass/<%= pkg.name %>-predix.scss'
+          //  '<%= pkg.name %>.css': 'sass/<%= pkg.name %>-sketch.scss',
+          'css/noprefix/px-partials-sketch.css': 'sass/px-partials-sketch.scss',
+          'css/noprefix/px-partials.css': 'sass/px-partials-predix.scss'
         }
       }
     },
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
       options: {
         browsers: ['last 2 version']
       },
-      multiple_files: {
+      dist: {
         expand: true,
         flatten: true,
         src: 'css/noprefix/*.css',
@@ -54,9 +54,9 @@ module.exports = function (grunt) {
 
     jshint: {
       all: [
-				'Gruntfile.js',
-				'js/**/*.js'
-			],
+        'Gruntfile.js',
+        'js/**/*.js'
+      ],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
           dest: '../',
           src: 'css/px-partials.css',
           ext: '.html'
-				}]
+        }]
       }
     }
   });
@@ -144,16 +144,16 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('default', 'Basic build', [
-		'sass',
-		'autoprefixer'
-	]);
+    'sass',
+    'autoprefixer'
+  ]);
 
   grunt.registerTask('devmode', 'Development Mode', [
-		'concurrent:devmode'
-	]);
+    'concurrent:devmode'
+  ]);
 
   // First run task.
-  grunt.registerTask('firstrun', 'Basic first run', function () {
+  grunt.registerTask('firstrun', 'Basic first run', function() {
     grunt.config.set('depserveOpenUrl', '/index.html');
     grunt.task.run('default');
     grunt.task.run('depserve');
@@ -161,15 +161,15 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('test', 'Test', [
-		'jshint',
-		'wct-test:local'
-	]);
+    'jshint',
+    'wct-test:local'
+  ]);
 
   grunt.registerTask('release', 'Release', [
-		'clean',
-		'shell:bower',
-		'default',
-		'test'
-	]);
+    'clean',
+    'shell:bower',
+    'default',
+    'test'
+  ]);
 
 };

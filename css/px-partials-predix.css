@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Copyright (c) 2014 GE Global Research. All rights reserved.
  *
@@ -71,7 +72,25 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
+.box-section.active__tab {
+  background: rgba(0, 0, 0, 0.2); }
+  .box-section.active__tab:after {
+    content: ""; }
+
 .box-section__tab {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                 not supported by any browser */
   padding: 1rem 0.6666666667rem;
   margin: 0;
   position: relative;
@@ -83,16 +102,18 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
           user-select: none;
   text-transform: uppercase; }
   .box-section__tab:after {
-    content: "+";
+    transform: translateY(-50%);
+    font-style: normal;
+    font-weight: normal;
     position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    padding: 0.6666666667rem; }
-  .box-section__tab.active {
-    background: rgba(0, 0, 0, 0.2); }
-    .box-section__tab.active:after {
-      content: "-"; }
+    right: 12px;
+    top: 50%;
+    line-height: 28px;
+    height: 28px;
+    font-size: 28px;
+    font-family: FontAwesome;
+    color: #9999a3;
+    content: ""; }
   @media (min-width: 992px) {
     .box-section__tab {
       cursor: default; }

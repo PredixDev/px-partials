@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
-
 <link rel="import" href="px-icon.html"/>
+
 
 <!--
 A simple web components for creating PX Design System buttons.
@@ -16,12 +16,7 @@ A simple web components for creating PX Design System buttons.
 @homepage index.html
 -->
 <dom-module id="px-button">
-	<link rel="stylesheet" href="px-partials.css">
-	<style>
-		:host {
-			}
 
-	</style>
 	<template>
 		<button id="btn" type="button" class="btn" on-tap="_clickHandler" on-click="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
