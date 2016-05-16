@@ -20,20 +20,13 @@ This element provides an easy way to create the header commonly used in Predix a
       display: block;
     }
 
-    :host ul li {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
 
     :host footer {
-
       color: #9999A3;
       display: block;
     }
 
     :host footer nav {
-
       font-size: 0.8rem;
     }
 
@@ -43,9 +36,9 @@ This element provides an easy way to create the header commonly used in Predix a
     }
   </style>
   <template>
-    <footer class="flex flex--col clearfix u-bg--gray10">
-      <nav class="flex flex--right u-mr" role="navigation">
-        <ul class="flex flex--row flex--spaced">
+    <footer class="flex flex--col clearfix">
+      <nav class="flex flex--right u-m" role="navigation">
+        <ul class="list-bare flex flex--row flex--spaced">
           <template is="dom-repeat" items="{{links}}">
             <li class="u-mr">
               <a href$="{{item.href}}" target="_blank">{{item.title}}</a>

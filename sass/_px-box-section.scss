@@ -4,25 +4,24 @@
 
 $tab--after: '\f107';
 $tab--active--after: '\f106';
-$tab-background-color--active: $gray3;
-$tab-transition: max-height 0.3s ease-out;
+$tab-background-color--active: $gray2;
+$tab-transition: max-height .3s ease-out;
 
 @include b ('box-section') {
 	@include m ('active') {
-		.box-section__tab{
+		> .box-section__tab {
 			background: $tab-background-color--active;
 		}
 
-
-		.box-section__tab:after {
+    > .box-section__tab:after {
 			content: $tab--active--after;
 			@include media-breakpoint-up(lg) {
 				content: '';
 			}
 		}
 
-		.box-section__panel {
-			max-height: 30em;
+    > .box-section__panel{
+			max-height: 75rem;
 		}
 	}
 

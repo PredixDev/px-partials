@@ -59,17 +59,17 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
-.box-section--active .box-section__tab {
-  background: #e4e4ea; }
+.box-section--active > .box-section__tab {
+  background: #efeff4; }
 
-.box-section--active .box-section__tab:after {
+.box-section--active > .box-section__tab:after {
   content: ""; }
-  @media (min-width: 992px) {
-    .box-section--active .box-section__tab:after {
+  @media (min-width: 66.1333333333rem) {
+    .box-section--active > .box-section__tab:after {
       content: ''; } }
 
-.box-section--active .box-section__panel {
-  max-height: 30em; }
+.box-section--active > .box-section__panel {
+  max-height: 75rem; }
 
 .box-section__spacer {
   width: 100%;
@@ -103,12 +103,13 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
       -ms-user-select: none;
           user-select: none;
   text-transform: uppercase; }
-  @media (min-width: 992px) {
+  @media (min-width: 66.1333333333rem) {
     .box-section__tab {
       cursor: default;
       background: none !important; } }
   .box-section__tab:after {
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
     font-style: normal;
     font-weight: normal;
     position: absolute;
@@ -120,7 +121,7 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
     font-family: FontAwesome;
     color: #9999a3;
     content: ""; }
-    @media (min-width: 992px) {
+    @media (min-width: 66.1333333333rem) {
       .box-section__tab:after {
         content: ''; } }
 
@@ -128,7 +129,7 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
   transition: max-height 0.3s ease-out;
   overflow: hidden;
   max-height: 0; }
-  @media (min-width: 992px) {
+  @media (min-width: 66.1333333333rem) {
     .box-section__panel {
       max-height: none; } }
   .box-section__panel:last-child {
@@ -146,16 +147,19 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -ms-flex: 1;
-      flex: 1;
-  -ms-flex-item-align: center;
-      align-self: center; }
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center; }
 
 .header__brand {
   height: 32px;
   width: 32px;
-  -ms-flex-item-align: center;
-      align-self: center; }
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center; }
 
 .title-bar {
   padding: 0.3333333333rem;
