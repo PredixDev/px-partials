@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
  * Copyright (c) 2014 GE Global Research. All rights reserved.
  *
@@ -63,7 +62,7 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
   background: #efeff4; }
 
 .box-section--active > .box-section__tab:after {
-  content: ""; }
+  content: "-"; }
   @media (min-width: 66.1333333333rem) {
     .box-section--active > .box-section__tab:after {
       content: ''; } }
@@ -102,7 +101,8 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  border-bottom: 1px solid #b1b1bc; }
   @media (min-width: 66.1333333333rem) {
     .box-section__tab {
       cursor: default;
@@ -120,7 +120,7 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
     font-size: 28px;
     font-family: FontAwesome;
     color: #9999a3;
-    content: ""; }
+    content: "+"; }
     @media (min-width: 66.1333333333rem) {
       .box-section__tab:after {
         content: ''; } }
