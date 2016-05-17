@@ -71,6 +71,10 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
+.box-section h2, .box-section h3, .box-section h4 {
+  margin: 0;
+  padding: 0; }
+
 .box-section--active > .box-section__tab {
   background: #efeff4; }
 
@@ -82,6 +86,8 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 
 .box-section--active > .box-section__panel {
   max-height: 75rem; }
+  .box-section--active > .box-section__panel > .box-section__tab {
+    background: #f7f7fc; }
 
 .box-section__spacer {
   width: 100%;

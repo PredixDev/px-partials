@@ -1,5 +1,6 @@
 @import "px-colors-design/_settings.colors.scss";
 @import 'px-spacing-design/_trumps.spacing.scss';
+
 @import 'px-mobile-design/sass/_mixins.scss';
 
 $tab--after: '+';
@@ -7,7 +8,12 @@ $tab--active--after: '-';
 $tab-background-color--active: $gray2;
 $tab-transition: max-height .3s ease-out;
 
-@include b ('box-section') {
+@include b ('box-section'){
+
+  h2,h3,h4{
+    margin: 0;
+    padding: 0;
+  }
 	@include m ('active') {
 		> .box-section__tab {
 			background: $tab-background-color--active;
@@ -22,6 +28,9 @@ $tab-transition: max-height .3s ease-out;
 
 		> .box-section__panel {
 			max-height: 75rem;
+      > .box-section__tab {
+        background: $gray1;
+      }
 		}
 	}
 

@@ -19,54 +19,59 @@ This element provides an easy way to create the section title bar commonly used 
 -->
 <dom-module id="px-box-section">
 
-	<template>
-		<style media="screen">
-			:host {
-				display: block;
-			}
-
-		</style>
-
-		<section class="box-section">
-			<header class="box-section__tab" aria-controls$="{{title}}" role="tab" on-click="toggle">
-				<h3 class$="{{headingClass}} u-m0">{{title}}</h3>
-			</header>
-			<div class="box-section__panel" role="tabpanel">
-				<content select="*"></content>
-			</div>
-		</section>
-
-	</template>
-	<script>
-		Polymer({
-			is: 'px-box-section',
-			properties: {
-				//The title for the section
-				title: {
-					type: String
-				},
-				//The state of the section
-				open: {
-					type: Boolean,
-					value: false,
-          observer: '_openHandler'
-				},
-				headingClass: {
-					value: 'epsilon'
-				}
-			},
-			attached: function () {
-
-			},
-			toggle: function () {
-				this.open = !this.open;
-
-			},
-      _openHandler: function(newVal, oldVal){
-        console.log('_openHandler', newVal);
-				this.toggleClass('box-section--active', newVal, this.$$('.box-section'));
+  <template>
+    <style media="screen">
+      :host {
+        display: block;
       }
 
-		});
-	</script>
+    </style>
+
+    <section class="box-section">
+
+      <header class="box-section__tab" aria-controls$="{{title}}" role="tab" on-click="toggle">
+        <template is="dom-if" if="{{title}}">
+          <h3 class$="{{headingClass}} u-m0">{{title}}</h3>
+        </template>
+
+      </header>
+
+      <div class="box-section__panel" role="tabpanel">
+        <content select="*"></content>
+      </div>
+    </section>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'px-box-section',
+      properties: {
+        //The title for the section
+        title: {
+          type: String
+        },
+        //The state of the section
+        open: {
+          type: Boolean,
+          value: false,
+          observer: '_openHandler'
+        },
+        headingClass: {
+          value: 'epsilon'
+        }
+      },
+      attached: function () {
+
+      },
+      toggle: function () {
+        this.open = !this.open;
+
+      },
+      _openHandler: function (newVal, oldVal) {
+        console.log('_openHandler', newVal);
+        this.toggleClass('box-section--active', newVal, this.$$('.box-section'));
+      }
+
+    });
+  </script>
 </dom-module>
