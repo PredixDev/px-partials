@@ -17,7 +17,7 @@ This element provides an easy way to create the header commonly used in Predix a
 
 
 	<template>
-		<header class="header flex flex--row">
+		<header class="header flex flex--row is-hidden@sm-">
 			<div class="header__brand">
 				<span class="header__logo">
 					<px-brand></px-brand>
@@ -26,12 +26,15 @@ This element provides an easy way to create the header commonly used in Predix a
 			<div class="header__title epsilon">
 				<span>{{title}}</span>
 				<span class="header__seperator" hidden$="{{!subtitle}}"></span>
-				<span class="header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</span>
+				<span class="header__subtitle muted is-hidden@sm-" hidden$="{{!subtitle}}">{{subtitle}}</span>
 			</div>
-			<div class="muted u-mt--">
+			<div class="muted u-mt-- is-hidden@sm-">
 				<span class="header__powered">{{powered}}</span>
 			</div>
 		</header>
+		<div class="has-navbar">
+			<content select="*"></content>
+		</div>
 	</template>
 	<script>
 		Polymer({
