@@ -14,8 +14,6 @@ This element provides an easy way to create the header commonly used in Predix a
 @homepage index.html
 -->
 <dom-module id="px-header">
-
-
 	<template>
 		<header class="header flex flex--row is-hidden@sm-">
 			<div class="header__brand">
@@ -32,7 +30,8 @@ This element provides an easy way to create the header commonly used in Predix a
 				<span class="header__powered">{{powered}}</span>
 			</div>
 		</header>
-		<div class="has-navbar">
+		<!-- TODO: navbar -->
+		<div>
 			<content select="*"></content>
 		</div>
 	</template>
