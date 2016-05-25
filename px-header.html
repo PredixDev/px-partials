@@ -16,6 +16,14 @@ This element provides an easy way to create the header commonly used in Predix a
 
 <dom-module id="px-header">
 	<template>
+		<style media="screen">
+			:host{
+				display: block;
+			}
+			:host .header__content{
+				position: relative;
+			}
+		</style>
 		<header class="header flex flex--row is-hidden@sm-">
 			<div class="header__brand">
 				<span class="header__logo">
@@ -32,7 +40,7 @@ This element provides an easy way to create the header commonly used in Predix a
 			</div>
 		</header>
 		<!-- TODO: navbar -->
-		<div>
+		<div class="header__content">
 			<content select="*"></content>
 		</div>
 	</template>
