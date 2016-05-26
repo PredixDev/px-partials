@@ -1,6 +1,8 @@
 Px-Partials
 -----------------------------------------------
 
+[![Build Status](https://travis-ci.org/PredixDev/px-responsive-layouts.svg?branch=master)](https://travis-ci.org/PredixDev/px-responsive-layouts)
+
 ## Overview
 
 Px-Partials is a Predix Experience ('Px') component
