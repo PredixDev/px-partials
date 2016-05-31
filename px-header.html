@@ -25,18 +25,18 @@ This element provides an easy way to create the header commonly used in Predix a
 			}
 		</style>
 		<header class="header flex flex--row is-hidden@sm-">
-			<div class="header__brand">
+			<div class="header__brand flex__item--middle">
 				<span class="header__logo">
 					<px-brand></px-brand>
 				</span>
 			</div>
-			<div class="header__title epsilon">
+			<div class="header__title epsilon flex__item--middle">
 				<span>{{title}}</span>
 				<span class="header__seperator" hidden$="{{!subtitle}}"></span>
-				<span class="header__subtitle muted is-hidden@sm-" hidden$="{{!subtitle}}">{{subtitle}}</span>
+				<span class="header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</span>
 			</div>
-			<div class="muted u-mt-- is-hidden@sm-">
-				<span class="header__powered">{{powered}}</span>
+			<div class="flex__item--middle">
+				<span class="header__powered muted">{{powered}}</span>
 			</div>
 		</header>
 		<!-- TODO: navbar -->
@@ -47,6 +47,9 @@ This element provides an easy way to create the header commonly used in Predix a
 	<script>
 		Polymer({
 			is: 'px-header',
+			hostAttributes: {
+				role: 'header'
+			},
 			properties: {
 				title: {
 					type: String,
@@ -60,9 +63,6 @@ This element provides an easy way to create the header commonly used in Predix a
 					type: String,
 					value: 'Powered by Predix'
 				}
-			},
-			created: function () {
-				console.log(this.tagName, 'created');
 			}
 		});
 	</script>

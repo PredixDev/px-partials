@@ -7,13 +7,10 @@ $tab--after: '+';
 $tab--active--after: '-';
 $tab-background-color--active: $gray2;
 $tab-transition: max-height .3s ease-out;
+$tab-breakpoint: 'md';
 
 @include b ('box-section'){
 
-  h2,h3,h4{
-    margin: 0;
-    padding: 0;
-  }
 	@include m ('active') {
 		> .box-section__tab {
 			background: $tab-background-color--active;
@@ -21,13 +18,13 @@ $tab-transition: max-height .3s ease-out;
 
 		> .box-section__tab:after {
 			content: $tab--active--after;
-			@include media-breakpoint-up(lg) {
+			@include media-breakpoint-up($tab-breakpoint) {
 				content: '';
 			}
 		}
 
 		> .box-section__panel {
-			max-height: 95rem;
+			max-height: 99vh;
       > .box-section__tab {
         background: $gray1;
       }
@@ -55,7 +52,7 @@ $tab-transition: max-height .3s ease-out;
 		border-bottom : 1px solid $gray5;
 
 		//Hide arrows for large
-		@include media-breakpoint-up(lg) {
+		@include media-breakpoint-up($tab-breakpoint) {
 			cursor    : default;
 			background: none !important;
 		}
@@ -73,7 +70,8 @@ $tab-transition: max-height .3s ease-out;
 			font-family: FontAwesome;
 			color      : $gray6;
 			content    : $tab--after;
-			@include media-breakpoint-up(lg) {
+
+			@include media-breakpoint-up($tab-breakpoint) {
 				content: '';
 			}
 		}
@@ -83,7 +81,9 @@ $tab-transition: max-height .3s ease-out;
 		transition: $tab-transition;
 		overflow  : hidden;
 		max-height: 0;
-		@include media-breakpoint-up(lg) {
+
+
+		@include media-breakpoint-up($tab-breakpoint) {
 			max-height: none;
 		}
 

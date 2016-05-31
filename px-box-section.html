@@ -31,7 +31,7 @@ This element provides an easy way to create the section title bar commonly used 
 
       <header class="box-section__tab" aria-controls$="{{title}}" role="tab" on-click="toggle">
         <template is="dom-if" if="{{title}}">
-          <h3 class$="{{headingClass}} u-m0">{{title}}</h3>
+          <h3 class$="{{headingClass}}">{{title}}</h3>
         </template>
 
       </header>
@@ -57,7 +57,9 @@ This element provides an easy way to create the section title bar commonly used 
           observer: '_openHandler'
         },
         headingClass: {
-          value: 'epsilon'
+          type: String,
+          value: 'delta',
+          reflectToAttribute: true
         }
       },
       attached: function () {
