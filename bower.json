@@ -30,7 +30,8 @@
     "px-buttons-design": "~0.4.23",
     "px-iconography-design": "~0.2.10",
     "px-code-design": "~0.2.11",
-    "px-typography-design": "~0.3.4"
+    "px-typography-design": "~0.3.4",
+    "polymer-font-awesome": "https://github.com/jonniespratley/polymer-font-awesome.git#~0.1.5"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~1.0.5",
