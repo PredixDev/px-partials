@@ -20,8 +20,13 @@ This element provides an easy way to create the header commonly used in Predix a
       display: block;
     }
 
+    :host ul{
+      list-style-type:none;
+    }
+
 
     :host footer {
+      @apply(--px-footer);
       color: #9999A3;
       display: block;
     }
@@ -36,21 +41,29 @@ This element provides an easy way to create the header commonly used in Predix a
     }
   </style>
   <template>
-    <footer class="flex flex--col clearfix">
-      <nav class="flex flex--right u-m" role="navigation">
-        <ul class="list-bare flex flex--row flex--spaced">
-          <template is="dom-repeat" items="{{links}}">
-            <li class="u-mr">
-              <a href$="{{item.href}}" target="_blank">{{item.title}}</a>
-            </li>
-          </template>
-          <li>
-          <span class="u-ml+ muted">{{copywrite}}</span>
-        </li>
-        </ul>
+    <footer class="clearfix">
 
-      </nav>
-      <content select="*"></content>
+      <div class="u-ml pull-left">
+        <content select="*"></content>
+      </div>
+
+      <div class="u-mr pull-right">
+        <nav class="flex flex--right u-m" role="navigation">
+
+          <ul class="list-bare flex flex--row flex--spaced">
+            <template is="dom-repeat" items="{{links}}">
+              <li class="u-mr">
+                <a href$="{{item.href}}" target="_blank">{{item.title}}</a>
+              </li>
+            </template>
+            <li>
+            <span class="u-ml+">&copy;{{copywrite}}</span>
+          </li>
+          </ul>
+
+        </nav>
+
+      </div>
     </footer>
   </template>
   <script>
@@ -59,7 +72,7 @@ This element provides an easy way to create the header commonly used in Predix a
       properties: {
         copywrite: {
           type: String,
-          value: '&copy;2016 General Electric'
+          value: '2016 General Electric'
         },
         links: {
           type: Array,
