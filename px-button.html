@@ -17,7 +17,7 @@ A simple web components for creating PX Design System buttons.
 -->
 <dom-module id="px-button">
 
-	<template>
+	<template strip-whitespace>
 		<button id="btn" type="button" class="btn" on-tap="_clickHandler" on-click="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
 				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}"></px-icon>

@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer.html"/>
-
 <!--
 This element provides an easy way to create the header commonly used in Predix apps.
 
@@ -13,43 +12,33 @@ This element provides an easy way to create the header commonly used in Predix a
 @homepage index.html
 -->
 <dom-module id="px-footer">
-
-
   <style>
     :host {
       display: block;
     }
-
-    :host ul{
-      list-style-type:none;
+    :host ul {
+      list-style-type: none;
     }
-
-
     :host footer {
       @apply(--px-footer);
       color: #9999A3;
       display: block;
     }
-
     :host footer nav {
       font-size: 0.8rem;
     }
-
     :host a {
       text-decoration: none;
       color: #B1B1BC;
     }
   </style>
-  <template>
+  <template strip-whitespace>
     <footer class="clearfix">
-
       <div class="u-ml pull-left">
         <content select="*"></content>
       </div>
-
       <div class="u-mr pull-right">
         <nav class="flex flex--right u-m" role="navigation">
-
           <ul class="list-bare flex flex--row flex--spaced">
             <template is="dom-repeat" items="{{links}}">
               <li class="u-mr">
@@ -57,12 +46,10 @@ This element provides an easy way to create the header commonly used in Predix a
               </li>
             </template>
             <li>
-            <span class="u-ml+">&copy;{{copywrite}}</span>
-          </li>
+              <span class="u-ml+">&copy;{{copywrite}}</span>
+            </li>
           </ul>
-
         </nav>
-
       </div>
     </footer>
   </template>

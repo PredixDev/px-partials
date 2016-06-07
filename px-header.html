@@ -1,6 +1,5 @@
 <link rel="import" href="../polymer/polymer.html"/>
 <link rel="import" href="px-brand.html">
-
 <!--
 This element provides an easy way to create the header commonly used in Predix apps.
 
@@ -13,14 +12,13 @@ This element provides an easy way to create the header commonly used in Predix a
 @demo demo/demo-px-header.html
 @homepage index.html
 -->
-
 <dom-module id="px-header">
-	<template>
+	<template strip-whitespace>
 		<style media="screen">
-			:host{
+			:host {
 				display: block;
 			}
-			:host .header__content{
+			:host .header__content {
 				position: relative;
 			}
 		</style>
