@@ -18,12 +18,14 @@ Usage:
 <dom-module id="px-icon">
 
 	<style>
-		:host {}
+		:host {
+			display: inline-block;
+		}
 	</style>
 	<template>
-		<span class="flex flex--center flex--middle">
+
 			<iron-icon id="icn" icon$="{{icon}}" size$="{{size}}"></iron-icon>
-		</span>
+
 	</template>
 	<script type="text/javascript">
 		Polymer({
