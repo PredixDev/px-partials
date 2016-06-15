@@ -6,7 +6,7 @@
 $tab--after: '+';
 $tab--active--after: '-';
 $tab-background-color--active: $gray2;
-$tab-transition: max-height .3s ease-out;
+$tab-transition: none;
 $tab-breakpoint: 'md';
 
 @include b ('box-section'){
@@ -24,7 +24,10 @@ $tab-breakpoint: 'md';
 		}
 
 		> .box-section__panel {
-			max-height: 99vh;
+			@include media-breakpoint-down($tab-breakpoint) {
+				max-height: 99vh;
+			}
+
       > .box-section__tab {
         background: $gray1;
       }

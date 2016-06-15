@@ -58,23 +58,21 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
  *
  * `.u-(m|p)(t|r|b|l|h|v)(-|+|0) {}` = utility - margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
-.box-section h2, .box-section h3, .box-section h4 {
-  margin: 0;
-  padding: 0; }
-
 .box-section--active > .box-section__tab {
   background: #efeff4; }
 
 .box-section--active > .box-section__tab:after {
   content: "-"; }
-  @media (min-width: 66.1333333333rem) {
+  @media (min-width: 51.2rem) {
     .box-section--active > .box-section__tab:after {
       content: ''; } }
 
-.box-section--active > .box-section__panel {
-  max-height: 95rem; }
-  .box-section--active > .box-section__panel > .box-section__tab {
-    background: #f7f7fc; }
+@media (max-width: 68.2rem) {
+  .box-section--active > .box-section__panel {
+    max-height: 99vh; } }
+
+.box-section--active > .box-section__panel > .box-section__tab {
+  background: #f7f7fc; }
 
 .box-section__spacer {
   width: 100%;
@@ -109,7 +107,7 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
           user-select: none;
   text-transform: uppercase;
   border-bottom: 1px solid #b1b1bc; }
-  @media (min-width: 66.1333333333rem) {
+  @media (min-width: 51.2rem) {
     .box-section__tab {
       cursor: default;
       background: none !important; } }
@@ -126,15 +124,15 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
     font-family: FontAwesome;
     color: #9999a3;
     content: "+"; }
-    @media (min-width: 66.1333333333rem) {
+    @media (min-width: 51.2rem) {
       .box-section__tab:after {
         content: ''; } }
 
 .box-section__panel {
-  transition: max-height 0.3s ease-out;
+  transition: none;
   overflow: hidden;
   max-height: 0; }
-  @media (min-width: 66.1333333333rem) {
+  @media (min-width: 51.2rem) {
     .box-section__panel {
       max-height: none; } }
   .box-section__panel:last-child {
