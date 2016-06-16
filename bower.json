@@ -3,21 +3,21 @@
   "version": "0.0.1",
   "homepage": "https://github.com/PredixDev/px-partials",
   "authors": [
-    "Jonnie Spratley <jonnie.spratley@ge.com>"
-  ],
+		"Jonnie Spratley <jonnie.spratley@ge.com>"
+	],
   "description": "HTML Partials",
   "main": "px-partials.html",
   "moduleType": [],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
   "dependencies": {
-    "polymer": "~1.4.0",
+    "polymer": "~1.5.0",
     "px-spacing-responsive-design": "~0.3.7",
     "px-widths-responsive-design": "~0.3.8",
     "px-box-sizing-design": "~0.2.7",
