@@ -21,6 +21,9 @@ This element provides an easy way to create the header commonly used in Predix a
 			:host .header__content {
 				position: relative;
 			}
+			:host .header__title{
+				white-space: nowrap;
+			}
 		</style>
 		<header class="header flex flex--center flex--row">
 			<div class="header__brand flex__item--middle">
@@ -28,7 +31,7 @@ This element provides an easy way to create the header commonly used in Predix a
 					<px-brand></px-brand>
 				</span>
 			</div>
-			<div class="header__title epsilon flex__item--middle">
+			<div class="header__title epsilon flex__item--middle u-ml--">
 				<span class="u-mr--">{{title}}</span>
 				<span class="header__seperator" hidden$="{{!subtitle}}"></span>
 				<span class="header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</span>
