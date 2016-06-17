@@ -1,29 +1,2 @@
 @import "px-colors-design/_settings.colors.scss";
 @import 'px-spacing-design/_trumps.spacing.scss';
-
-.header {
-	padding: $inuit-base-spacing-unit $inuit-base-spacing-unit--tiny;
-	color  : $gray5;
-
-	a {
-		text-decoration: none;
-		color          : $gray2;
-	}
-}
-
-.header__title {
-	user-select: none;
-	flex       : 1;
-	align-self : center;
-
-}
-
-.header__subtitle {}
-
-.header__powered {}
-
-.header__brand {
-	height    : 32px;
-	width     : 32px;
-	align-self: center;
-}

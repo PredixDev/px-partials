@@ -24,26 +24,50 @@ This element provides an easy way to create the header commonly used in Predix a
 			:host .header__title{
 				white-space: nowrap;
 			}
+			:host .header {
+
+			  color: #b1b1bc; }
+			:host  .header a {
+			    text-decoration: none;
+			    color: #efeff4; }
+
+			:host .header__title {
+			  -webkit-user-select: none;
+			     -moz-user-select: none;
+			      -ms-user-select: none;
+			          user-select: none;
+			  -ms-flex: 1;
+			      flex: 1;
+			  -ms-flex-item-align: center;
+			      align-self: center; }
+
+			:host .header__brand {
+			  height: 32px;
+			  width: 32px;
+			  -ms-flex-item-align: center;
+			      align-self: center; }
 		</style>
-		<header class="header flex flex--center flex--row">
-			<div class="header__brand flex__item--middle">
-				<span class="header__logo">
-					<px-brand></px-brand>
-				</span>
+		<div class="header flex flex--center flex--spaced flex--row">
+			<div class="flex flex--middle u-mr">
+				<div class="header__brand flex__item--middle">
+					<span class="header__logo">
+						<px-brand></px-brand>
+					</span>
+				</div>
+				<div class="header__title epsilon flex__item--middle u-ml--">
+					<span class="u-mr--">{{title}}</span>
+					<span class="header__seperator" hidden$="{{!subtitle}}"></span>
+					<small class="header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</small>
+				</div>
 			</div>
-			<div class="header__title epsilon flex__item--middle u-ml--">
-				<span class="u-mr--">{{title}}</span>
-				<span class="header__seperator" hidden$="{{!subtitle}}"></span>
-				<span class="header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</span>
+			<div class="flex flex__item flex--middle">
+				<content select="nav"></content>
 			</div>
 			<div class="flex__item--middle">
 				<span class="header__powered muted">{{powered}}</span>
 			</div>
-		</header>
-		<!-- TODO: navbar -->
-		<div class="header__content">
-			<content select="*"></content>
 		</div>
+
 	</template>
 	<script>
 		Polymer({

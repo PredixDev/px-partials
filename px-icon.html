@@ -15,11 +15,44 @@
 Usage:
 
 ```
-<px-icon side="" icon="dashboard"></px-icon>
-<px-icon side="lg" icon="dashboard"></px-icon>
-<px-icon side="2x" icon="dashboard"></px-icon>
-<px-icon side="3x" icon="dashboard"></px-icon>
-<px-icon side="4x" icon="dashboard"></px-icon>
+
+<template id="icon-demo" is="dom-bind">
+  <style is="custom-style">
+    .size-16 {
+      --iron-icon-height: 16px;
+      --iron-icon-width: 16px;
+    }
+    .size-32 {
+      --iron-icon-height: 32px;
+      --iron-icon-width: 32px;
+    }
+    .size-48 {
+      --iron-icon-height: 48px;
+      --iron-icon-width: 48px;
+    }
+    .size-96 {
+      --iron-icon-height: 96px;
+      --iron-icon-width: 96px;
+    }
+    .size-128 {
+      --iron-icon-height: 128px;
+      --iron-icon-width: 128px;
+    }
+    .size-256 {
+      --iron-icon-height: 256px;
+      --iron-icon-width: 256px;
+    }
+  </style>
+  <link rel="import" href="../px-partials/px-icon.html">
+  <div class="flex flex--spaced flex--middle flex--center">
+    <px-icon icon="fa:fa-home" class="size-16"></px-icon>
+    <px-icon icon="fa:fa-home" class="size-32"></px-icon>
+    <px-icon icon="fa:fa-home" class="size-48"></px-icon>
+    <px-icon icon="fa:fa-home" class="size-96"></px-icon>
+    <px-icon icon="fa:fa-home" class="size-128"></px-icon>
+    <px-icon icon="fa:fa-home" class="size-256"></px-icon>
+  </div>
+</template>
 ```
 
 ### Styling
