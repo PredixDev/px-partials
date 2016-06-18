@@ -14,7 +14,7 @@ This element provides an easy way to create the header commonly used in Predix a
 <dom-module id="px-footer">
   <style>
     :host {
-      display: block;
+
     }
     :host ul {
       list-style-type: none;
@@ -22,7 +22,7 @@ This element provides an easy way to create the header commonly used in Predix a
     :host footer {
       @apply(--px-footer);
       color: #9999A3;
-      display: block;
+
     }
     :host footer nav {
       font-size: 0.8rem;
@@ -33,11 +33,11 @@ This element provides an easy way to create the header commonly used in Predix a
     }
   </style>
   <template strip-whitespace>
-    <footer class="clearfix">
-      <div class="u-ml pull-left">
-        <content select="*"></content>
+    <footer class="flex flex--justify flex--middle">
+      <div class="u-ml">
+        <px-brand size="156" wordmark></px-brand>
       </div>
-      <div class="u-mr pull-right">
+      <div class="u-mr ">
         <nav class="flex flex--right u-m" role="navigation">
           <ul class="list-bare flex flex--row flex--spaced">
             <template is="dom-repeat" items="{{links}}">
