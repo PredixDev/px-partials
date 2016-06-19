@@ -19,28 +19,28 @@ Usage:
 <template id="icon-demo" is="dom-bind">
   <style is="custom-style">
     .size-16 {
-      --iron-icon-height: 16px;
-      --iron-icon-width: 16px;
+      --px-icon-height: 16px;
+      --px-icon-width: 16px;
     }
     .size-32 {
-      --iron-icon-height: 32px;
-      --iron-icon-width: 32px;
+      --px-icon-height: 32px;
+      --px-icon-width: 32px;
     }
     .size-48 {
-      --iron-icon-height: 48px;
-      --iron-icon-width: 48px;
+      --px-icon-height: 48px;
+      --px-icon-width: 48px;
     }
     .size-96 {
-      --iron-icon-height: 96px;
-      --iron-icon-width: 96px;
+      --px-icon-height: 96px;
+      --px-icon-width: 96px;
     }
     .size-128 {
-      --iron-icon-height: 128px;
-      --iron-icon-width: 128px;
+      --px-icon-height: 128px;
+      --px-icon-width: 128px;
     }
     .size-256 {
-      --iron-icon-height: 256px;
-      --iron-icon-width: 256px;
+      --px-icon-height: 256px;
+      --px-icon-width: 256px;
     }
   </style>
   <link rel="import" href="../px-partials/px-icon.html">
@@ -59,10 +59,11 @@ Usage:
 The following custom properties are available for styling:
 Custom property | Description | Default
 ----------------|-------------|----------
-`--iron-icon-width` | Width of the icon | `24px`
-`--iron-icon-height` | Height of the icon | `24px`
-`--iron-icon-fill-color` | Fill color of the svg icon | `currentcolor`
-`--iron-icon-stroke-color` | Stroke color of the svg icon | none
+`--px-icon-size` | Height and Width of the icon | `24px`
+`--px-icon-width` | Width of the icon | `24px`
+`--px-icon-height` | Height of the icon | `24px`
+`--px-icon-fill-color` | Fill color of the svg icon | `currentcolor`
+`--px-icon-stroke-color` | Stroke color of the svg icon | none
 
 @element px-icon
 @blurb Element for creating icons.
@@ -73,7 +74,10 @@ Custom property | Description | Default
 	<style>
 		:host {
 			display: inline-block;
+			--iron-icon-height: var(--px-icon-size);
+			--iron-icon-width: var(--px-icon-size);
 		}
+
 	</style>
 	<template strip-whitespace>
 		<iron-icon id="icn" icon$="{{icon}}" size$="{{size}}"></iron-icon>
