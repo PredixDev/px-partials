@@ -9,54 +9,21 @@
  * under which the software has been supplied.
  */
  -->
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../polymer-font-awesome/polymer-font-awesome.html"/>
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../polymer-font-awesome/polymer-font-awesome.html"/>
 <!--
-Usage:
+The `px-icon` element provides an easy way to use Font Awesome SVG icons.
+
+### Usage
 
 ```
-
-<template id="icon-demo" is="dom-bind">
-  <style is="custom-style">
-    .size-16 {
-      --px-icon-height: 16px;
-      --px-icon-width: 16px;
-    }
-    .size-32 {
-      --px-icon-height: 32px;
-      --px-icon-width: 32px;
-    }
-    .size-48 {
-      --px-icon-height: 48px;
-      --px-icon-width: 48px;
-    }
-    .size-96 {
-      --px-icon-height: 96px;
-      --px-icon-width: 96px;
-    }
-    .size-128 {
-      --px-icon-height: 128px;
-      --px-icon-width: 128px;
-    }
-    .size-256 {
-      --px-icon-height: 256px;
-      --px-icon-width: 256px;
-    }
-  </style>
-  <link rel="import" href="../px-partials/px-icon.html">
-  <div class="flex flex--spaced flex--middle flex--center">
-    <px-icon icon="fa:fa-home" class="size-16"></px-icon>
-    <px-icon icon="fa:fa-home" class="size-32"></px-icon>
-    <px-icon icon="fa:fa-home" class="size-48"></px-icon>
-    <px-icon icon="fa:fa-home" class="size-96"></px-icon>
-    <px-icon icon="fa:fa-home" class="size-128"></px-icon>
-    <px-icon icon="fa:fa-home" class="size-256"></px-icon>
-  </div>
-</template>
+<link rel="import" href="../px-partials/px-icon/px-icon.html">
+<px-icon icon="fa:fa-home"></px-icon>
 ```
 
 ### Styling
 The following custom properties are available for styling:
+
 Custom property | Description | Default
 ----------------|-------------|----------
 `--px-icon-size` | Height and Width of the icon | `24px`
@@ -67,8 +34,8 @@ Custom property | Description | Default
 
 @element px-icon
 @blurb Element for creating icons.
-@demo demo/demo-px-icon.html
-@homepage index.html
+@demo ./demo.html
+@homepage ../index.html
 -->
 <dom-module id="px-icon">
 	<style>

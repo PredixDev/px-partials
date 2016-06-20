@@ -1,0 +1,126 @@
+<!--
+/*
+ * Copyright (c) 2016 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+ -->
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+
+The `px-button` element is a simple web component for creating PX Design System buttons.
+
+
+### Usage
+
+```
+<px-button label="Button" size="small"></px-button>
+<px-button label="Button" size="regular" theme="primary" icon="fa:fa-home"></px-button>
+<px-button label="Button" size="large" theme="tertiary" icon="fa:fa-home"></px-button>
+<px-button label="Button" size="huge" theme="disabled" icon="fa:fa-home"></px-button>
+```
+
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--px-button` | Mixin applied to the element | {}
+
+@element px-button
+@blurb Element for creating buttons.
+@demo ./demo.html
+@homepage ../index.html
+-->
+<dom-module id="px-button">
+	<template strip-whitespace>
+		<style media="screen">
+			:host{
+
+			}
+			:host .btn{
+				@apply(--px-button);
+			}
+		</style>
+		<button id="btn" type="button" class="btn flex flex--center flex--middle" on-tap="_clickHandler">
+			<template is="dom-if" if="{{icon}}">
+				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}"></px-icon>
+			</template>
+			<span hidden$="{{!label}}">{{label}}</span>
+			<content select="*"></content>
+		</button>
+	</template>
+	<script type="text/javascript">
+		Polymer({
+			is: "px-button",
+			properties: {
+				/**
+				 * The button label
+				 */
+				label: {
+					type: String
+				},
+				/**
+				 * The button theme (primary, default, disabled, icon, bare)
+				 */
+				theme: {
+					type: String
+				},
+				/**
+				 * The `px-icon` icon name
+				 */
+				icon: {
+					type: String
+				},
+				/**
+				 * The `px-icon` size
+				 */
+				iconSize: {
+					type: String
+				},
+				/**
+				 * The size of the button
+				 */
+				size: {
+					type: String
+				}
+			},
+			attached: function () {
+				var self = this;
+				this.async(function () {
+					if (self.theme) {
+						var themes = self.theme.split(' ');
+						themes.forEach(function (t) {
+							self.toggleClass('btn--' + t, true, self.$.btn);
+						});
+					}
+					if (self.size) {
+						self.toggleClass('btn--' + self.size, true, self.$.btn);
+					}
+
+					if (self.icon) {
+						var ico = self.queryEffectiveChildren('px-icon');
+						if (ico) {
+							ico.icon = self.icon;
+							ico.size = self.iconSize;
+						}
+
+					}
+				});
+			},
+			_clickHandler: function (e) {
+				this.fire('px-button-click', e);
+			}
+			/**
+			 * Fires when button is clicked
+			 * @event px-button-click
+			 */
+
+		});
+	</script>
+</dom-module>

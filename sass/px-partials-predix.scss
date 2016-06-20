@@ -24,12 +24,4 @@ common/abstract rules go in px-partials-sketch.scss, not in this file.
 
 @import 'px-partials-sketch.scss';
 
-.circle {
-  border-style: none;
-  box-shadow: .2rem .2rem .2rem 0 rgba($black,.5);
-}
-
-.counter {
-  background-color: $blue;
-  color: $white;
-}
+ 

@@ -1,29 +1,64 @@
-<link rel="import" href="../polymer/polymer.html"/>
+<!--
+/*
+ * Copyright (c) 2016 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+ <link rel="import" href="px-brand-iconset.html">
+ -->
+<link rel="import" href="../../polymer/polymer.html">
 
 <!--
-<link rel="import" href="px-brand-iconset.html">
-The `px-brand` element provides an easy way to use the GE logo commonly displayed in Predix apps.
+The `px-brand` element provides an easy way to use the GE brands commonly displayed in Predix apps.
 
 ### Usage
 
 ```
-<link rel="import" href="../px-partials/px-brand.html"/>
-
-<px-brand color="#000" size="16" ></px-brand>
+<link rel="import" href="../px-partials/px-brand/px-brand.html"/>
 <px-brand color="#000" size="32"></px-brand>
-<px-brand color="#000" size="48"></px-brand>
-<px-brand color="#000" size="72"></px-brand>
-<px-brand color="#000" size="128"></px-brand>
-<px-brand color="#000" size="256"></px-brand>
 ```
 
+#### GE Digital monogram:
+```
+<px-brand size="256" monogram></px-brand>
+```
+
+#### GE Digital monogram wordmark:
+```
+<px-brand size="256" wordmark></px-brand>
+```
+
+#### Predix halo:
+```
+<px-brand size="256" halo></px-brand>
+```
+
+#### Predix halo workmark:
+```
+<px-brand size="256" halo-wordmark></px-brand>
+```
+
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--px-brand` | Mixin applied to the element | {}
+
+
 @element px-brand
-@demo demo/demo-px-brand.html
-@homepage index.html
+@demo ./demo.html
+@homepage ../index.html
 -->
 <dom-module id="px-brand">
 	<style media="screen">
-		:host {}
+		:host {
+			@apply(--px-brand);
+		}
 	</style>
 	<template strip-whitespace>
 		<template id="monographTemplate" is="dom-if" if="{{monogram}}">
@@ -156,7 +191,7 @@ The `px-brand` element provides an easy way to use the GE logo commonly displaye
 			properties: {
 
 				/**
-				 * The fill color to use
+				 * The fill color
 				 */
 				color: {
 					type: String,
@@ -164,24 +199,39 @@ The `px-brand` element provides an easy way to use the GE logo commonly displaye
 					value: 'white'
 				},
 				/**
-				 * The size of the element.
+				 * The height/width size
 				 */
 				size: {
 					type: Number,
 					notify: true,
 					value: 32
 				},
+				/**
+				 * Use the monogram
+				 */
 				monogram: {
 					type: Boolean
 				},
+				/**
+				 * Use the halo
+				 */
 				halo: {
-					type: Boolean
+					type: Boolean,
+					value: false
 				},
+				/**
+				 * Use the halo wordmark
+				 */
 				haloWordmark: {
-					type: Boolean
+					type: Boolean,
+					value: false
 				},
+				/**
+				 * Use the monogram wordmark
+				 */
 				wordmark: {
-					type: Boolean
+					type: Boolean,
+					value: false
 				}
 			},
 			created: function () {}

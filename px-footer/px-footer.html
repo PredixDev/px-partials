@@ -1,6 +1,17 @@
-<link rel="import" href="../polymer/polymer.html"/>
 <!--
-This element provides an easy way to create the header commonly used in Predix apps.
+/*
+ * Copyright (c) 2016 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+ -->
+<link rel="import" href="../../polymer/polymer.html">
+<!--
+The `px-footer` element provides an easy way to create the footer commonly used in Predix apps.
 
 ### Usage
 
@@ -18,10 +29,11 @@ Custom property | Description | Default
 
 
 @element px-footer
-@demo demo/demo-px-footer.html
-@homepage index.html
+@demo ./demo.html
+@homepage ../index.html
 -->
 <dom-module id="px-footer">
+  <template strip-whitespace>
   <style>
     :host {
       display: block;
@@ -42,7 +54,6 @@ Custom property | Description | Default
       color: #B1B1BC;
     }
   </style>
-  <template strip-whitespace>
     <footer class="flex flex--justify flex--middle">
       <div class="u-ml u-mt--">
         <px-brand size="32" monogram class=" muted"></px-brand>
@@ -61,10 +72,16 @@ Custom property | Description | Default
     Polymer({
       is: 'px-footer',
       properties: {
+        /**
+         * The copywrite message
+         */
         copywrite: {
           type: String,
           value: '2016 General Electric'
         },
+        /**
+         * The list of footer links 
+         */
         links: {
           type: Array,
           value: [

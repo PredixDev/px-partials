@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>px-brand demo</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- TODO: Dependencies -->
+	<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="../../iron-demo-helpers/demo-snippet.html" />
+	<link rel='stylesheet' href='https://predixdev.github.io/px-library-design/css/style.css'>
+	<link rel="import" href="px-brand.html">
+  <style media="screen">
+    .padding-10{
+      padding: 10px;
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+
+
+  <div class="viewport">
+    <h2>px-brand</h2>
+    <demo-snippet class="u-mb">
+			<template id="">
+				<div class="flex flex--wrap">
+					<px-brand color="#000" size="16" ></px-brand>
+					<px-brand color="#000" size="32"></px-brand>
+					<px-brand color="#000" size="48"></px-brand>
+					<px-brand color="#000" size="72"></px-brand>
+					<px-brand color="#000" size="128"></px-brand>
+					<px-brand color="#000" size="256"></px-brand>
+				</div>
+			</template>
+		</demo-snippet>
+
+    <demo-snippet>
+			<template>
+				<px-brand color="#000" size="512"></px-brand>
+			</template>
+		</demo-snippet>
+  </div>
+
+
+
+</body>
+
+</html>
