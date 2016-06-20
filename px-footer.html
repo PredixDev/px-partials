@@ -2,11 +2,21 @@
 <!--
 This element provides an easy way to create the header commonly used in Predix apps.
 
-## Usage
+### Usage
 
 ```
 <px-footer copywrite="2016 &copy;" links='[{"title": "About", "href": "about.html"}]'></px-footer>
 ```
+
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--px-footer` | Mixin applied to the element | {}
+`--px-footer-nav` | Mixin applied to the nav element | {}
+
+
 @element px-footer
 @demo demo/demo-px-footer.html
 @homepage index.html
@@ -14,7 +24,7 @@ This element provides an easy way to create the header commonly used in Predix a
 <dom-module id="px-footer">
   <style>
     :host {
-
+      display: block;
     }
     :host ul {
       list-style-type: none;
@@ -22,9 +32,9 @@ This element provides an easy way to create the header commonly used in Predix a
     :host footer {
       @apply(--px-footer);
       color: #9999A3;
-
     }
     :host footer nav {
+      @apply(--px-footer-nav);
       font-size: 0.8rem;
     }
     :host a {
@@ -34,21 +44,15 @@ This element provides an easy way to create the header commonly used in Predix a
   </style>
   <template strip-whitespace>
     <footer class="flex flex--justify flex--middle">
-      <div class="u-ml muted">
-        <px-brand size="32" monogram></px-brand>
+      <div class="u-ml u-mt--">
+        <px-brand size="32" monogram class=" muted"></px-brand>
       </div>
-      <div class="u-mr ">
-        <nav class="flex flex--right u-m" role="navigation">
-          <ul class="list-bare flex flex--row flex--spaced">
-            <template is="dom-repeat" items="{{links}}">
-              <li class="u-mr">
-                <a href$="{{item.href}}" target="_blank">{{item.title}}</a>
-              </li>
-            </template>
-            <li>
-              <span class="u-ml+">&copy;{{copywrite}}</span>
-            </li>
-          </ul>
+      <div class="u-mr">
+        <nav class="flex flex--right flex--spaced" role="navigation">
+          <template is="dom-repeat" items="{{links}}">
+            <a href$="{{item.href}}" class="u-mr-" target="_blank">{{item.title}}</a>
+          </template>
+          <span>&copy;{{copywrite}}</span>
         </nav>
       </div>
     </footer>
@@ -70,15 +74,17 @@ This element provides an easy way to create the header commonly used in Predix a
             }, {
               href: 'http://www.ge.com/terms',
               title: 'Terms'
-            }, {
-              href: 'http://www.ge.com/contact',
-              title: 'Contact'
-            }, {
+            },
+            {
               href: 'http://www.ge.com/access',
               title: 'Accessibility'
             }
           ]
         }
+      },
+      ready: function(){
+        //Add some padding by default
+        this.toggleClass('u-p-');
       }
     });
   </script>

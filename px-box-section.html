@@ -1,18 +1,21 @@
 <link rel="import" href="../polymer/polymer.html"/>
 
 <!--
-This element provides an easy way to create the section title bar commonly used in Predix apps.
+This element provides an easy way to create the section Industrial Internet apps.
 
 ## Usage
-<h… class=alpha>…</h…>
-<h… class=beta>…</h…>
-<h… class=gamma>…</h…>
-<h… class=delta>…</h…>
-<h… class=epsilon>…</h…>
-<h… class=zeta>…</h…>
+
 ```
 <px-box-section></px-box-section>
 ```
+
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--px-box-section` | Mixin applied to the element | {}
+
 @element px-box-section
 @demo demo/demo-px-box-section.html
 @homepage index.html
@@ -24,9 +27,13 @@ This element provides an easy way to create the section title bar commonly used 
         display: block;
       }
 
+      :host .box-section{
+        @apply(--px-box-section);
+      }
+
     </style>
     <section class="box-section">
-      <header class="box-section__tab" aria-controls$="{{title}}" role="tab" on-click="toggle">
+      <header class="box-section__tab" aria-controls$="{{title}}" role="tab" on-tap="toggle">
         <template is="dom-if" if="{{title}}">
           <h3 class$="{{headingClass}}">{{title}}</h3>
         </template>
@@ -40,28 +47,30 @@ This element provides an easy way to create the section title bar commonly used 
     Polymer({
       is: 'px-box-section',
       properties: {
+
         //The title for the section
         title: {
           type: String
         },
+
         //The state of the section
         open: {
           type: Boolean,
           value: false,
+          reflectToAttribute: true,
           observer: '_openHandler'
         },
+
+        //The class name for the heading
         headingClass: {
           type: String,
-          value: '',
           reflectToAttribute: true
         }
       },
       toggle: function () {
         this.open = !this.open;
-
       },
       _openHandler: function (newVal, oldVal) {
-    
         this.toggleClass('box-section--active', newVal, this.$$('.box-section'));
       }
 
