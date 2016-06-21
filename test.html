@@ -1,44 +1,66 @@
 <!doctype html>
 <html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../web-component-tester/browser.js"></script>
+		<link rel="import" href="../px-theme/px-app.html">
+		<link rel="import" href="../px-theme/px-theme.html">
+		<link rel="import" href="px-partials.html">
+	</head>
+	<body>
+		<px-header id="fixture1"></px-header>
+		<px-footer id="fixture2"></px-footer>
+		<px-title-bar id="fixture3"></px-title-bar>
+		<px-icon id="fixture4" icon="fa:fa-home"></px-icon>
+		<px-button id="fixture5" label="Button" theme="primary large"></px-button>
+		<px-brand id="fixture6" size="128" monogram></px-brand>
+		<script>
+			suite('<px-partials>', function () {
+				suite('<px-header>', function () {
+					var element = document.getElementById('fixture1');
+					test('renders', function () {
+						assert.ok(element);
+					});
+				});
+				suite('<px-footer>', function () {
+					var element = document.getElementById('fixture2');
+					test('renders', function () {
+						assert.ok(element);
+					});
+				});
+				suite('<px-title-bar>', function () {
+					var element = document.getElementById('fixture3');
+					test('renders', function () {
+						assert.ok(element);
+					});
+				});
+				suite('<px-icon>', function () {
+					var element = document.getElementById('fixture4');
+					test('renders', function () {
+						assert.ok(element);
+					});
+				});
+				suite('<px-button>', function () {
+					var element = document.getElementById('fixture5');
+					test('renders', function () {
+						assert.ok(element);
+					});
+					test('has correct size class', function () {
+						assert.ok(element.$.btn.classList.contains('btn--large'));
+					});
+					test('has correct theme class', function () {
+						assert.ok(element.$.btn.classList.contains('btn--primary'));
+					});
+				});
+				suite('<px-brand>', function () {
+					var element = document.getElementById('fixture6');
+					test('renders', function () {
+						assert.ok(element);
+					});
+				});
 
-<head>
-	<meta charset="UTF-8">
-	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
-	<script src="../web-component-tester/browser.js"></script>
-
-	<link rel="import" href="px-partials.html">
-</head>
-
-<body>
-
-  <px-header id="fixture1"></px-header>
-  <px-footer id="fixture2"></px-footer>
-  <px-title-bar id="fixture3"></px-title-bar>
-
-	<script>
-		suite('<px-partials>', function() {
-
-    	suite('<px-header>', function() {
-        var element = document.getElementById('fixture1');
-        test('renders', function() {
-  				assert.ok(element);
-  			});
-      });
-    	suite('<px-footer>', function() {
-        var element = document.getElementById('fixture2');
-        test('renders', function() {
-  				assert.ok(element);
-  			});
-      });
-    	suite('<px-title-bar>', function() {
-        var element = document.getElementById('fixture3');
-        test('renders', function() {
-  				assert.ok(element);
-  			});
-      });
-
-		});
-	</script>
-</body>
-
+			});
+		</script>
+	</body>
 </html>

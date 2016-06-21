@@ -1,47 +1,104 @@
 <html>
 	<head>
 		<!-- TODO: Dependencies -->
-		<script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
-		<link rel="import" href="../iron-demo-helpers/demo-snippet.html"/>
-		<link rel='stylesheet' href='https://predixdev.github.io/px-library-design/css/style.css'>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 		<title>px-partials demo</title>
+		<style media="screen">
+			body,
+			html {
+				background: #eee !important;
+			}
+			.bg-dark {
+				background-color: #333;
+			}
+		</style>
+    <script src="../webcomponentsjs/webcomponents.min.js"></script>
+		<link rel="import" href="../iron-demo-helpers/demo-snippet.html"/>
+		<link rel="import" href="../px-theme/px-theme.html">
+		<link rel="import" href="../px-theme/px-app.html">
+		<link rel="import" href="px-partials.html">
+
 	</head>
 	<body>
 		<div class="viewport">
-			<h2>px-header</h2>
-			<demo-snippet>
-				<template>
-					<div style="background-color: #3B3B3F;">
-						<link rel="import" href="px-header.html">
-						<px-header title="My App" subtitle="Some View"></px-header>
-					</div>
-				</template>
-			</demo-snippet>
-
-			<h2>px-footer</h2>
-			<demo-snippet>
-				<template>
-					<div style="background-color: #3B3B3F;">
-						<link rel="import" href="px-footer.html">
-						<px-footer copywrite="Copywrite &copy; 2016">This is the footer</px-footer>
-					</div>
-				</template>
-			</demo-snippet>
-
-			<h2>px-title-bar</h2>
-			<demo-snippet>
-				<template>
-					<link rel="import" href="px-title-bar.html">
-					<px-title-bar title="My Title Bar">
-						<button class="btn btn--icon btn--tertiary">
-							<i class="fa fa-download"></i>
-						</button>
-						<button class="btn btn--icon btn--tertiary">
-							<i class="fa fa-pencil"></i>
-						</button>
-					</px-title-bar>
-				</template>
-			</demo-snippet>
+			<!-- TODO:  -->
+			<section>
+				<h2>px-header</h2>
+				<demo-snippet>
+					<template>
+            <link rel="import" href="px-header/px-header.html">
+						<div class="bg-dark">
+							<px-header title="Application Name" subtitle="Product Name" class="u-p"></px-header>
+						</div>
+					</template>
+				</demo-snippet>
+			</section>
+			<section>
+				<!-- TODO:  -->
+				<h2>px-footer</h2>
+				<demo-snippet>
+					<template>
+						<div class="bg-dark">
+							<px-footer></px-footer>
+						</div>
+					</template>
+				</demo-snippet>
+			</section>
+			<!-- TODO:  -->
+			<section>
+				<h2>px-button</h2>
+				<demo-snippet>
+					<template>
+						<div class="flex flex--spaced u-mb">
+							<px-button label="Button" size="small" theme="disabled"></px-button>
+							<px-button label="Button" size="small" theme=""></px-button>
+							<px-button label="Button" size="small" theme="tertiary"></px-button>
+							<px-button label="Button" size="small" theme="primary"></px-button>
+						</div>
+						<div class="flex flex--spaced u-mb">
+							<px-button label="Button" theme="disabled"></px-button>
+							<px-button label="Button" theme=""></px-button>
+							<px-button label="Button" theme="tertiary"></px-button>
+							<px-button label="Button" theme="primary"></px-button>
+						</div>
+						<div class="flex flex--spaced u-mb">
+							<px-button label="Button" size="large" theme="disabled"></px-button>
+							<px-button label="Button" size="large" theme=""></px-button>
+							<px-button label="Button" size="large" theme="tertiary"></px-button>
+							<px-button label="Button" size="large" theme="primary"></px-button>
+						</div>
+						<div class="flex flex--spaced u-mb">
+							<px-button label="Button" size="huge" theme="disabled"></px-button>
+							<px-button label="Button" size="huge" theme=""></px-button>
+							<px-button label="Button" size="huge" theme="tertiary"></px-button>
+							<px-button label="Button" size="huge" theme="primary"></px-button>
+						</div>
+						<div class="flex flex--spaced u-mb">
+							<px-button icon="fa:fa-bar-chart" size="huge" theme="icon disabled"></px-button>
+							<px-button icon="fa:fa-bar-chart" size="huge" theme="icon"></px-button>
+							<px-button icon="fa:fa-bar-chart" size="huge" theme="icon tertiary"></px-button>
+							<px-button icon="fa:fa-bar-chart" size="huge" theme="icon primary"></px-button>
+						</div>
+					</template>
+				</demo-snippet>
+			</section>
+			<section>
+				<!-- TODO:  -->
+				<h2>px-brand</h2>
+				<demo-snippet>
+					<template>
+						<div class="u-p bg-dark flex flex--spaced flex--middle">
+							<px-brand size="128" monogram></px-brand>
+							<px-brand size="128" halo></px-brand>
+							<px-brand size="128" halo-wordmark></px-brand>
+							<px-brand size="450" wordmark></px-brand>
+						</div>
+					</template>
+				</demo-snippet>
+			</section>
 		</div>
 	</body>
 </html>

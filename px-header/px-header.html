@@ -34,6 +34,7 @@ Custom property | Description | Default
 -->
 <dom-module id="px-header">
 	<template strip-whitespace>
+		<link rel="import" type="css" href="../css/px-partials.css">
 		<style media="screen">
 			:host {
 				display: block;
@@ -126,7 +127,6 @@ Custom property | Description | Default
 				}
 			},
 			ready: function(){
-				//Add some padding by default
 				this.toggleClass('u-p-');
 			}
 		});

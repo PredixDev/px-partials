@@ -1,7 +1,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   var importOnce = require('node-sass-import-once');
   // Project configuration.
@@ -23,6 +23,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
+          //'css/noprefix/px-table-view-sketch.css': 'sass/px-table-view-sketch.scss',
+          //'css/noprefix/px-table-view.css': 'sass/px-table-view-predix.scss'
           //  '<%= pkg.name %>.css': 'sass/<%= pkg.name %>-sketch.scss',
           'css/noprefix/px-partials-sketch.css': 'sass/px-partials-sketch.scss',
           'css/noprefix/px-partials.css': 'sass/px-partials-predix.scss'
@@ -153,7 +155,7 @@ module.exports = function(grunt) {
   ]);
 
   // First run task.
-  grunt.registerTask('firstrun', 'Basic first run', function() {
+  grunt.registerTask('firstrun', 'Basic first run', function () {
     grunt.config.set('depserveOpenUrl', '/index.html');
     grunt.task.run('default');
     grunt.task.run('depserve');
