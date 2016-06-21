@@ -1,7 +1,8 @@
-Px-Partials
+px-partials
 -----------------------------------------------
 
 [![Build Status](https://travis-ci.org/PredixDev/px-partials.svg?branch=master)](https://travis-ci.org/PredixDev/px-partials)
+cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 ## Overview
 
@@ -16,7 +17,7 @@ From the component's directory...
 ```
 $ npm install
 $ bower install
-$ grunt sass
+$ grunt
 ```
 
 ### API and examples
