@@ -33,38 +33,42 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-footer">
+  <link rel="import" type="css" href="../css/px-partials.css">
   <template strip-whitespace>
-  <style>
-    :host {
-      display: block;
-    }
-    :host ul {
-      list-style-type: none;
-    }
-    :host footer {
-      @apply(--px-footer);
-      color: #9999A3;
-    }
-    :host footer nav {
-      @apply(--px-footer-nav);
-      font-size: 0.8rem;
-    }
-    :host a {
-      text-decoration: none;
-      color: #B1B1BC;
-    }
-  </style>
-    <footer class="flex flex--justify flex--middle">
-      <div class="u-ml u-mt--">
-        <px-brand size="32" monogram class=" muted"></px-brand>
+    <style>
+      :host {
+        display: block;
+      }
+      :host .c-footer ul {
+        list-style-type: none;
+      }
+      :host .c-footer {
+        @apply(--px-footer);
+        font-size: 0.8rem;
+        color: #9999A3;
+      }
+      :host .c-footer__nav  {
+        @apply(--px-footer-nav);
+
+      }
+      :host .c-footer nav a {
+        text-decoration: none;
+        color: #B1B1BC;
+      }
+    </style>
+    <footer class="c-footer flex flex--justify flex--middle u-mt--">
+      <div class="c-footer__brand flex flex--center flex--middle muted">
+        <px-brand size="32" monogram></px-brand>
+        <content select="[left]"></content>
       </div>
-      <div class="u-mr">
-        <nav class="flex flex--right flex--spaced" role="navigation">
+      <div class="flex flex--right">
+        <nav class="c-footer__nav flex flex--right flex--spaced" role="navigation">
           <template is="dom-repeat" items="{{links}}">
             <a href$="{{item.href}}" class="u-mr-" target="_blank">{{item.title}}</a>
           </template>
-          <span>&copy;{{copywrite}}</span>
         </nav>
+        <span class="c-footer_copywrite">&copy;{{copywrite}}</span>
+        <content select="[right]"></content>
       </div>
     </footer>
   </template>
@@ -80,7 +84,7 @@ Custom property | Description | Default
           value: '2016 General Electric'
         },
         /**
-         * The list of footer links 
+         * The list of footer links
          */
         links: {
           type: Array,

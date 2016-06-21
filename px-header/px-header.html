@@ -33,66 +33,39 @@ Custom property | Description | Default
 @homepage index.html
 -->
 <dom-module id="px-header">
+	<link rel="import" type="css" href="../css/px-partials.css">
 	<template strip-whitespace>
-		<link rel="import" type="css" href="../css/px-partials.css">
-		<style media="screen">
+		<style>
 			:host {
 				display: block;
 			}
-			:host .header {
+			:host .c-header {
 				color: #b1b1bc;
 				@apply(--px-header);
 			}
-			:host .header__nav {
+			:host .c-header__nav {
 				@apply(--px-header-nav);
 			}
-			:host .header__content {
-				position: relative;
-			}
-			:host .header__title {
-				white-space: nowrap;
-			}
-
-			:host .header__nav ::content a {
-				text-decoration: none;
-				color: #efeff4;
-			}
-			:host .header__title {
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-				-ms-flex: 1;
-				flex: 1;
-				-ms-flex-item-align: center;
-				align-self: center;
-			}
-			:host .header__brand {
-				height: 32px;
-				width: 32px;
-				-ms-flex-item-align: center;
-				align-self: center;
-			}
 		</style>
-		<div class="header flex flex--center flex--spaced flex--row">
+		<div class="c-header flex flex--center flex--spaced flex--row">
 			<div class="flex flex--middle">
-				<div class="header__brand flex__item--middle" hidden$="{{!title}}">
-					<span class="header__logo">
+				<div class="c-header__brand flex__item--middle" hidden$="{{!title}}">
+					<span class="c-header__logo">
 						<px-brand monogram size="32"></px-brand>
 					</span>
 				</div>
-				<div class="header__title epsilon flex__item--middle u-ml--" hidden$="{{!title}}">
+				<div class="c-header__title epsilon flex__item--middle u-ml--" hidden$="{{!title}}">
 					<span class="u-mr--">{{title}}</span>
-					<span class="header__seperator" hidden$="{{!subtitle}}"></span>
-					<small class="header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</small>
+					<span class="c-header__seperator" hidden$="{{!subtitle}}"></span>
+					<small class="c-header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</small>
 				</div>
 				<content id="leftContent" select="[left]"></content>
 			</div>
-			<div class="flex flex__item flex--middle header__nav  u-ml">
+			<div class="c-header__nav flex flex__item flex--middle  u-ml">
 				<content id="navContent" select="nav"></content>
 			</div>
 			<div class="flex__item--middle">
-				<span class="header__powered muted" hidden$="{{!powered}}">{{powered}}</span>
+				<span class="c-header__powered muted" hidden$="{{!powered}}">{{powered}}</span>
 				<content id="rightContent" select="[right]"></content>
 			</div>
 		</div>

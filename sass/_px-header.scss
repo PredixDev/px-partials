@@ -1,4 +1,28 @@
 @import "px-colors-design/_settings.colors.scss";
 @import 'px-spacing-design/_trumps.spacing.scss';
+@import 'px-mobile-design/sass/_mixins.scss';
 
 ///See px-header/px-header.html
+.c-header{
+  @include e('title'){
+    white-space: nowrap;
+    user-select: none;
+    flex: 1;
+    align-self: center;
+  }
+  @include e('brand'){
+    height: 32px;
+    width: 32px;
+    align-self: center;
+  }
+  @include e('content'){
+    position: relative;
+  }
+  @include c('nav'){
+    a {
+      text-decoration: none;
+      color: $gray5;
+    }
+  }
+
+}

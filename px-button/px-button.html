@@ -38,11 +38,9 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-button">
+	<link rel="import" type="css" href="../css/px-partials.css">
 	<template strip-whitespace>
-		<style media="screen">
-			:host{
-
-			}
+		<style>
 			:host .btn{
 				@apply(--px-button);
 			}
@@ -114,11 +112,11 @@ Custom property | Description | Default
 				});
 			},
 			_clickHandler: function (e) {
-				this.fire('px-button-click', e);
+				this.fire('px-button-tap', e);
 			}
 			/**
-			 * Fires when button is clicked
-			 * @event px-button-click
+			 * Fires when button is pressed
+			 * @event px-button-tap
 			 */
 
 		});

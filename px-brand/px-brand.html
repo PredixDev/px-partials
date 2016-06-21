@@ -8,9 +8,10 @@
  * with the terms and conditions stipulated in the agreement/contract
  * under which the software has been supplied.
  */
- <link rel="import" href="px-brand-iconset.html">
+
  -->
 <link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="./px-brand-iconset.html">
 
 <!--
 The `px-brand` element provides an easy way to use the GE brands commonly displayed in Predix apps.
@@ -61,6 +62,10 @@ Custom property | Description | Default
 		}
 	</style>
 	<template strip-whitespace>
+		<!--
+		<iron-icon name$="{{name}}" size$="{{size}}"></iron-icon>
+			-->
+		
 		<template id="monographTemplate" is="dom-if" if="{{monogram}}">
 			<svg xmlns="http://www.w3.org/2000/svg" fill$="{{color}}" width$="{{size}}" height$="{{size}}" viewBox="0 0 44 44" enable-background="new 0 0 44 44"><path
 
@@ -184,6 +189,8 @@ Custom property | Description | Default
 					</svg>
 
 				</template>
+
+
 	</template>
 	<script>
 		Polymer({
@@ -198,6 +205,12 @@ Custom property | Description | Default
 					notify: true,
 					value: 'white'
 				},
+				/**
+				 * The name of the icon
+
+				name: {
+					type: String
+				},		 */
 				/**
 				 * The height/width size
 				 */
@@ -234,7 +247,10 @@ Custom property | Description | Default
 					value: false
 				}
 			},
-			created: function () {}
+			created: function () {
+
+				console.warn(this.tagName, 'created', this);
+			}
 		});
 	</script>
 </dom-module>

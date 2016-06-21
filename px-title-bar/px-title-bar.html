@@ -17,7 +17,10 @@ The `px-title-bar` element provides an easy way to create the section title bar 
 ### Usage
 
 ```
-<px-title-bar></px-title-bar>
+<px-title-bar title="Section Title">
+  <px-button label="Action 1" theme="tertiary" class="u-mr--"></px-button>
+  <px-button label="Action 2" theme="tertiary"></px-button>
+</px-title-bar>
 ```
 
 ### Styling
@@ -32,9 +35,9 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-title-bar">
-
+  <link rel="import" type="css" href="../css/px-partials.css">
   <template>
-    <style media="screen">
+    <style>
       :host {}
 
       :host .title-bar {
