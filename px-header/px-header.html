@@ -40,34 +40,73 @@ Custom property | Description | Default
 				display: block;
 			}
 			:host .c-header {
-				color: #b1b1bc;
 				@apply(--px-header);
 			}
 			:host .c-header__nav {
 				@apply(--px-header-nav);
 			}
+			:host .c-header__title {
+				@apply(--px-header-title);
+			}
+			:host .c-header__subtitle {
+				@apply(--px-header-subtitle);
+			}
+			:host .c-header__link {
+				@apply(--px-header-link);
+			}
+
 		</style>
-		<div class="c-header flex flex--center flex--spaced flex--row">
-			<div class="flex flex--middle">
-				<div class="c-header__brand flex__item--middle" hidden$="{{!title}}">
-					<span class="c-header__logo">
-						<px-brand monogram size="32"></px-brand>
+		<div class="c-header flex flex--middle flex--spaced flex--row">
+
+			<div class="c-header__left flex flex__item flex--middle flex--left u-ml-">
+				<div class="c-header__brand">
+					<span class="c-header__logo flex flex--middle flex--center">
+						<px-brand monogram size="24"></px-brand>
 					</span>
 				</div>
-				<div class="c-header__title epsilon flex__item--middle u-ml--" hidden$="{{!title}}">
-					<span class="u-mr--">{{title}}</span>
-					<span class="c-header__seperator" hidden$="{{!subtitle}}"></span>
-					<small class="c-header__subtitle muted" hidden$="{{!subtitle}}">{{subtitle}}</small>
+
+				<div class="flex flex--middle flex--spaced  u-ml- " hidden$="{{!title}}">
+					<span class="c-header__title epsilon">{{title}}</span>
+					  <template is="dom-if" if="{{subtitle}}">
+					<span class="c-header__seperator u-ml- u-mr- is-hidden@sm-" hidden$="{{!subtitle}}"></span>
+					<span class="c-header__subtitle  is-hidden@sm-" hidden$="{{!subtitle}}">{{subtitle}}</span>
+				</template>
 				</div>
 				<content id="leftContent" select="[left]"></content>
 			</div>
-			<div class="c-header__nav flex flex__item flex--middle  u-ml">
-				<content id="navContent" select="nav"></content>
+
+
+
+
+
+			<div class="c-header__right flex__item flex__item--middle flex flex--right">
+				<div class="c-header__nav flex flex__item flex--middle u-ml">
+					<nav class="nav flex flex--justify">
+						<template is="dom-repeat" items="[[navItems]]">
+							<a class="u-p- c-header__link">{{item.label}}</a>
+						</template>
+					</nav>
+				</div>
+        <div class="flex">
+					<template is="dom-if" if="{{username}}">
+	          <a class="c-header__link user flex flex--middle flex--center ">
+	            <span class="circle flex flex--center flex--middle">
+	                <!--<px-icon icon="fa:fa-user"></px-icon>-->
+	              <i class="fa fa-lg fa-user"></i>
+	            </span>
+	            <span class="username flex flex--middle u-ml--">
+	              {{username}}
+	            </span>
+	          </a>
+	        </template>
+
+        </div>
+					<content id="rightContent" select="[right]"></content>
+
+					<span class="c-header__powered is-hidden@xs-" hidden$="{{!powered}}">{{powered}}</span>
+
 			</div>
-			<div class="flex__item--middle">
-				<span class="c-header__powered muted" hidden$="{{!powered}}">{{powered}}</span>
-				<content id="rightContent" select="[right]"></content>
-			</div>
+
 		</div>
 	</template>
 	<script>
@@ -82,21 +121,31 @@ Custom property | Description | Default
 				 */
 				title: {
 					type: String,
-					value: 'Application Name'
+					value: 'Seed Application'
 				},
 				/**
 				 * The subtitle to display
 				 */
 				subtitle: {
-					type: String,
-					value: 'Product Name'
+					type: String
 				},
 				/**
 				 * The powered by to display
 				 */
 				powered: {
-					type: String,
-					value: 'Powered by Predix'
+					type: String
+				},
+				/**
+				 * The username to display
+				 */
+        username: {
+          type: String
+        },
+				/**
+				 * Array of menu items to display with keys (label, href)
+				 */
+				navItems: {
+					type: Array
 				}
 			},
 			ready: function(){

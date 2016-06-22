@@ -94,10 +94,6 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
   display: -ms-flexbox;
   display: flex; }
 
-.inline--flex {
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-
 .flex--row {
   -ms-flex-direction: row;
       flex-direction: row; }
@@ -4093,27 +4089,171 @@ button.btn {
   .title-bar .title-bar__actions .btn:last-child {
     margin-right: 0; }
 
-.c-header__title {
-  white-space: nowrap;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -ms-flex: 1;
-      flex: 1;
-  -ms-flex-item-align: center;
-      align-self: center; }
+.c-header {
+  font-size: 15px; }
+  .c-header__title {
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    white-space: nowrap;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -ms-flex: 1;
+        flex: 1;
+    color: var(--px-header-title-color, #d1d0d8);
+    text-align: left;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                 not supported by any browser */ }
+  .c-header__brand {
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    color: var(--px-header-brand-color, #d1d0d8); }
+  .c-header__subtitle {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                 not supported by any browser */
+    color: var(--px-header-subtitle-color, #9999a3); }
+  .c-header__powered {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                 not supported by any browser */
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    color: var(--px-header-powered-color, #9999a3); }
+  .c-header__seperator {
+    -ms-flex: 1;
+        flex: 1;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    width: 1px;
+    background-color: var(--px-header-seperator-color, #9999a3); }
+  .c-header__content {
+    position: relative; }
+  .c-header ::content nav,
+  .c-header nav {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                 not supported by any browser */ }
+    .c-header ::content nav a,
+    .c-header nav a {
+      text-decoration: none; }
+  .c-header__left {
+    text-align: left; }
+    .c-header__left a {
+      text-decoration: none; }
+  .c-header__right {
+    text-align: right; }
+    .c-header__right a {
+      text-decoration: none; }
+  .c-header .circle {
+    border-radius: 50%;
+    background-color: #d1d0d8;
+    padding: 0.5rem;
+    text-align: center; }
+  .c-header__link {
+    white-space: nowrap;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-color: transparent; }
+    .c-header__link:active {
+      background-color: rgba(0, 0, 0, 0.4); }
+  .c-header .username {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
 
-.c-header__brand {
-  height: 32px;
-  width: 32px;
-  -ms-flex-item-align: center;
-      align-self: center; }
+.is-invisible {
+  visibility: hidden !important; }
 
-.c-header__content {
-  position: relative; }
+@media (min-width: 21.3333333333rem) {
+  .is-hidden\@xs\+ {
+    display: none !important; } }
 
-.c-header ::content nav a,
-.c-header nav a {
-  text-decoration: none;
-  color: #b1b1bc; }
+@media (max-width: 31.9333333333rem) {
+  .is-hidden\@xs- {
+    display: none !important; } }
+
+@media (min-width: 32rem) {
+  .is-hidden\@sm\+ {
+    display: none !important; } }
+
+@media (max-width: 51.1333333333rem) {
+  .is-hidden\@sm- {
+    display: none !important; } }
+
+@media (min-width: 51.2rem) {
+  .is-hidden\@md\+ {
+    display: none !important; } }
+
+@media (max-width: 68.2rem) {
+  .is-hidden\@md- {
+    display: none !important; } }
+
+@media (min-width: 68.2666666667rem) {
+  .is-hidden\@lg\+ {
+    display: none !important; } }
+
+@media (max-width: 79.9333333333rem) {
+  .is-hidden\@lg- {
+    display: none !important; } }
+
+@media (min-width: 80rem) {
+  .is-hidden\@xl\+ {
+    display: none !important; } }
+
+.is-hidden\@xl- {
+  display: none !important; }

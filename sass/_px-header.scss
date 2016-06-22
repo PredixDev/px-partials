@@ -1,28 +1,127 @@
+@import "px-defaults-design/_settings.defaults.scss";
 @import "px-colors-design/_settings.colors.scss";
 @import 'px-spacing-design/_trumps.spacing.scss';
 @import 'px-mobile-design/sass/_mixins.scss';
 
 ///See px-header/px-header.html
-.c-header{
-  @include e('title'){
+@include b ('c-header') {
+  font-size: $inuit-base-font-size;
+
+  @include media-breakpoint('sm'){
+    //flex-direction:column;
+  }
+
+  &__left, &__right{
+  //  align-self      : stretch;
+
+  }
+
+
+
+  ///-------------------------------------
+  @include e ('title') {
+    align-self: stretch;
     white-space: nowrap;
     user-select: none;
-    flex: 1;
-    align-self: center;
+    flex       : 1;
+    color      : var(--px-header-title-color, $gray4 );
+    text-align : left;
+    @include noselect();
   }
-  @include e('brand'){
-    height: 32px;
-    width: 32px;
-    align-self: center;
+
+  ///-------------------------------------
+  @include e ('brand') {
+    align-self: stretch;
+
+    color      : var(--px-header-brand-color, $gray4 );
   }
-  @include e('content'){
+
+  ///-------------------------------------
+  @include e ('subtitle') {
+    @include noselect();
+    color      : var(--px-header-subtitle-color, $gray6 );
+  }
+
+  ///-------------------------------------
+  @include e ('powered') {
+    @include noselect();
+align-self      : stretch;
+    color      : var(--px-header-powered-color, $gray6 );
+  }
+
+  ///-------------------------------------
+  @include e ('seperator') {
+    flex            : 1;
+    align-self      : stretch;
+    width           : 1px;
+
+    background-color      : var(--px-header-seperator-color, $gray6 );
+  }
+
+  ///-------------------------------------
+  @include e ('content') {
     position: relative;
   }
-  @include c('nav'){
+
+  ///-------------------------------------
+  @include c ('nav') {
+    @include noselect();
     a {
       text-decoration: none;
-      color: $gray5;
     }
+  }
+
+  ///-------------------------------------
+  @include e ('left') {
+    text-align: left;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  ///-------------------------------------
+  @include e ('right') {
+    text-align: right;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  ///-------------------------------------
+  .circle {
+    border-radius   : 50%;
+    background-color: $gray4;
+    padding         : 0.5rem;
+    text-align      : center;
+  }
+
+  ///-------------------------------------
+  @include e ('link') {
+
+    white-space          : nowrap;
+    padding              : 0.5rem 0.8rem;
+    border-radius        : 4px;
+    border               : 1px solid transparent;
+    cursor               : pointer;
+    outline              : none;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select  : none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select   : none;
+    appearance           : none;
+    background-color     : rgba(0,0,0, 0);
+
+    &:active {
+      background-color: rgba(0,0,0, 0.4);
+    }
+  }
+
+  ///-------------------------------------
+  .username {
+    user-select: none;
   }
 
 }
