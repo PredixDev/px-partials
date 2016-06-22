@@ -65,7 +65,7 @@ Custom property | Description | Default
 		<!--
 		<iron-icon name$="{{name}}" size$="{{size}}"></iron-icon>
 			-->
-		
+
 		<template id="monographTemplate" is="dom-if" if="{{monogram}}">
 			<svg xmlns="http://www.w3.org/2000/svg" fill$="{{color}}" width$="{{size}}" height$="{{size}}" viewBox="0 0 44 44" enable-background="new 0 0 44 44"><path
 
@@ -249,7 +249,6 @@ Custom property | Description | Default
 			},
 			created: function () {
 
-				console.warn(this.tagName, 'created', this);
 			}
 		});
 	</script>

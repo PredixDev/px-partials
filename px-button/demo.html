@@ -1,40 +1,66 @@
 <html>
-<head>
-	<title>px-button demo</title>
-	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<!-- TODO: Dependencies -->
-	<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
-	<link rel="import" href="../../iron-demo-helpers/demo-snippet.html" />
-	<link rel='stylesheet' href='//predixdev.github.io/px-library-design/css/style.css'>
-	<link rel="import" href="px-button.html">
-  <style media="screen">
-    .padding-10{
-      padding: 10px;
-
-    }
-
-  </style>
-
-</head>
-<body>
-
-
-
-  <div class="viewport">
-    <h2>px-button</h2>
-    <demo-snippet>
-			<template id="">
-				<px-button label="Button" size="small"></px-button>
-				<px-button label="Button" size="regular" theme="primary" icon="fa fa-home"></px-button>
-				<px-button label="Button" size="large" theme="tertiary" icon="fa fa-home"></px-button>
-				<px-button label="Button" size="huge" theme="disabled" icon="fa fa-home"></px-button>
-			</template>
-		</demo-snippet>
-  </div>
-
-
-
-</body>
-
+	<head>
+		<title>px-button demo</title>
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- TODO: Dependencies -->
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html"/>
+		<link rel="import" href="../../px-theme/px-app.html">
+		<link rel="import" href="../../px-theme/px-theme.html">
+		<link rel="import" href="../../px-layout/px-layout.html">
+		<link rel="import" href="px-button.html">
+		<style media="screen">
+			.padding-10 {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="viewport">
+			<h2>px-button</h2>
+			<demo-snippet>
+				<template id="">
+					<px-button label="Button" size="small"></px-button>
+					<px-button label="Button" size="regular" theme="primary" icon="fa:fa-home"></px-button>
+					<px-button label="Button" size="large" theme="tertiary" icon="fa:fa-home"></px-button>
+					<px-button label="Button" size="huge" theme="disabled" icon="fa:fa-home"></px-button>
+				</template>
+			</demo-snippet>
+			<demo-snippet>
+				<template id="">
+					<div class="flex flex--spaced u-mb">
+						<px-button label="Button" size="small" theme="disabled"></px-button>
+						<px-button label="Button" size="small" theme></px-button>
+						<px-button label="Button" size="small" theme="tertiary"></px-button>
+						<px-button label="Button" size="small" theme="primary"></px-button>
+					</div>
+					<div class="flex flex--spaced u-mb">
+						<px-button label="Button" theme="disabled"></px-button>
+						<px-button label="Button" theme></px-button>
+						<px-button label="Button" theme="tertiary"></px-button>
+						<px-button label="Button" theme="primary"></px-button>
+					</div>
+					<div class="flex flex--spaced u-mb">
+						<px-button label="Button" size="large" theme="disabled"></px-button>
+						<px-button label="Button" size="large" theme></px-button>
+						<px-button label="Button" size="large" theme="tertiary"></px-button>
+						<px-button label="Button" size="large" theme="primary"></px-button>
+					</div>
+					<div class="flex flex--spaced u-mb">
+						<px-button label="Button" size="huge" theme="disabled"></px-button>
+						<px-button label="Button" size="huge" theme></px-button>
+						<px-button label="Button" size="huge" theme="tertiary"></px-button>
+						<px-button label="Button" size="huge" theme="primary"></px-button>
+					</div>
+					<div class="flex flex--spaced u-mb">
+						<px-button icon="fa:fa-bar-chart" size="huge" theme="icon disabled"></px-button>
+						<px-button icon="fa:fa-bar-chart" size="huge" theme="icon"></px-button>
+						<px-button icon="fa:fa-bar-chart" size="huge" theme="icon tertiary"></px-button>
+						<px-button icon="fa:fa-bar-chart" size="huge" theme="icon primary"></px-button>
+					</div>
+				</template>
+			</demo-snippet>
+		</div>
+	</body>
 </html>

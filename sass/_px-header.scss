@@ -5,22 +5,24 @@
 
 ///See px-header/px-header.html
 @include b ('c-header') {
-  font-size: $inuit-base-font-size;
+  font-size      : $inuit-base-font-size;
+  display        : flex;
+  justify-content: space-between;
+  padding        : $inuit-base-spacing-unit--small;
 
-  @include media-breakpoint('sm'){
+  @include media-breakpoint ('xs') {
     //flex-direction:column;
+  //  padding        : $inuit-base-spacing-unit--tiny;
   }
 
-  &__left, &__right{
-  //  align-self      : stretch;
+  &__left,
+  &__right {
+    //  align-self      : stretch;
 
   }
-
-
 
   ///-------------------------------------
   @include e ('title') {
-    align-self: stretch;
     white-space: nowrap;
     user-select: none;
     flex       : 1;
@@ -30,32 +32,39 @@
   }
 
   ///-------------------------------------
-  @include e ('brand') {
-    align-self: stretch;
+  @include e ('logo') {
+    //  transform: translateY(2px);
+  }
 
-    color      : var(--px-header-brand-color, $gray4 );
+  ///-------------------------------------
+  @include e ('brand') {
+    display     : flex;
+    color       : var(--px-header-brand-color, $gray4 );
+    margin-right: $inuit-base-spacing-unit--tiny;
   }
 
   ///-------------------------------------
   @include e ('subtitle') {
     @include noselect();
-    color      : var(--px-header-subtitle-color, $gray6 );
+    color: var(--px-header-subtitle-color, $gray6 );
   }
 
   ///-------------------------------------
   @include e ('powered') {
     @include noselect();
-align-self      : stretch;
-    color      : var(--px-header-powered-color, $gray6 );
+    align-self: stretch;
+    color     : var(--px-header-powered-color, $gray6 );
   }
 
   ///-------------------------------------
   @include e ('seperator') {
     flex            : 1;
-    align-self      : stretch;
+    max-height      : 20px;
+    height          : 100%;
     width           : 1px;
-
-    background-color      : var(--px-header-seperator-color, $gray6 );
+    background-color: var(--px-header-seperator-color, $gray6 );
+    margin-right    : $inuit-base-spacing-unit--small;
+    margin-left     : $inuit-base-spacing-unit--small;
   }
 
   ///-------------------------------------
@@ -64,16 +73,12 @@ align-self      : stretch;
   }
 
   ///-------------------------------------
-  @include c ('nav') {
-    @include noselect();
-    a {
-      text-decoration: none;
-    }
-  }
-
-  ///-------------------------------------
   @include e ('left') {
-    text-align: left;
+    display        : flex;
+    text-align     : left;
+    justify-content: flex-start;
+    align-items    : center;
+    order          : 1;
 
     a {
       text-decoration: none;
@@ -82,7 +87,13 @@ align-self      : stretch;
 
   ///-------------------------------------
   @include e ('right') {
-    text-align: right;
+    display        : flex;
+    align-items    : center;
+    text-align     : right;
+    order          : 4;
+    flex           : 1;
+    align-self     : center;
+    justify-content: flex-end;
 
     a {
       text-decoration: none;
@@ -90,38 +101,69 @@ align-self      : stretch;
   }
 
   ///-------------------------------------
-  .circle {
+  @include e ('circle') {
     border-radius   : 50%;
-    background-color: $gray4;
-    padding         : 0.5rem;
+    background-color: var(--px-header-circle-background-color, $gray6);
+    color           : var(--px-header-circle-color, $gray4);
+    padding         : $inuit-base-spacing-unit--tiny;
+    margin-right    : $inuit-base-spacing-unit--tiny;
     text-align      : center;
+    display         : flex;
+
   }
 
   ///-------------------------------------
-  @include e ('link') {
+  @include c ('nav') {
+    @include noselect();
+    display: flex;
+    align-self: stretch;
+    flex: 1;
+    margin-left: $inuit-base-spacing-unit;
+    > * {
+      display: flex;
+    }
 
-    white-space          : nowrap;
-    padding              : 0.5rem 0.8rem;
-    border-radius        : 4px;
-    border               : 1px solid transparent;
-    cursor               : pointer;
-    outline              : none;
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select  : none;
-    /* Chrome/Safari/Opera */
-    -khtml-user-select   : none;
-    appearance           : none;
-    background-color     : rgba(0,0,0, 0);
+    a {
+      text-decoration: none;
 
-    &:active {
-      background-color: rgba(0,0,0, 0.4);
     }
   }
 
   ///-------------------------------------
-  .username {
+  @include e ('link') {
+    box-sizing           : border-box;
+    margin-left         : $inuit-base-spacing-unit--tiny;
+    white-space          : nowrap;
+    padding              : $inuit-base-spacing-unit--tiny $inuit-base-spacing-unit--small;
+    border-radius        : var(--px-header-link-border-radius, 2px);
+    color                : var(--px-header-link-color, $gray6);
+    border               : 1px solid transparent;
+    cursor               : pointer;
+    outline              : none;
+    -webkit-touch-callout: none;
+    -webkit-user-select  : none;
+    -khtml-user-select   : none;
+    appearance           : none;
+    background-color     : var(--px-header-link-background-color, rgba(0,0,0, 0));
+    display              : flex;
+    align-content        : space-between;
+    justify-content      : center;
+    align-items: center;
+    @include media-breakpoint (sm) {
+        padding        : $inuit-base-spacing-unit--tiny;
+    }
+    &:active{
+      background-color: var(--px-header-link-active-background-color, rgba(0,0,0, .4));
+    }
+    @include m('selected') {
+      background-color: var(--px-header-link-active-background-color, rgba(0,0,0, .4));
+    }
+  }
+
+  ///-------------------------------------
+  @include e ('username') {
     user-select: none;
+    align-self : center;
   }
 
 }

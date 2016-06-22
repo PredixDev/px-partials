@@ -33,6 +33,32 @@
 	<body>
 		<div class="viewport">
 			<h1 class="beta">px-header</h1>
+			<p>
+				The <code>px-header</code> element provides a way to use layout headers.
+			</p>
+
+
+			<h2>Default Example</h2>
+			<div class="u-mb++">
+				<demo-snippet>
+					<template>
+						<div class="bg-dark">
+							<px-header></px-header>
+						</div>
+					</template>
+				</demo-snippet>
+			</div>
+
+			<h2>Bare Example</h2>
+			<div class="u-mb++">
+				<demo-snippet>
+					<template>
+						<div class="bg-dark">
+							<px-header title="" subtitle=" " powered=" "></px-header>
+						</div>
+					</template>
+				</demo-snippet>
+			</div>
 
 			<h2>LA Example</h2>
 			<div class="u-mb++">
@@ -96,13 +122,18 @@
 							</style>
 							<px-layout>
 								<div class="" content>
-									<px-header nav-items="{{menu}}" title="Seed Application" username="John Sinclair" class="vanilla-seed"></px-header>
+									<px-header selected="{{selected}}" nav-items="{{menu}}" title="Seed Application" username="John Sinclair" class="vanilla-seed"></px-header>
+									<br>
+									<h2>{{selected}}</h2>
+									<h2>{{selectedItem.label}}</h2>
 								</div>
 							</px-layout>
 						</template>
 						<script type="text/javascript">
 							document.addEventListener('WebComponentsReady', function () {
 								var app = document.getElementById('demo1');
+
+								app.selected = 0;
 								app.menu = [
 									{
 										label: 'Dashboard', href: '#dashboard'
@@ -111,39 +142,21 @@
 									}
 								];
 							});
+
+							['px-header-link-select', 'px-header-user-select'].forEach(function(evt, i){
+								console.log('attaching event listener', evt, i);
+								document.addEventListener(evt, function(e){
+									console.log(e.type, e);
+								});
+							});
 						</script>
 					</template>
 				</demo-snippet>
 			</div>
 
-			<div class="u-mb++">
-				<demo-snippet>
-					<template>
-						<div class="bg-dark">
-							<px-header title="My App" subtitle></px-header>
-						</div>
-					</template>
-				</demo-snippet>
-			</div>
-			<div class="u-mb++">
-				<demo-snippet>
-					<template>
-						<div class="bg-dark">
-							<px-header title="My App"></px-header>
-						</div>
-					</template>
-				</demo-snippet>
-			</div>
 
-			<div class="u-mb++">
-				<demo-snippet>
-					<template>
-						<div class="bg-dark">
-							<px-header title="" subtitle=" " powered=" "></px-header>
-						</div>
-					</template>
-				</demo-snippet>
-			</div>
+
+
 
 		</div>
 

@@ -10,9 +10,11 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-selector/iron-selector.html">
 <link rel="import" href="../px-brand/px-brand.html">
 <!--
 The `px-header` element provides an easy way to create the header commonly used in Predix apps.
+
 
 ### Usage
 
@@ -26,10 +28,17 @@ The following custom properties are available for styling:
 Custom property | Description | Default
 ----------------|-------------|----------
 `--px-header` | Mixin applied to the element | {}
-`--px-header-nav` | Mixin applied to the nav element | {}
+`--px-header-avatar` | Mixin applied to the avatar | {}
+`--px-header-brand` | Mixin applied to the brand | {}
+`--px-header-link` | Mixin applied to the links | {}
+`--px-header-nav` | Mixin applied to the nav | {}
+`--px-header-subtitle` | Mixin applied to the subtitle | {}
+`--px-header-title` | Mixin applied to the title | {}
+
+
 
 @element px-header
-@demo ./demo.html
+@demo ./px-header/demo.html
 @homepage index.html
 -->
 <dom-module id="px-header">
@@ -42,6 +51,9 @@ Custom property | Description | Default
 			:host .c-header {
 				@apply(--px-header);
 			}
+			:host .c-header__brand {
+				@apply(--px-header-brand);
+			}
 			:host .c-header__nav {
 				@apply(--px-header-nav);
 			}
@@ -51,60 +63,51 @@ Custom property | Description | Default
 			:host .c-header__subtitle {
 				@apply(--px-header-subtitle);
 			}
+			:host .c-header__circle {
+				@apply(--px-header-avatar);
+			}
 			:host .c-header__link {
 				@apply(--px-header-link);
 			}
 
 		</style>
-		<div class="c-header flex flex--middle flex--spaced flex--row">
-
-			<div class="c-header__left flex flex__item flex--middle flex--left u-ml-">
+		<div class="c-header">
+			<div class="c-header__left">
 				<div class="c-header__brand">
-					<span class="c-header__logo flex flex--middle flex--center">
+					<span class="c-header__logo">
 						<px-brand monogram size="24"></px-brand>
 					</span>
 				</div>
-
-				<div class="flex flex--middle flex--spaced  u-ml- " hidden$="{{!title}}">
-					<span class="c-header__title epsilon">{{title}}</span>
-					  <template is="dom-if" if="{{subtitle}}">
-					<span class="c-header__seperator u-ml- u-mr- is-hidden@sm-" hidden$="{{!subtitle}}"></span>
+				<span class="c-header__title epsilon">{{title}}</span>
+				<template is="dom-if" if="{{subtitle}}">
+					<span class="c-header__seperator is-hidden@sm-" hidden$="{{!subtitle}}"></span>
 					<span class="c-header__subtitle  is-hidden@sm-" hidden$="{{!subtitle}}">{{subtitle}}</span>
 				</template>
-				</div>
 				<content id="leftContent" select="[left]"></content>
 			</div>
 
-
-
-
-
-			<div class="c-header__right flex__item flex__item--middle flex flex--right">
-				<div class="c-header__nav flex flex__item flex--middle u-ml">
-					<nav class="nav flex flex--justify">
-						<template is="dom-repeat" items="[[navItems]]">
-							<a class="u-p- c-header__link">{{item.label}}</a>
+			<div class="c-header__right">
+				<nav class="c-header__nav">
+					<iron-selector selected="{{selected}}"  selected-class="c-header__link--selected">
+						<template is="dom-repeat" items="{{navItems}}">
+							<a class="c-header__link" title$="[[item.label]]" on-tap="_handleTap">{{item.label}}</a>
 						</template>
-					</nav>
-				</div>
-        <div class="flex">
+					</iron-selector>
+				</nav>
+        <div class="">
 					<template is="dom-if" if="{{username}}">
-	          <a class="c-header__link user flex flex--middle flex--center ">
-	            <span class="circle flex flex--center flex--middle">
-	                <!--<px-icon icon="fa:fa-user"></px-icon>-->
+	          <a class="c-header__link user" on-tap="_handleUserTap">
+	            <span class="c-header__circle">
 	              <i class="fa fa-lg fa-user"></i>
 	            </span>
-	            <span class="username flex flex--middle u-ml--">
+	            <span class="c-header__username is-hidden@xs-">
 	              {{username}}
 	            </span>
 	          </a>
 	        </template>
-
         </div>
-					<content id="rightContent" select="[right]"></content>
-
-					<span class="c-header__powered is-hidden@xs-" hidden$="{{!powered}}">{{powered}}</span>
-
+				<content id="rightContent" select="[right]"></content>
+				<span class="c-header__powered is-hidden@xs-" hidden$="{{!powered}}">{{powered}}</span>
 			</div>
 
 		</div>
@@ -146,11 +149,29 @@ Custom property | Description | Default
 				 */
 				navItems: {
 					type: Array
+				},
+				/**
+				 * The selected nav item index
+				 */
+				selected: {
+					type: Number,
+					notify: true
 				}
 			},
-			ready: function(){
-				this.toggleClass('u-p-');
+			_handleTap: function(e){
+				this.fire('px-header-link-select', e);
+			},
+			_handleUserTap: function(e){
+				this.fire('px-header-user-select', e);
 			}
+			/**
+			 * Fires when the user link is selected.
+			 * @event px-header-user-select
+			 */
+			/**
+			 * Fires when a link is selected.
+			 * @event px-header-link-select
+			 */
 		});
 	</script>
 </dom-module>
