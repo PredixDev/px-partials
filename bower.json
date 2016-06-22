@@ -11,6 +11,8 @@
   "license": "MIT",
   "ignore": [
 		"**/.*",
+		"OSS_Notice.pdf",
+		"scripts",
 		"node_modules",
 		"bower_components",
 		"test",
