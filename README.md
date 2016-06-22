@@ -2,7 +2,8 @@ px-partials
 -----------------------------------------------
 
 [![Build Status](https://travis-ci.org/PredixDev/px-partials.svg?branch=master)](https://travis-ci.org/PredixDev/px-partials)
-cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+[![Coverage Status](https://coveralls.io/repos/github/PredixDev/px-partials/badge.svg?branch=master)](https://coveralls.io/github/PredixDev/px-partials?branch=master)
 
 ## Overview
 
