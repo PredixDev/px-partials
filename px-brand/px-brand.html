@@ -52,7 +52,7 @@ Custom property | Description | Default
 
 
 @element px-brand
-@demo ./demo.html
+@demo px-brand/demo.html
 @homepage ../index.html
 -->
 <dom-module id="px-brand">
@@ -202,7 +202,6 @@ Custom property | Description | Default
 				 */
 				color: {
 					type: String,
-					notify: true,
 					value: 'white'
 				},
 				/**
@@ -216,7 +215,6 @@ Custom property | Description | Default
 				 */
 				size: {
 					type: Number,
-					notify: true,
 					value: 32
 				},
 				/**
@@ -246,9 +244,6 @@ Custom property | Description | Default
 					type: Boolean,
 					value: false
 				}
-			},
-			created: function () {
-
 			}
 		});
 	</script>

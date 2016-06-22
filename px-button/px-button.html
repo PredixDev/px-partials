@@ -21,10 +21,11 @@ The `px-button` element is a simple web component for creating PX Design System 
 ### Usage
 
 ```
-<px-button label="Button" size="small"></px-button>
-<px-button label="Button" size="regular" theme="primary" icon="fa:fa-home"></px-button>
-<px-button label="Button" size="large" theme="tertiary" icon="fa:fa-home"></px-button>
-<px-button label="Button" size="huge" theme="disabled" icon="fa:fa-home"></px-button>
+<px-button label="Button" modifier="bare"></px-button>
+ <px-button label="Button" modifier="disabled"></px-button>
+ <px-button label="Button"></px-button>
+ <px-button label="Button" modifier="tertiary"></px-button>
+ <px-button label="Button" modifier="primary"></px-button>
 ```
 
 ### Styling
@@ -36,7 +37,7 @@ Custom property | Description | Default
 
 @element px-button
 @blurb Element for creating buttons.
-@demo ./demo.html
+@demo px-button/demo.html
 @homepage ../index.html
 -->
 <dom-module id="px-button">
@@ -98,18 +99,14 @@ Custom property | Description | Default
 				this.fire('px-button-tap', e);
 			},
 			_handleModifier: function (newVal, oldVal) {
-        var _this = this,
-          klass,
-          types;
-        klass = 'btn--' + oldVal;
-        _this.toggleClass(klass, false, _this.$.btn);
-        if (_this.modifier) {
-          types = _this.modifier.split(' ');
-          for (var i = 0; i < types.length; i++) {
-            klass = 'btn--' + types[i];
-            _this.toggleClass(klass, true, _this.$.btn);
-          }
-        }
+        var types;
+        var klass = 'btn--' + oldVal;
+        this.toggleClass(klass, false, this.$.btn);
+				types = newVal.split(' ');
+				for (var i = 0; i < types.length; i++) {
+					klass = 'btn--' + types[i];
+					this.toggleClass(klass, true, this.$.btn);
+				}
       }
 			/**
 			 * Fires when button is pressed
