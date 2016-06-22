@@ -10,6 +10,7 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../px-partials-styles.html">
 <!--
 The `px-footer` element provides an easy way to create the footer commonly used in Predix apps.
 
@@ -33,7 +34,8 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-footer">
-  <link rel="import" type="css" href="../css/px-partials.css">
+  <!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
+<style include="px-partials-css"></style>
   <template strip-whitespace>
     <style>
       :host {
@@ -56,12 +58,11 @@ Custom property | Description | Default
         color: #B1B1BC;
       }
     </style>
-    <footer class="c-footer flex flex--justify flex--middle u-mt--">
-      <div class="c-footer__brand flex flex--center flex--middle muted">
-        <px-brand size="32" monogram></px-brand>
+    <footer class="c-footer flex flex--justify flex--middle u-p-">
+      <div class="c-footer__brand flex flex--center flex--middle">
         <content select="[left]"></content>
       </div>
-      <div class="flex flex--right">
+      <div class="flex flex--right flex--middle">
         <nav class="c-footer__nav flex flex--right flex--spaced" role="navigation">
           <template is="dom-repeat" items="{{links}}">
             <a href$="{{item.href}}" class="u-mr-" target="_blank">{{item.title}}</a>
@@ -92,7 +93,8 @@ Custom property | Description | Default
             {
               href: 'http://www.ge.com/privacy',
               title: 'Privacy'
-            }, {
+            },
+            {
               href: 'http://www.ge.com/terms',
               title: 'Terms'
             },
@@ -102,10 +104,6 @@ Custom property | Description | Default
             }
           ]
         }
-      },
-      ready: function(){
-        //Add some padding by default
-        this.toggleClass('u-p-');
       }
     });
   </script>

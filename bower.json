@@ -20,7 +20,7 @@
     "polymer": "~1.5.0",
     "iron-selector": "*",
     "px-theme": "*",
-    "polymer-font-awesome": "https://github.com/PredixDev/polymer-font-awesome.git#master",
+    "polymer-font-awesome": "https://github.com/PredixDev/polymer-font-awesome.git#master"
   },
   "devDependencies": {
     "px-mobile-design": "*",

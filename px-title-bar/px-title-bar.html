@@ -10,7 +10,7 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html"/>
-
+<link rel="import" href="../px-partials-styles.html">
 <!--
 The `px-title-bar` element provides an easy way to create the section title bar commonly used in Predix apps.
 
@@ -29,52 +29,38 @@ The following custom properties are available for styling:
 Custom property | Description | Default
 ----------------|-------------|----------
 `--px-title-bar` | Mixin applied to the element | {}
+`--px-title-bar-spacer` | Mixin applied to the spacer element | {}
 
 @element px-title-bar
 @demo ./demo.html
 @homepage ../index.html
 -->
 <dom-module id="px-title-bar">
-  <link rel="import" type="css" href="../css/px-partials.css">
+  <!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
+  <style include="px-partials-css"></style>
   <template>
     <style>
-      :host {}
-
+      :host {
+        display: block;
+      }
       :host .title-bar {
         padding: 0.3333333333rem;
         margin-bottom: 0.6666666667rem;
         @apply(--px-title-bar);
       }
-
       :host .title-bar .title-bar__spacer {
-        width: 100%;
-        height: 1px;
-        display: block;
-        border-bottom: 2px dotted #b1b1bc;
-        margin-left: 0.3333333333rem;
+        @apply(--px-title-bar-spacer);
+      }
+      :host .title-bar h3 {}
+      :host .title-bar .title-bar__actions ::content .btn {
         margin-right: 0.3333333333rem;
       }
-
-      :host .title-bar h3 {
-        white-space: nowrap;
-        text-transform: uppercase;
-        font-weight: bold;
-        color: #3b3b3f;
-      }
-
-      :host .title-bar .title-bar__actions .btn {
-        margin-right: 0.3333333333rem;
-      }
-      :host .title-bar .title-bar__actions .btn:last-child {
-        margin-right: 0;
-      }
-
     </style>
     <div class="title-bar flex flex--middle">
       <h3>{{title}}</h3>
       <span class="title-bar__spacer"></span>
-      <div class="title-bar__actions flex flex--row">
-        <content select="*"></content>
+      <div class="title-bar__actions flex flex--spaced">
+        <content></content>
       </div>
     </div>
   </template>

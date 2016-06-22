@@ -12,6 +12,7 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-selector/iron-selector.html">
 <link rel="import" href="../px-brand/px-brand.html">
+<link rel="import" href="../px-partials-styles.html">
 <!--
 The `px-header` element provides an easy way to create the header commonly used in Predix apps.
 
@@ -42,7 +43,8 @@ Custom property | Description | Default
 @homepage index.html
 -->
 <dom-module id="px-header">
-	<link rel="import" type="css" href="../css/px-partials.css">
+	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
+<style include="px-partials-css"></style>
 	<template strip-whitespace>
 		<style>
 			:host {

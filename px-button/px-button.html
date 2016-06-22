@@ -10,6 +10,8 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../px-icon/px-icon.html">
+<link rel="import" href="../px-partials-styles.html">
 
 <!--
 
@@ -38,7 +40,8 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-button">
-	<link rel="import" type="css" href="../css/px-partials.css">
+	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
+	  <style include="px-partials-css"></style>
 	<template strip-whitespace>
 		<style>
 			:host .btn{
@@ -47,10 +50,10 @@ Custom property | Description | Default
 		</style>
 		<button id="btn" type="button" class="btn flex flex--center flex--middle" on-tap="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
-				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}"></px-icon>
+				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}" color$="{{iconColor}}"></px-icon>
 			</template>
 			<span hidden$="{{!label}}">{{label}}</span>
-			<content select="*"></content>
+			<content></content>
 		</button>
 	</template>
 	<script type="text/javascript">
@@ -61,12 +64,6 @@ Custom property | Description | Default
 				 * The button label
 				 */
 				label: {
-					type: String
-				},
-				/**
-				 * The button theme (primary, default, disabled, icon, bare)
-				 */
-				theme: {
 					type: String
 				},
 				/**
@@ -82,38 +79,38 @@ Custom property | Description | Default
 					type: String
 				},
 				/**
-				 * The size of the button
+				 * The `px-icon` color
 				 */
-				size: {
+				iconColor: {
 					type: String
-				}
-			},
-			attached: function () {
-				var self = this;
-				this.async(function () {
-					if (self.theme) {
-						var themes = self.theme.split(' ');
-						themes.forEach(function (t) {
-							self.toggleClass('btn--' + t, true, self.$.btn);
-						});
-					}
-					if (self.size) {
-						self.toggleClass('btn--' + self.size, true, self.$.btn);
-					}
-
-					if (self.icon) {
-						var ico = self.queryEffectiveChildren('px-icon');
-						if (ico) {
-							ico.icon = self.icon;
-							ico.size = self.iconSize;
-						}
-
-					}
-				});
+				},
+				/**
+				 * The modifiers to apply to the button (`small`, `large`, `huge`, `disabled`, `primary`, `tertiary`, `icon`, `bare`, etc)
+				 */
+				modifier: {
+					type: String,
+					notify: true,
+					reflectToAttribute: true,
+					observer: '_handleModifier'
+				},
 			},
 			_clickHandler: function (e) {
 				this.fire('px-button-tap', e);
-			}
+			},
+			_handleModifier: function (newVal, oldVal) {
+        var _this = this,
+          klass,
+          types;
+        klass = 'btn--' + oldVal;
+        _this.toggleClass(klass, false, _this.$.btn);
+        if (_this.modifier) {
+          types = _this.modifier.split(' ');
+          for (var i = 0; i < types.length; i++) {
+            klass = 'btn--' + types[i];
+            _this.toggleClass(klass, true, _this.$.btn);
+          }
+        }
+      }
 			/**
 			 * Fires when button is pressed
 			 * @event px-button-tap

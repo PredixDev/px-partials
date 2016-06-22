@@ -41,6 +41,8 @@ Custom property | Description | Default
 	<style>
 		:host {
 			display: inline-block;
+		}
+		:host #icon{
 			--iron-icon-height: var(--px-icon-size);
 			--iron-icon-width: var(--px-icon-size);
 		}
@@ -53,13 +55,32 @@ Custom property | Description | Default
 		Polymer({
 			is: "px-icon",
 			properties: {
-				//The name of the icon (fa:fa-mobile)
+				/**
+				 * The name of the icon (`fa:fa-mobile`)
+				 */
 				icon: {
 					type: String
 				},
-				//The size of the icon. (16, 24, 32, 48, etc)
+				/**
+				 * The fill color for the icon (`crimson`)
+				 */
+				color: {
+					type: String
+				},
+				/**
+				 * The size of the icon. (`16, 24, 32, 48, etc`)
+				 */
 				size: {
 					type: Number
+				}
+			},
+			attached: function(){
+				if(this.size){
+					this.$.icn.style.width = this.size;
+					this.$.icn.style.height = this.size;
+				}
+				if(this.color){
+					this.$.icn.style.fill = this.color;
 				}
 			}
 		});
