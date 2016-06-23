@@ -16,7 +16,7 @@ before_script:
 - npm install web-component-tester
 - export PATH=$PWD/node_modules/.bin:$PATH
 script:
-- xvfb-run wct --skip-plugin sauce
+- xvfb-run npm test
 after_success:
 - cd $TRAVIS_BUILD_DIR/scripts
 - chmod 755 ghp.sh
