@@ -48,6 +48,9 @@ Custom property | Description | Default
 			:host .btn{
 				@apply(--px-button);
 			}
+			:host {
+				display: flex;
+			}
 		</style>
 		<button id="btn" type="button" class="btn flex flex--center flex--middle" on-tap="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
@@ -93,7 +96,7 @@ Custom property | Description | Default
 					notify: true,
 					reflectToAttribute: true,
 					observer: '_handleModifier'
-				},
+				}
 			},
 			_clickHandler: function (e) {
 				this.fire('px-button-tap', e);
