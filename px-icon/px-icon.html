@@ -38,11 +38,10 @@ Custom property | Description | Default
 		:host {
 			display: inline-block;
 		}
-		:host #icon{
+		:host #icon {
 			--iron-icon-height: var(--px-icon-size);
 			--iron-icon-width: var(--px-icon-size);
 		}
-
 	</style>
 	<template strip-whitespace>
 		<iron-icon id="icn" icon$="{{icon}}" size$="{{size}}"></iron-icon>
@@ -61,22 +60,28 @@ Custom property | Description | Default
 				 * The fill color for the icon (`crimson`)
 				 */
 				color: {
-					type: String
+					type: String,
+					observer: '_handleColor'
 				},
 				/**
 				 * The size of the icon. (`16, 24, 32, 48, etc`)
 				 */
 				size: {
-					type: Number
+					type: Number,
+					observer: '_handleSize'
 				}
 			},
-			attached: function(){
-				if(this.size){
-					this.$.icn.style.width = this.size;
-					this.$.icn.style.height = this.size;
+			attached: function () {},
+			_handleColor: function (newVal, oldVal) {
+				if (newVal) {
+					this.$.icn.style.fill = newVal;
 				}
-				if(this.color){
-					this.$.icn.style.fill = this.color;
+			},
+			_handleSize: function (newVal, oldVal) {
+				if (newVal) {
+					this.$.icn.style.width = newVal;
+					this.$.icn.style.height = newVal;
+					console.log('Updating icon size', newVal);
 				}
 			}
 		});

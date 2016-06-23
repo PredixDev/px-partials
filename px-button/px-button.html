@@ -12,7 +12,6 @@
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../px-icon/px-icon.html">
 <link rel="import" href="../px-partials-styles.html">
-
 <!--
 
 The `px-button` element is a simple web component for creating PX Design System buttons.
@@ -42,15 +41,17 @@ Custom property | Description | Default
 -->
 <dom-module id="px-button">
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-	  <style include="px-partials-css"></style>
+	<style include="px-partials-css"></style>
 	<template strip-whitespace>
 		<style>
-			:host .btn{
-				@apply(--px-button);
-			}
 			:host {
 				display: flex;
 			}
+			:host .btn {
+				@apply(--px-button);
+			}
+
+
 		</style>
 		<button id="btn" type="button" class="btn flex flex--center flex--middle" on-tap="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
@@ -102,20 +103,19 @@ Custom property | Description | Default
 				this.fire('px-button-tap', e);
 			},
 			_handleModifier: function (newVal, oldVal) {
-        var types;
-        var klass = 'btn--' + oldVal;
-        this.toggleClass(klass, false, this.$.btn);
+				var types;
+				var klass = 'btn--' + oldVal;
+				this.toggleClass(klass, false, this.$.btn);
 				types = newVal.split(' ');
 				for (var i = 0; i < types.length; i++) {
 					klass = 'btn--' + types[i];
 					this.toggleClass(klass, true, this.$.btn);
 				}
-      }
+			}
 			/**
 			 * Fires when button is pressed
 			 * @event px-button-tap
 			 */
-
 		});
 	</script>
 </dom-module>
