@@ -1,7 +1,7 @@
 'use strict';
 
 var pkg = require('./package.json');
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   var importOnce = require('node-sass-import-once');
   // Project configuration.
@@ -131,11 +131,40 @@ module.exports = function (grunt) {
           ext: '.html'
         }]
       }
+    },
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {
+          'dist/px-partials.min.html': 'px-partials.html'
+        }
+      }
+    },
+    vulcanize: {
+      dist: {
+        options: {
+          abspath: '',
+          stripExcludes: [
+            '../iron-icon/iron-icon.html',
+            "../polymer/polymer.html"
+          ],
+          inlineScripts: true,
+          inlineCss: true,
+          stripComments: true
+        },
+        files: {
+          'px-partials.min.html': 'px-partials.html'
+        }
+      }
     }
   });
   grunt.loadNpmTasks('web-component-tester');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-vulcanize');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -144,7 +173,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('polymer-css-compiler');
-
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   // Default task.
   grunt.registerTask('default', 'Basic build', [
     'sass',
@@ -156,7 +185,7 @@ module.exports = function (grunt) {
   ]);
 
   // First run task.
-  grunt.registerTask('firstrun', 'Basic first run', function () {
+  grunt.registerTask('firstrun', 'Basic first run', function() {
     grunt.config.set('depserveOpenUrl', '/index.html');
     grunt.task.run('default');
     grunt.task.run('depserve');

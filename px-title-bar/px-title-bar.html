@@ -44,8 +44,6 @@ Custom property | Description | Default
         display: block;
       }
       :host .title-bar {
-        padding: 0.3333333333rem;
-        margin-bottom: 0.6666666667rem;
         @apply(--px-title-bar);
       }
       :host .title-bar .title-bar__spacer {
@@ -56,9 +54,9 @@ Custom property | Description | Default
         margin-right: 0.3333333333rem;
       }
     </style>
-    <div class="title-bar flex flex--middle">
+    <div class="title-bar flex flex--middle flex--justify">
       <h3>{{title}}</h3>
-      <span class="title-bar__spacer"></span>
+      <span class="title-bar__spacer is-hidden@sm-"></span>
       <div class="title-bar__actions flex flex--spaced">
         <content></content>
       </div>
