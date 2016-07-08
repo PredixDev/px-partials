@@ -10,21 +10,23 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../iron-behaviors/iron-control-state.html">
+<link rel="import" href="../../iron-validatable-behavior/iron-validatable-behavior.html">
 <link rel="import" href="../../iron-form-element-behavior/iron-form-element-behavior.html">
 <link rel="import" href="../px-partials-styles.html">
 <!--
 
-The `px-button` element is a simple web component for creating PX Design System buttons.
+The `px-input` element is a simple web component for creating PX Design System buttons.
 
 
 ### Usage
 
 ```
-<px-button label="Button" modifier="bare"></px-button>
- <px-button label="Button" modifier="disabled"></px-button>
- <px-button label="Button"></px-button>
- <px-button label="Button" modifier="tertiary"></px-button>
- <px-button label="Button" modifier="primary"></px-button>
+<px-input label="Button" modifier="bare"></px-input>
+ <px-input label="Button" modifier="disabled"></px-input>
+ <px-input label="Button"></px-input>
+ <px-input label="Button" modifier="tertiary"></px-input>
+ <px-input label="Button" modifier="primary"></px-input>
 ```
 
 ### Styling
@@ -32,75 +34,56 @@ The following custom properties are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--px-button` | Mixin applied to the element | {}
+`--px-input` | Mixin applied to the element | {}
 
-@element px-button
+@element px-input
 @blurb Element for creating buttons.
-@demo px-button/demo.html
+@demo px-input/demo.html
 @homepage ../index.html
 -->
-<dom-module id="px-button">
+<dom-module id="px-input">
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
 	<style include="px-partials-css"></style>
 	<template strip-whitespace>
 		<style>
 			:host {
-				display: flex;
-			}
-			:host .btn {
-				@apply(--px-button);
-			}
 
-
+			}
+			:host input {
+				@apply(--px-input);
+			}
 		</style>
-		<button id="btn" type$="{{type}}" class="btn flex flex--center flex--middle" on-tap="_clickHandler">
-			<template is="dom-if" if="{{icon}}">
-				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}" color$="{{iconColor}}"></px-icon>
-			</template>
-			<span hidden$="{{!label}}">{{label}}</span>
-			<content></content>
-		</button>
+		<input type$="{{type}}" name$="{{name}}" value$="{{myValue::input}}" class="text-input">
+		<span class="error" hidden$="{{!error}}">{{errorMessage}}</span>
+		<content></content>
 	</template>
 	<script type="text/javascript">
 		Polymer({
-			is: "px-button",
+			is: "px-input",
 			behaviors: [
-				Polymer.IronFormElementBehavior
+				Polymer.IronFormElementBehavior,
+				Polymer.IronControlState
 			],
 			properties: {
 				/**
-				 * The button label
+				 * The error message
 				 */
-				label: {
+				errorMessage: {
 					type: String
 				},
 				/**
-				 * The button type
+				 * The input type
 				 */
 				type: {
 					type: String,
-					value: 'button'
+					value: 'text'
+				},
+				myValue: {
+					type: String,
+					notify: true
 				},
 				/**
-				 * The `px-icon` icon name
-				 */
-				icon: {
-					type: String
-				},
-				/**
-				 * The `px-icon` size
-				 */
-				iconSize: {
-					type: String
-				},
-				/**
-				 * The `px-icon` color
-				 */
-				iconColor: {
-					type: String
-				},
-				/**
-				 * The modifiers to apply to the button (`small`, `large`, `huge`, `disabled`, `primary`, `tertiary`, `icon`, `bare`, etc)
+				 * The modifiers to apply to the input (`small`, `large`, `huge`, `disabled`, etc)
 				 */
 				modifier: {
 					type: String,
@@ -110,21 +93,21 @@ Custom property | Description | Default
 				}
 			},
 			_clickHandler: function (e) {
-				this.fire('px-button-tap', e);
+				this.fire('px-input-tap', e);
 			},
 			_handleModifier: function (newVal, oldVal) {
 				var types;
-				var klass = 'btn--' + oldVal;
+				var klass = 'input--' + oldVal;
 				this.toggleClass(klass, false, this.$.btn);
 				types = newVal.split(' ');
 				for (var i = 0; i < types.length; i++) {
-					klass = 'btn--' + types[i];
+					klass = 'input--' + types[i];
 					this.toggleClass(klass, true, this.$.btn);
 				}
 			}
 			/**
 			 * Fires when button is pressed
-			 * @event px-button-tap
+			 * @event px-input-tap
 			 */
 		});
 	</script>
