@@ -43,9 +43,9 @@ Custom property | Description | Default
 -->
 <dom-module id="px-input">
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-	<style include="px-partials-css"></style>
+
 	<template strip-whitespace>
-		<style>
+		<style include="px-partials-css">
 			:host {
 
 			}
@@ -53,8 +53,12 @@ Custom property | Description | Default
 				@apply(--px-input);
 			}
 		</style>
-		<input type$="{{type}}" name$="{{name}}" value$="{{myValue::input}}" class="text-input">
-		<span class="error" hidden$="{{!error}}">{{errorMessage}}</span>
+
+		<iron-label>
+			<span>{{label}}</span>
+			<input iron-label-target type$="{{type}}" name$="{{name}}" value$="{{myValue::input}}" class="text-input">
+			<span class="error" hidden$="{{!error}}">{{errorMessage}}</span>
+		</iron-label>
 		<content></content>
 	</template>
 	<script type="text/javascript">
@@ -69,6 +73,15 @@ Custom property | Description | Default
 				 * The error message
 				 */
 				errorMessage: {
+					type: String
+				},
+				error: {
+					type: Boolean
+				},
+				/**
+				 * The input label
+				 */
+				label: {
 					type: String
 				},
 				/**

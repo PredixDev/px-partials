@@ -27,6 +27,20 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 @import "px-headings-design/_base.headings.scss";
 @import "px-flexbox-design/_base.flexbox.scss";
 
+$inuit-enable-inline-fields : true;
+$inuit-enable-input--tiny : true;
+$inuit-enable-input--small : true;
+$inuit-enable-input--regular : true;
+$inuit-enable-input--large : true;
+$inuit-enable-input--huge : true;
+$inuit-enable-validation-states : true;
+@import 'px-mobile-design/sass/_mixins.scss';
+:root{
+  @include c(null){
+    @import "px-forms-design/_base.forms.scss";
+  }
+}
+
 $inuit-enable-btn--primary: true;
 $inuit-enable-btn--tertiary: true;
 $inuit-enable-btn--small: true;
@@ -109,6 +123,7 @@ $inuit-enable-responsive-margins--negative-huge: true;
 @import "px-normalize-design/_generic.normalize.scss";
 @import "px-box-sizing-design/_generic.box-sizing.scss";
 @import "px-helpers-design/_generic.helpers.scss";
+
 
 /// Component
 @import '_px-box-section.scss';
