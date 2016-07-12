@@ -45,19 +45,24 @@ Custom property | Description | Default
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
 
 	<template strip-whitespace>
-		<style include="px-partials-css">
+		<style include="px-partials-css"></style>
+		<style >
 			:host {
 
 			}
+
 			:host input {
 				@apply(--px-input);
 			}
+			:host([invalid]) input {
+			    border-color: red;
+			  }
 		</style>
-
-		<iron-label>
+		<iron-label class="px-partials-input">
 			<span>{{label}}</span>
-			<input iron-label-target type$="{{type}}" name$="{{name}}" value$="{{myValue::input}}" class="text-input">
-			<span class="error" hidden$="{{!error}}">{{errorMessage}}</span>
+			<input id="input" iron-label-target type$="{{type}}" name$="{{name}}" value$="{{myValue::input}}"
+				class="text-input">
+			<span class="form-field__help validation-success" hidden$="{{!error}}">{{errorMessage}}</span>
 		</iron-label>
 		<content></content>
 	</template>
@@ -66,7 +71,7 @@ Custom property | Description | Default
 			is: "px-input",
 			behaviors: [
 				Polymer.IronFormElementBehavior,
-				Polymer.IronControlState
+				Polymer.IronValidatableBehavior
 			],
 			properties: {
 				/**
@@ -105,6 +110,17 @@ Custom property | Description | Default
 					observer: '_handleModifier'
 				}
 			},
+			listeners: {
+	'input': '_onInput'
+},
+_onInput: function() {
+	this.value = this.$.input.value;
+},
+// Overidden from Polymer.IronValidatableBehavior. Will set the `invalid`
+// attribute automatically, which should be used for styling.
+_getValidity: function() {
+	return !!this.value;
+},
 			_clickHandler: function (e) {
 				this.fire('px-input-tap', e);
 			},

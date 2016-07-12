@@ -206,265 +206,218 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
   -ms-flex-item-align: baseline;
       align-self: baseline; }
 
-:root ::content,
-:root {
-  /**
-   * Styles for one line forms.
-   */
-  /**
-   * Styles for validation states
-   */ }
-  :root ::content fieldset,
-  :root fieldset {
-    margin: 0; }
-    :root ::content fieldset, :root ::content fieldset legend,
-    :root fieldset,
-    :root fieldset legend {
-      border: 0;
-      padding: 0; }
-  :root ::content legend,
-  :root legend {
-    margin-bottom: 1.3333333333rem;
-    font-weight: bold; }
-  :root ::content .form-field,
-  :root .form-field {
-    margin-bottom: 1.3333333333rem; }
-    :root ::content .form-field:last-child,
-    :root .form-field:last-child {
-      margin-bottom: 2.6666666667rem; }
-  :root ::content label,
-  :root label {
-    display: block;
-    margin-bottom: 0.3333333333rem;
-    cursor: pointer; }
-  :root ::content .label--inline,
-  :root .label--inline {
-    display: inline-block;
-    margin-bottom: 0;
-    line-height: 1; }
-    :root ::content .label--inline + .text-input,
-    :root .label--inline + .text-input {
-      margin-left: 0.6666666667rem; }
-  :root ::content .text-input,
-  :root ::content textarea, :root ::content select,
-  :root .text-input,
-  :root textarea,
-  :root select {
-    margin: 0;
-    border: 1px solid #b1b1bc;
-    font: inherit;
-    outline: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none; }
-    :root ::content .text-input:disabled,
-    :root ::content textarea:disabled, :root ::content select:disabled,
-    :root .text-input:disabled,
-    :root textarea:disabled,
-    :root select:disabled {
-      cursor: not-allowed; }
-  :root ::content .text-input,
-  :root ::content textarea,
-  :root .text-input,
-  :root textarea {
-    width: 100%;
-    padding: 0 0.6666666667rem;
-    box-shadow: inset 0 0 0 1px #e4e4ea;
-    background-color: #efeff4;
-    color: black; }
-    :root ::content .text-input[readonly], :root ::content .text-input[disabled],
-    :root ::content textarea[readonly],
-    :root ::content textarea[disabled],
-    :root .text-input[readonly],
-    :root .text-input[disabled],
-    :root textarea[readonly],
-    :root textarea[disabled] {
-      box-shadow: none; }
-    :root ::content .text-input[readonly],
-    :root ::content textarea[readonly],
-    :root .text-input[readonly],
-    :root textarea[readonly] {
-      border: 1px solid #e4e4ea;
-      background-color: white;
-      color: #b1b1bc; }
-    :root ::content .text-input:disabled,
-    :root ::content textarea:disabled,
-    :root .text-input:disabled,
-    :root textarea:disabled {
-      border: 1px solid #e4e4ea;
-      box-shadow: none;
-      background-color: #f7f7fc;
-      color: #b1b1bc; }
-    :root ::content .text-input:focus,
-    :root ::content textarea:focus,
-    :root .text-input:focus,
-    :root textarea:focus {
-      border-color: #0a9ec1;
-      box-shadow: inset 0 0 0 1px #d1d0d8; }
-    :root ::content .text-input::-webkit-input-placeholder,
-    :root ::content textarea::-webkit-input-placeholder,
-    :root .text-input::-webkit-input-placeholder,
-    :root textarea::-webkit-input-placeholder {
-      color: #b1b1bc; }
-    :root ::content .text-input:-moz-placeholder,
-    :root ::content textarea:-moz-placeholder,
-    :root .text-input:-moz-placeholder,
-    :root textarea:-moz-placeholder {
-      color: #b1b1bc; }
-  :root ::content select,
-  :root select {
-    border-radius: 3px;
-    padding: 0 3em 0 1em;
+fieldset {
+  margin: 0; }
+  fieldset, fieldset legend {
+    border: 0;
+    padding: 0; }
+
+legend {
+  margin-bottom: 1.3333333333rem;
+  font-weight: bold; }
+
+.form-field {
+  margin-bottom: 1.3333333333rem; }
+  .form-field:last-child {
+    margin-bottom: 2.6666666667rem; }
+
+label {
+  display: block;
+  margin-bottom: 0.3333333333rem;
+  cursor: pointer; }
+
+.label--inline {
+  display: inline-block;
+  margin-bottom: 0;
+  line-height: 1; }
+  .label--inline + .text-input {
+    margin-left: 0.6666666667rem; }
+
+.text-input,
+textarea, select {
+  margin: 0;
+  border: 1px solid #b1b1bc;
+  font: inherit;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+  .text-input:disabled,
+  textarea:disabled, select:disabled {
+    cursor: not-allowed; }
+
+.text-input,
+textarea {
+  width: 100%;
+  padding: 0 0.6666666667rem;
+  box-shadow: inset 0 0 0 1px #e4e4ea;
+  background-color: #efeff4;
+  color: black; }
+  .text-input[readonly], .text-input[disabled],
+  textarea[readonly],
+  textarea[disabled] {
+    box-shadow: none; }
+  .text-input[readonly],
+  textarea[readonly] {
+    border: 1px solid #e4e4ea;
+    background-color: white;
+    color: #b1b1bc; }
+  .text-input:disabled,
+  textarea:disabled {
+    border: 1px solid #e4e4ea;
+    box-shadow: none;
+    background-color: #f7f7fc;
+    color: #b1b1bc; }
+  .text-input:focus,
+  textarea:focus {
+    border-color: #0a9ec1;
+    box-shadow: inset 0 0 0 1px #d1d0d8; }
+  .text-input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: #b1b1bc; }
+  .text-input:-moz-placeholder,
+  textarea:-moz-placeholder {
+    color: #b1b1bc; }
+
+select {
+  border-radius: 3px;
+  padding: 0 3em 0 1em;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  line-height: calc(2em - 2px);
+  cursor: pointer;
+  background-color: #e4e4ea;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20viewBox%3D%220%200%20658%201024%22%3E%3Cpath%20fill%3D%22%233b3b3f%22%20d%3D%22M614.286%20420.571q0%207.429-5.714%2013.143l-266.286%20266.286q-5.714%205.714-13.143%205.714t-13.143-5.714l-266.286-266.286q-5.714-5.714-5.714-13.143t5.714-13.143l28.571-28.571q5.714-5.714%2013.143-5.714t13.143%205.714l224.571%20224.571%20224.571-224.571q5.714-5.714%2013.143-5.714t13.143%205.714l28.571%2028.571q5.714%205.714%205.714%2013.143z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.6666666667rem) 37.5%;
+  color: #3b3b3f; }
+  select:hover, select:focus {
+    border: 1px solid #9999a3;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    line-height: calc(2em - 2px);
+    background-color: #b1b1bc; }
+  select:active {
+    border: 1px solid #7c7c84;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background-color: #9999a3; }
+  select:disabled {
+    border: 1px solid #d1d0d8;
+    box-shadow: none;
+    background-color: white;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20viewBox%3D%220%200%20658%201024%22%3E%3Cpath%20fill%3D%22%23d1d0d8%22%20d%3D%22M614.286%20420.571q0%207.429-5.714%2013.143l-266.286%20266.286q-5.714%205.714-13.143%205.714t-13.143-5.714l-266.286-266.286q-5.714-5.714-5.714-13.143t5.714-13.143l28.571-28.571q5.714-5.714%2013.143-5.714t13.143%205.714l224.571%20224.571%20224.571-224.571q5.714-5.714%2013.143-5.714t13.143%205.714l28.571%2028.571q5.714%205.714%205.714%2013.143z%22%2F%3E%3C%2Fsvg%3E");
+    color: #d1d0d8; }
+  select[multiple] {
+    border: 1px solid #b1b1bc;
+    padding: 0.3333333333rem;
     cursor: pointer;
-    background-color: #e4e4ea;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20viewBox%3D%220%200%20658%201024%22%3E%3Cpath%20fill%3D%22%233b3b3f%22%20d%3D%22M614.286%20420.571q0%207.429-5.714%2013.143l-266.286%20266.286q-5.714%205.714-13.143%205.714t-13.143-5.714l-266.286-266.286q-5.714-5.714-5.714-13.143t5.714-13.143l28.571-28.571q5.714-5.714%2013.143-5.714t13.143%205.714l224.571%20224.571%20224.571-224.571q5.714-5.714%2013.143-5.714t13.143%205.714l28.571%2028.571q5.714%205.714%205.714%2013.143z%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat;
-    background-position: calc(100% - 0.6666666667rem) 37.5%;
-    color: #3b3b3f; }
-    :root ::content select:hover, :root ::content select:focus,
-    :root select:hover,
-    :root select:focus {
-      border: 1px solid #9999a3;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-      background-color: #b1b1bc; }
-    :root ::content select:active,
-    :root select:active {
-      border: 1px solid #7c7c84;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-      background-color: #9999a3; }
-    :root ::content select:disabled,
-    :root select:disabled {
-      border: 1px solid #d1d0d8;
-      box-shadow: none;
-      background-color: white;
-      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20viewBox%3D%220%200%20658%201024%22%3E%3Cpath%20fill%3D%22%23d1d0d8%22%20d%3D%22M614.286%20420.571q0%207.429-5.714%2013.143l-266.286%20266.286q-5.714%205.714-13.143%205.714t-13.143-5.714l-266.286-266.286q-5.714-5.714-5.714-13.143t5.714-13.143l28.571-28.571q5.714-5.714%2013.143-5.714t13.143%205.714l224.571%20224.571%20224.571-224.571q5.714-5.714%2013.143-5.714t13.143%205.714l28.571%2028.571q5.714%205.714%205.714%2013.143z%22%2F%3E%3C%2Fsvg%3E");
-      color: #d1d0d8; }
-    :root ::content select[multiple],
-    :root select[multiple] {
-      border: 1px solid #b1b1bc;
-      padding: 0.3333333333rem;
-      cursor: pointer;
-      background: #f7f7fc; }
-  :root ::content select::-ms-expand,
-  :root select::-ms-expand {
-    display: none; }
+    background: #f7f7fc; }
+
+select::-ms-expand {
+  display: none; }
 
 @-moz-document url-prefix() {
-  :root ::content select,
-  :root select {
+  select {
     padding-top: .4em;
     padding-bottom: .4em; } }
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    :root ::content select,
-    :root select {
-      padding-top: .4em;
-      padding-bottom: .4em; } }
-  :root ::content .text-input,
-  :root .text-input {
-    height: 2em;
-    line-height: 1; }
-    :root ::content .text-input + [type=checkbox], :root ::content .text-input + [type=radio],
-    :root .text-input + [type=checkbox],
-    :root .text-input + [type=radio] {
-      margin-left: 1.3333333333rem; }
-    :root ::content .text-input + .label--inline,
-    :root .text-input + .label--inline {
-      margin-left: 0.6666666667rem; }
-    :root ::content .text-input[type=search],
-    :root .text-input[type=search] {
-      -webkit-appearance: none;
-      padding: 0; }
-    :root ::content .text-input::-webkit-input-placeholder,
-    :root .text-input::-webkit-input-placeholder {
-      padding-top: 1px; }
-    :root ::content .text-input:-moz-placeholder,
-    :root .text-input:-moz-placeholder {
-      padding-top: 1px; }
-  :root ::content .text-input + [type=submit], :root ::content .text-input [type=cancel],
-  :root ::content .label--inline + [type=submit],
-  :root ::content .label--inline [type=cancel],
-  :root .text-input + [type=submit],
-  :root .text-input [type=cancel],
-  :root .label--inline + [type=submit],
-  :root .label--inline [type=cancel] {
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  select {
+    padding-top: .4em;
+    padding-bottom: .4em; } }
+
+.text-input {
+  height: 2em;
+  line-height: 1; }
+  .text-input + [type=checkbox], .text-input + [type=radio] {
     margin-left: 1.3333333333rem; }
-  :root ::content textarea,
-  :root textarea {
-    overflow: auto;
-    min-height: calc(120px + 0.6666666667rem);
-    padding: 0.3333333333rem 0.6666666667rem;
-    resize: vertical; }
-  :root ::content [type=checkbox], :root ::content [type=radio],
-  :root [type=checkbox],
-  :root [type=radio] {
-    margin: 0;
-    padding: 0;
-    font-size: 1.05em;
-    cursor: pointer; }
-    :root ::content [type=checkbox][disabled], :root ::content [type=radio][disabled],
-    :root [type=checkbox][disabled],
-    :root [type=radio][disabled] {
+  .text-input + .label--inline {
+    margin-left: 0.6666666667rem; }
+  .text-input[type=search] {
+    -webkit-appearance: none;
+    padding: 0; }
+  .text-input::-webkit-input-placeholder {
+    padding-top: 1px; }
+  .text-input:-moz-placeholder {
+    padding-top: 1px; }
+
+.text-input + [type=submit], .text-input [type=cancel],
+.label--inline + [type=submit],
+.label--inline [type=cancel] {
+  margin-left: 1.3333333333rem; }
+
+textarea {
+  overflow: auto;
+  min-height: calc(120px + 0.6666666667rem);
+  padding: 0.3333333333rem 0.6666666667rem;
+  resize: vertical; }
+
+[type=checkbox], [type=radio] {
+  margin: 0;
+  padding: 0;
+  font-size: 1.05em;
+  cursor: pointer; }
+  [type=checkbox][disabled], [type=radio][disabled] {
+    cursor: not-allowed; }
+    [type=checkbox][disabled] + .label--inline, [type=radio][disabled] + .label--inline {
       cursor: not-allowed; }
-      :root ::content [type=checkbox][disabled] + .label--inline, :root ::content [type=radio][disabled] + .label--inline,
-      :root [type=checkbox][disabled] + .label--inline,
-      :root [type=radio][disabled] + .label--inline {
-        cursor: not-allowed; }
-  :root ::content [type=checkbox] + .label--inline,
-  :root [type=checkbox] + .label--inline {
-    padding-left: 5px; }
-  :root ::content [type=radio] + .label--inline,
-  :root [type=radio] + .label--inline {
-    padding-left: 3px; }
-  :root ::content .form-field__help,
-  :root .form-field__help {
-    display: inline-block;
-    margin-top: 0.3333333333rem;
-    font-size: 1rem;
-    line-height: inherit;
-    color: #7c7c84; }
-  :root ::content .input--tiny,
-  :root .input--tiny {
-    max-width: 7.0666666667rem; }
-  :root ::content .input--small,
-  :root .input--small {
-    max-width: 14.1333333333rem; }
-  :root ::content .input--regular,
-  :root .input--regular {
-    max-width: 21.2rem; }
-  :root ::content .input--large,
-  :root .input--large {
-    max-width: 28.2666666667rem; }
-  :root ::content .input--huge,
-  :root .input--huge {
-    max-width: 35.3333333333rem; }
-  :root ::content .form-field--inline:last-child,
-  :root .form-field--inline:last-child {
-    margin-bottom: 1.3333333333rem; }
-  :root ::content .form-field--inline .text-input,
-  :root .form-field--inline .text-input {
-    margin-bottom: 1.3333333333rem; }
-  :root ::content .validation-warning,
-  :root .validation-warning {
-    color: #dd6b1f; }
-  :root ::content .validation-error,
-  :root .validation-error {
-    color: #e53838; }
-  :root ::content .validation-success,
-  :root .validation-success {
-    color: #46ad00; }
-  :root ::content .text-input.validation-warning,
-  :root .text-input.validation-warning {
-    border-color: #dd6b1f;
-    color: inherit; }
-  :root ::content .text-input.validation-error,
-  :root .text-input.validation-error {
-    border-color: #e53838;
-    color: inherit; }
-  :root ::content .text-input.validation-success,
-  :root .text-input.validation-success {
-    border-color: #46ad00;
-    color: inherit; }
+
+[type=checkbox] + .label--inline {
+  padding-left: 5px; }
+
+[type=radio] + .label--inline {
+  padding-left: 3px; }
+
+.form-field__help {
+  display: inline-block;
+  margin-top: 0.3333333333rem;
+  font-size: 1rem;
+  line-height: inherit;
+  color: #7c7c84; }
+
+.input--tiny {
+  max-width: 7.0666666667rem; }
+
+.input--small {
+  max-width: 14.1333333333rem; }
+
+.input--regular {
+  max-width: 21.2rem; }
+
+.input--large {
+  max-width: 28.2666666667rem; }
+
+.input--huge {
+  max-width: 35.3333333333rem; }
+
+/**
+   * Styles for one line forms.
+   */
+.form-field--inline:last-child {
+  margin-bottom: 1.3333333333rem; }
+
+.form-field--inline .text-input {
+  margin-bottom: 1.3333333333rem; }
+
+/**
+   * Styles for validation states
+   */
+.validation-warning {
+  color: #dd6b1f; }
+
+.validation-error {
+  color: #e53838; }
+
+.validation-success {
+  color: #46ad00; }
+
+.text-input.validation-warning {
+  border-color: #dd6b1f;
+  color: inherit; }
+
+.text-input.validation-error {
+  border-color: #e53838;
+  color: inherit; }
+
+.text-input.validation-success {
+  border-color: #46ad00;
+  color: inherit; }
 
 .btn {
   display: inline-block;
@@ -2822,3 +2775,43 @@ html, body {
 
 .is-hidden\@xl- {
   display: none !important; }
+
+.input-group {
+  display: -ms-flexbox;
+  display: flex; }
+  .input-group .text-input {
+    -ms-flex: 1;
+        flex: 1;
+    z-index: 2; }
+    .input-group .text-input:first-child {
+      margin-right: -1px; }
+    .input-group .text-input:last-child {
+      margin-left: -1px; }
+  .input-group .btn + .btn {
+    margin-left: -1px; }
+
+.input-group__addon {
+  padding-right: 0.6666666667rem;
+  padding-left: 0.6666666667rem; }
+  .input-group__addon.btn {
+    border-radius: 0;
+    box-shadow: none; }
+  .input-group__addon:not(.btn) {
+    height: 2em;
+    border: 1px solid #b1b1bc;
+    box-shadow: inset 0 0 0 1px #e4e4ea;
+    line-height: 2;
+    background-color: #efeff4;
+    color: #b1b1bc; }
+  .input-group__addon:first-child {
+    border-right-width: 0; }
+    .input-group__addon:first-child.btn {
+      border-width: 1px;
+      border-radius: 3px 0 0 3px; }
+  .input-group__addon:last-child {
+    border-left-width: 0; }
+    .input-group__addon:last-child.btn {
+      border-width: 1px;
+      border-radius: 0 3px 3px 0; }
+  .input-group__addon .fa {
+    color: #7c7c84; }

@@ -27,6 +27,7 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 @import "px-headings-design/_base.headings.scss";
 @import "px-flexbox-design/_base.flexbox.scss";
 
+$inuit-enable-validation-states : true;
 $inuit-enable-inline-fields : true;
 $inuit-enable-input--tiny : true;
 $inuit-enable-input--small : true;
@@ -34,12 +35,7 @@ $inuit-enable-input--regular : true;
 $inuit-enable-input--large : true;
 $inuit-enable-input--huge : true;
 $inuit-enable-validation-states : true;
-@import 'px-mobile-design/sass/_mixins.scss';
-:root{
-  @include c(null){
-    @import "px-forms-design/_base.forms.scss";
-  }
-}
+@import "px-forms-design/_base.forms.scss";
 
 $inuit-enable-btn--primary: true;
 $inuit-enable-btn--tertiary: true;
@@ -52,7 +48,9 @@ $inuit-enable-btn--bare: true;
 $inuit-enable-btn--disabled: true;
 @import "px-buttons-design/_objects.buttons.scss";
 
+
 @import 'px-mobile-design/index.scss';
+@import 'px-mobile-design/sass/_mixins.scss';
 .btn{
   outline: none;
   appearance: none;
@@ -132,3 +130,6 @@ $inuit-enable-responsive-margins--negative-huge: true;
 
 @debug "Breakpoints - #{$breakpoints}";
 @include responsive-utils();
+
+@import "px-input-group-design/_objects.input-group.scss";
+@import "px-forms-design/_base.forms.scss";

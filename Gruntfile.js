@@ -121,17 +121,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    'polymer-css-compiler': {
-      default: {
-        files: [{
-          expand: true,
-          cwd: '.',
-          dest: '../',
-          src: 'css/px-partials.css',
-          ext: '.html'
-        }]
-      }
-    },
+
     htmlmin: {
       dist: {
         options: {
@@ -159,6 +149,21 @@ module.exports = function(grunt) {
           'px-partials.min.html': 'px-partials.html'
         }
       }
+    },
+    cssmin: {
+      target: {
+        files: {
+          'css/<%= pkg.name %>.min.css': ['css/<%= pkg.name %>.css']
+        }
+      }
+    },
+    'polymer-css-compiler': {
+      target: {
+        filename: '-styles',
+        files: {
+          './<%= pkg.name %>.html': ['css/<%= pkg.name %>.min.css']
+        }
+      }
     }
   });
   grunt.loadNpmTasks('web-component-tester');
@@ -174,10 +179,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('polymer-css-compiler');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('polymer-css-compiler');
   // Default task.
   grunt.registerTask('default', 'Basic build', [
     'sass',
-    'autoprefixer'
+    'autoprefixer',
+    'cssmin',
+    'polymer-css-compiler'
   ]);
 
   grunt.registerTask('devmode', 'Development Mode', [
