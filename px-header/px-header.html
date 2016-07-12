@@ -78,6 +78,9 @@ Custom property | Description | Default
 				<div class="c-header__brand">
 					<span class="c-header__logo">
 						<px-brand monogram size="24"></px-brand>
+						<template is="dom-if" if="{{!predix}}">
+							<px-brand predix size="32"></px-brand>
+						</template>
 					</span>
 				</div>
 				<span class="c-header__title epsilon">{{title}}</span>
