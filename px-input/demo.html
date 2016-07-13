@@ -5,12 +5,14 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<!-- TODO: Dependencies -->
 		<script src="../demo/demo.js"></script>
-		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<script src="../../webcomponentsjs/webcomponents.min.js"></script>
 		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html"/>
+
 		<link rel="import" href="../../px-theme/px-app.html">
 		<link rel="import" href="../../px-theme/px-theme.html">
 		<link rel="import" href="../../iron-form/iron-form.html">
 		<link rel="import" href="../../px-layout/px-layout.html">
+
 		<link rel="import" href="px-input.html">
 		<style media="screen">
 			body,
@@ -49,8 +51,34 @@
 							<px-input name="title" type="text" error-message="Must enter title!"></px-input>
 						</fieldset>
 						<fieldset>
-							<label for="title">Body:</label>
-							<px-input name="title" type="url" error-message="Must enter url!" required></px-input>
+							<label for="title2">Disabled:</label>
+							<px-input name="title2" disabled type="text" error-message="Must enter title!"></px-input>
+						</fieldset>
+						<button type="submit" class="btn">Submit</button>
+					</form>
+				</template>
+			</demo-snippet>
+
+			<h2>Default Inputs</h2>
+			<demo-snippet>
+				<template id="">
+					<form is="iron-form">
+						<fieldset>
+							<label for="title">Title:</label>
+							<px-input name="title" type="text" error-message="Must enter title!" required></px-input>
+						</fieldset>
+						<button type="submit" class="btn">Submit</button>
+					</form>
+				</template>
+			</demo-snippet>
+
+			<h2>Default w/ Table View</h2>
+			<demo-snippet>
+				<template id="">
+					<form is="iron-form">
+						<fieldset>
+							<label for="title">Title:</label>
+							<px-input name="title" type="text" error-message="Must enter title!"></px-input>
 						</fieldset>
 						<fieldset>
 							<label for="title2">Disabled:</label>
@@ -60,7 +88,6 @@
 					</form>
 				</template>
 			</demo-snippet>
-
 
 		</div>
 	</body>

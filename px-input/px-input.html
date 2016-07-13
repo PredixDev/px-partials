@@ -10,10 +10,12 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
+
+<link rel="import" href="../../iron-input/iron-input.html">
 <link rel="import" href="../../iron-behaviors/iron-control-state.html">
-<link rel="import" href="../../iron-validatable-behavior/iron-validatable-behavior.html">
-<link rel="import" href="../../iron-form-element-behavior/iron-form-element-behavior.html">
+
 <link rel="import" href="../px-partials-styles.html">
+<link rel="import" href="px-input-behavior.html">
 <!--
 
 The `px-input` element is a simple web component for creating PX Design System buttons.
@@ -42,64 +44,80 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-input">
-	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
 
+	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
 	<template strip-whitespace>
 		<style include="px-partials-css"></style>
-		<style >
+		<style>
 			:host {
-
+				display: block;
 			}
-
-			:host input {
+			:host .text-input {
+				width: auto;
 				@apply(--px-input);
 			}
 			:host([invalid]) input {
-			    border-color: red;
-			  }
+				border-color: red;
+			}
 		</style>
-		<iron-label class="px-partials-input">
-			<span>{{label}}</span>
-			<input id="input" iron-label-target type$="{{type}}" name$="{{name}}" value$="{{myValue::input}}"
-				class="text-input">
-			<span class="form-field__help validation-success" hidden$="{{!error}}">{{errorMessage}}</span>
-		</iron-label>
-		<content></content>
+		<div class="px-partials-input flex flex--col">
+			<label hidden$="[[!label]]" aria-hidden="true" for="input">[[label]]</label>
+			<input
+				is="iron-input"
+				id="input"
+				class="text-input"
+				aria-labelledby$="[[_ariaLabelledBy]]"
+				aria-describedby$="[[_ariaDescribedBy]]"
+				disabled$="[[disabled]]"
+				title$="[[title]]"
+				bind-value="{{value}}"
+				invalid="{{invalid}}"
+				prevent-invalid-input="[[preventInvalidInput]]"
+				allowed-pattern="[[allowedPattern]]"
+				validator="[[validator]]"
+				type$="[[type]]"
+				pattern$="[[pattern]]"
+				required$="[[required]]"
+				autocomplete$="[[autocomplete]]"
+				autofocus$="[[autofocus]]"
+				inputmode$="[[inputmode]]"
+				minlength$="[[minlength]]"
+				maxlength$="[[maxlength]]"
+				min$="[[min]]"
+				max$="[[max]]"
+				step$="[[step]]"
+				name$="[[name]]"
+				placeholder$="[[placeholder]]"
+				readonly$="[[readonly]]"
+				list$="[[list]]"
+				size$="[[size]]"
+				autocapitalize$="[[autocapitalize]]"
+				autocorrect$="[[autocorrect]]"
+				on-change="_onChange"
+				tabindex$="[[tabindex]]"
+				autosave$="[[autosave]]"
+				results$="[[results]]"
+				accept$="[[accept]]"
+				multiple$="[[multiple]]">
+			<content select="[suffix]"></content>
+			<span class="form-field__help validation-error" hidden$="{{!invalid}}">[[errorMessage]]</span>
+			<template is="dom-if" if="[[errorMessage]]">
+				<paper-input-error>
+					[[errorMessage]]
+				</paper-input-error>
+			</template>
+			<template is="dom-if" if="[[charCounter]]">
+				<paper-input-char-counter></paper-input-char-counter>
+			</template>
+		</div>
 	</template>
 	<script type="text/javascript">
 		Polymer({
 			is: "px-input",
 			behaviors: [
-				Polymer.IronFormElementBehavior,
-				Polymer.IronValidatableBehavior
+				pxInputBehavior
 			],
 			properties: {
-				/**
-				 * The error message
-				 */
-				errorMessage: {
-					type: String
-				},
-				error: {
-					type: Boolean
-				},
-				/**
-				 * The input label
-				 */
-				label: {
-					type: String
-				},
-				/**
-				 * The input type
-				 */
-				type: {
-					type: String,
-					value: 'text'
-				},
-				myValue: {
-					type: String,
-					notify: true
-				},
 				/**
 				 * The modifiers to apply to the input (`small`, `large`, `huge`, `disabled`, etc)
 				 */
@@ -110,17 +128,6 @@ Custom property | Description | Default
 					observer: '_handleModifier'
 				}
 			},
-			listeners: {
-	'input': '_onInput'
-},
-_onInput: function() {
-	this.value = this.$.input.value;
-},
-// Overidden from Polymer.IronValidatableBehavior. Will set the `invalid`
-// attribute automatically, which should be used for styling.
-_getValidity: function() {
-	return !!this.value;
-},
 			_clickHandler: function (e) {
 				this.fire('px-input-tap', e);
 			},

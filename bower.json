@@ -28,7 +28,8 @@
     "px-forms-design": "https://github.com/PredixDev/px-forms-design.git#^0.3.16",
     "iron-label": "PolymerElements/iron-label#^1.0.2",
     "iron-form": "^1.1.0",
-    "px-input-group-design": "https://github.com/PredixDev/px-input-group-design.git#^0.2.12"
+    "px-input-group-design": "https://github.com/PredixDev/px-input-group-design.git#^0.2.12",
+    "paper-input": "PolymerElements/paper-input#^1.1.14"
   },
   "devDependencies": {
     "px-mobile-design": "*",
