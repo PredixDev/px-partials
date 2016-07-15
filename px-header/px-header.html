@@ -76,12 +76,15 @@ Custom property | Description | Default
 		<div class="c-header">
 			<div class="c-header__left">
 				<div class="c-header__brand">
-					<span class="c-header__logo">
-						<px-brand monogram size="24"></px-brand>
-						<template is="dom-if" if="{{!predix}}">
-							<px-brand predix size="32"></px-brand>
-						</template>
-					</span>
+					<template is="dom-if" if="{{!bare}}">
+						<span class="c-header__logo">
+							<px-brand monogram size="24"></px-brand>
+							<template is="dom-if" if="{{!predix}}">
+								<px-brand predix size="32"></px-brand>
+							</template>
+						</span>
+					</template>
+					<content id="brandContent" select="[brand]"></content>
 				</div>
 				<span class="c-header__title epsilon">{{title}}</span>
 				<template is="dom-if" if="{{subtitle}}">
@@ -154,6 +157,13 @@ Custom property | Description | Default
 				 */
 				navItems: {
 					type: Array
+				},
+				/**
+				 * No brand
+				 */
+				bare: {
+					type: Boolean,
+					value: false
 				},
 				/**
 				 * The selected nav item index
