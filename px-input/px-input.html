@@ -10,12 +10,11 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
-
-<link rel="import" href="../../iron-input/iron-input.html">
-<link rel="import" href="../../iron-behaviors/iron-control-state.html">
-
 <link rel="import" href="../px-partials-styles.html">
-<link rel="import" href="px-input-behavior.html">
+<link rel="import" href="../../iron-validatable-behavior/iron-validatable-behavior.html">
+<link rel="import" href="../../iron-behaviors/iron-control-state.html">
+<link rel="import" href="../../paper-input/paper-input-behavior.html">
+<link rel="import" href="../../iron-form-element-behavior/iron-form-element-behavior.html">
 <!--
 
 The `px-input` element is a simple web component for creating PX Design System buttons.
@@ -44,7 +43,6 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-input">
-
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
 	<template strip-whitespace>
 		<style include="px-partials-css"></style>
@@ -100,14 +98,9 @@ Custom property | Description | Default
 				accept$="[[accept]]"
 				multiple$="[[multiple]]">
 			<content select="[suffix]"></content>
-			<span class="form-field__help validation-error" hidden$="{{!invalid}}">[[errorMessage]]</span>
-			<template is="dom-if" if="[[errorMessage]]">
-				<paper-input-error>
-					[[errorMessage]]
-				</paper-input-error>
-			</template>
-			<template is="dom-if" if="[[charCounter]]">
-				<paper-input-char-counter></paper-input-char-counter>
+
+			<template is="dom-if" if="[[invalid]]">
+				<span class="form-field__help validation-error" hidden$="{{!invalid}}">[[errorMessage]]</span>
 			</template>
 		</div>
 	</template>
@@ -115,9 +108,18 @@ Custom property | Description | Default
 		Polymer({
 			is: "px-input",
 			behaviors: [
-				pxInputBehavior
+				Polymer.IronFormElementBehavior,
+		    Polymer.IronValidatableBehavior,
+		    Polymer.IronControlState,
+		    Polymer.PaperInputBehavior,
 			],
 			properties: {
+				/**
+			 * The error message
+			 */
+				errorMessage: {
+					type: String
+				},
 				/**
 				 * The modifiers to apply to the input (`small`, `large`, `huge`, `disabled`, etc)
 				 */
@@ -140,6 +142,12 @@ Custom property | Description | Default
 					klass = 'input--' + types[i];
 					this.toggleClass(klass, true, this.$.btn);
 				}
+			},
+			_onInput: function () {
+				this.value = this.$.value;
+			},
+			_getValidity: function () {
+				return !!this.value;
 			}
 			/**
 			 * Fires when button is pressed
