@@ -2447,7 +2447,15 @@ html, body {
   outline: none;
   -webkit-appearance: none;
      -moz-appearance: none;
-          appearance: none; }
+          appearance: none;
+  color: var(--px-button-color);
+  background-color: var(--px-button-background-color); }
+  .btn:active {
+    color: var(--px-button-color--active);
+    background-color: var(--px-button-background-color--active); }
+  .btn:hover {
+    color: var(--px-button-color--hover);
+    background-color: var(--px-button-background-color--hover); }
   .btn--transparent {
     border: 1px solid transparent;
     background-color: transparent;

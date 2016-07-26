@@ -54,7 +54,16 @@ $inuit-enable-btn--disabled: true;
 .btn{
   outline: none;
   appearance: none;
-
+  color: var(--px-button-color);
+  background-color: var(--px-button-background-color);
+  &:active{
+    color: var(--px-button-color--active);
+    background-color: var(--px-button-background-color--active);
+  }
+  &:hover{
+    color: var(--px-button-color--hover);
+    background-color: var(--px-button-background-color--hover);
+  }
   @include m('transparent') {
     border: 1px solid transparent;
     background-color: transparent;

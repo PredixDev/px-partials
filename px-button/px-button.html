@@ -51,6 +51,18 @@ Custom property | Description | Default
 				@apply(--px-button);
 			}
 
+			:host .btn.btn--bare{
+				@apply(--px-button-bare);
+			}
+			:host .btn.btn--icon{
+				@apply(--px-button-icon);
+			}
+			:host .btn.btn--tertiary{
+				@apply(--px-button-tertiary);
+			}
+			:host .btn.btn--primary{
+				@apply(--px-button-primary);
+			}
 
 		</style>
 		<button id="btn" type$="{{type}}" class="btn flex flex--center flex--middle" on-tap="_clickHandler">

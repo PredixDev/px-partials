@@ -49,6 +49,31 @@
 					</div>
 				</template>
 			</demo-snippet>
+			<h2>Custom CSS</h2>
+			<demo-snippet>
+				<template id="">
+					<template is="dom-bind">
+						<style is="custom-style">
+							px-button.c{
+								--px-button-background-color: green;
+							}
+							px-button.c1{
+								--px-button:{
+									font-size: 4rem;
+									background-color: pink;
+								}
+							}
+						</style>
+						<div class="custom flex flex--spaced flex--middle">
+							<px-button label="Button" modifier="bare"></px-button>
+							<px-button label="Button" modifier="disabled"></px-button>
+							<px-button label="Button"></px-button>
+							<px-button label="Button" modifier="tertiary" class="c"></px-button>
+							<px-button label="Button" modifier="primary" class="c1"></px-button>
+						</div>
+					</template>
+				</template>
+			</demo-snippet>
 			<h2>Label w/ icon example</h2>
 			<demo-snippet>
 				<template id="">
