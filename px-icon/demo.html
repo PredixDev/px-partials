@@ -70,23 +70,46 @@
 			<h2>Available icons</h2>
 			<demo-snippet>
 				<template id="">
+					<style media="screen">
+						.table{
+							width: 100%;
+						}
+					</style>
 					<template id="demo-icons" is="dom-bind">
-						<style media="screen">
-							.icons li{
-								display: flex;
-								flex-direction: column;
-								padding: 1rem;
-								text-align: center;
-							}
-						</style>
-						<ul class="icons list-bare flex flex--wrap flex--justify">
-							<template is="dom-repeat" items="[[icons]]">
-								<li>
-									<px-icon icon$="{{item.icon}}"></px-icon>
-									<span>{{item.icon}}</span>
-								</li>
-							</template>
-						</ul>
+						<table class="table">
+							<thead class="text--left">
+								<th>
+									Icon
+								</th>
+								<th>
+									Preview
+								</th>
+								<th>
+									Name
+								</th>
+								<th>
+									Unicode
+								</th>
+							</thead>
+							<tbody>
+								<template is="dom-repeat" items="[[icons]]">
+									<tr>
+										<td>
+											<code>{{item.icon}}</code>
+										</td>
+										<td>
+											<px-icon icon$="{{item.icon}}"></px-icon>
+										</td>
+										<td>
+											{{item.name}}
+										</td>
+										<td>
+											{{item.unicode}}
+										</td>
+									</tr>
+								</template>
+							</tbody>
+						</table>
 					</template>
 				</template>
 			</demo-snippet>
@@ -94,7 +117,7 @@
 				function sortIcons(arr) {
 					var _out = [];
 					for (var i = 0; i < arr.length; i++) {
-						_out.push(arr[i].id);
+						_out.push(arr[i]);
 					}
 					return _out.sort();
 				}
@@ -106,10 +129,9 @@
 						icons = [];
 					for (var i = 0; i < len; i++) {
 						icon = ficons[i];
-						icons.push({
-							icon: 'fa:fa-' + icon
-						});
-						console.log('Adding icon', icon);
+						icon.icon = 'fa:fa-' + ficons[i].id;
+						icons.push(icon);
+						console.log('Adding icon', ficons[i]);
 					}
 					tmpl.icons = icons;
 				});
