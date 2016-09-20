@@ -127,7 +127,7 @@ Custom property | Description | Default
 			_handleModifier: function (newVal, oldVal) {
 				var types;
 				var klass = 'btn--' + oldVal;
-				this.toggleClass(klass, false, this.$.btn);
+				//this.toggleClass(klass, false, this.$.btn);
 				types = newVal.split(' ');
 				for (var i = 0; i < types.length; i++) {
 					klass = 'btn--' + types[i];
