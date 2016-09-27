@@ -11,9 +11,10 @@
  -->
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-selector/iron-selector.html">
+<link rel="import" href="../px-icon/px-icon.html">
 <link rel="import" href="../px-brand/px-brand.html">
 <link rel="import" href="../px-partials-styles.html">
-		<link rel="import" href="../../px-theme/px-app.html">
+
 <!--
 The `px-header` element provides an easy way to create the header commonly used in Predix apps.
 
@@ -45,9 +46,9 @@ Custom property | Description | Default
 -->
 <dom-module id="px-header">
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-<style include="px-partials-css"></style>
+
 	<template strip-whitespace>
-		<style>
+		<style include="px-partials-css">
 			:host {
 				display: block;
 			}
@@ -107,16 +108,16 @@ Custom property | Description | Default
 					<template is="dom-if" if="{{username}}">
 	          <a class="c-header__link user" on-tap="_handleUserTap">
 	            <span class="c-header__circle">
-	              <i class="fa fa-lg fa-user"></i>
+	              <px-icon icon="fa:fa-user" size="16"></px-icon>
 	            </span>
-	            <span class="c-header__username is-hidden@xs-">
+	            <span class="c-header__username is-hidden@xs- flex flex--middle">
 	              {{username}}
 	            </span>
 	          </a>
 	        </template>
         </div>
 				<content id="rightContent" select="[right]"></content>
-				<span class="c-header__powered is-hidden@xs-" hidden$="{{!powered}}">{{powered}}</span>
+				<span class="c-header__powered is-hidden@xs- flex flex--middle" hidden$="{{!powered}}">{{powered}}</span>
 			</div>
 
 		</div>

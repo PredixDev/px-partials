@@ -6,11 +6,9 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>px-header</title>
 		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
-
 		<link rel="import" href="../../iron-icon/iron-icon.html">
 		<link rel="import" href="../../iron-input/iron-input.html">
-
-		<link rel="import" href="../demo-template.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
 		<link rel="import" href="px-header.html">
 
 		<style media="screen">
@@ -23,17 +21,6 @@
         background: #333;
       }
 
-
-
-			body,
-			html {
-				background: #f7f7fc !important;
-				overflow: hidden;
-				overflow-y: scroll;
-				overflow-y: auto;
-				-webkit-overflow-scrolling: touch;
-			}
-
 		</style>
 	</head>
 
@@ -41,12 +28,7 @@
 
 		<template id="scope" is="dom-bind">
 
-			<style is="custom-style" include="px-partials-demo-css">
-				:root{
-
-
-
-				}
+			<style is="custom-style" include="px-demo-template-css">
 				ul, li{
 					list-style-type: none;
 					padding: 0;
@@ -54,11 +36,11 @@
 				}
 			</style>
 
-			<demo-template id="test"
+			<px-demo-template id="test"
 				repo-name="px-partials"
 				element-name="px-header"
 				heading="px-header"
-				description="This is a description"
+				description="The px-header element provides an easy way to create the header commonly used in Predix apps."
 				element-props="{{headerProps}}">
 
 
@@ -93,7 +75,7 @@
 					</div>
 				</div>
 
-			</demo-template>
+			</px-demo-template>
 		</template>
 		<script type="text/javascript">
 			document.addEventListener('WebComponentsReady', function() {
@@ -111,10 +93,10 @@
 				];
 				//px-header
 				scope.headerProps = {
-					title: 'App Name',
-					powered: 'Powered By Predix',
-					//username: 'Tom Edison',
-					subtitle: 'Sub Title'
+					title: 'Application Name',
+					//powered: 'Powered By Predix',
+					username: 'Tom Edison',
+					subtitle: 'Business'
 				};
 
 			});
