@@ -229,6 +229,9 @@
                       <px-table-row label2="Width">
                         <input is="iron-input" bind-value="{{brandProps.width}}" type="number" class="text-input">
                       </px-table-row>
+                      <px-table-row label2="Size (H x W)">
+                        <input is="iron-input" bind-value="{{brandProps.size}}" type="number" class="text-input">
+                      </px-table-row>
                       <px-table-row label2="GE Monogram">
                         <px-table-row-checkbox checked="{{brandProps.monogram}}" label=""></px-table-row-checkbox>
                       </px-table-row>
@@ -251,6 +254,7 @@
                         predix="{{brandProps.predix}}"
                         predix-wordmark="{{brandProps.predixWordmark}}"
                         wordmark="{{brandProps.wordmark}}"
+                        size="{{brandProps.size}}"
                         height="{{brandProps.height}}"
                         width="{{brandProps.width}}"
                         ></px-brand>
