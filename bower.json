@@ -53,10 +53,13 @@
     "px-table-view": "^1.0.0",
     "px-demo-snippet": "^0.5.2",
     "px-demo-helpers": "^0.0.4",
-    "px-tabs": "^0.5.2"
+    "px-tabs": "^0.5.2",
+    "px-actionable-text-icons-design": "^0.0.3",
+    "px-toggle-design": "^0.2.12",
+    "px-list-inline-design": "^0.2.11"
   },
   "resolutions": {
-    "polymer": "^v1.5.0",
+    "polymer": "^1.5.0",
     "px-theme": "^1.1.2",
     "polymer-font-awesome": "master",
     "px-layout": "*",
