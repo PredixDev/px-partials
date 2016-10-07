@@ -59,9 +59,11 @@ function runCustomTests() {
       });
 
       test('should update styles when modifier changes', function (done) {
-        element.modifier = 'primary large';
-        assert.ok(element.$.btn.classList.contains('btn--large'));
-        assert.ok(element.$.btn.classList.contains('btn--primary'));
+        flush(function(){
+          element.modifier = 'primary large';
+          assert.ok(element.$.btn.classList.contains('btn--large'));
+          assert.ok(element.$.btn.classList.contains('btn--primary'));
+        });
         done();
       });
     });

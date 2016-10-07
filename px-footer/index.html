@@ -1,0 +1,97 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>px-footer</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-icon/iron-icon.html">
+		<link rel="import" href="../../iron-input/iron-input.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
+		<link rel="import" href="px-footer.html">
+
+		<style media="screen">
+
+			body{
+				margin: 0;
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+		</style>
+	</head>
+
+	<body unresolved>
+
+		<template id="scope" is="dom-bind">
+
+			<style is="custom-style" include="px-demo-template-css">
+				ul, li{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			</style>
+
+			<px-demo-template id="test"
+				repo-name="px-partials"
+				element-name="px-footer"
+				heading="px-footer"
+				description="The px-footer element provides an easy way to create the footer commonly used in Predix apps."
+				element-props="{{footerProps}}">
+
+
+				<div properties>
+					<ul>
+						<li class="u-mb-">
+							<label for="copywrite">Copywrite</label>
+							<input is="iron-input" bind-value="{{footerProps.copywrite}}" type="text" class="text-input">
+						</li>
+            <li class="u-mb-">
+              <label for="links">Links</label>
+  						<template is="dom-repeat" items="{{footerProps.links}}">
+    						<div class="flex u-mt-">
+                  <input is="iron-input" bind-value="{{item.title}}" type="text" class="text-input u-mr" placeholder="title">
+      						<input is="iron-input" bind-value="{{item.href}}" type="text" class="text-input" placeholder="href">
+    						</div>
+  						</template>
+              <button type="button" on-tap="addLink" class="u-mt">Add link</button>
+            </li>
+
+					</ul>
+				</div>
+
+				<div demo>
+					<div class="position-relative bg--dark">
+						<px-footer
+							copywrite="{{footerProps.copywrite}}"
+							links="{{footerProps.links}}"></px-footer>
+					</div>
+				</div>
+
+			</px-demo-template>
+		</template>
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#scope');
+
+				//px-footer
+				scope.footerProps = {
+					copywrite: 'Application Name',
+          links: [{"title": "About", "href": "about.html"}]
+				};
+        scope.addLink = function(){
+          scope.push('footerProps.links', {title: 'Link ' + (scope.footerProps.links.length + 1), href: ''});
+        };
+			});
+		</script>
+
+
+
+
+	</body>
+
+</html>

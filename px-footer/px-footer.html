@@ -20,6 +20,14 @@ The `px-footer` element provides an easy way to create the footer commonly used 
 <px-footer copywrite="2016 &copy;" links='[{"title": "About", "href": "about.html"}]'></px-footer>
 ```
 
+### Content attributes
+The following content attributes are available.
+
+Attribute name | Description
+----------------|-------------
+`left` | Content to be inserted on the left.
+`right` | Content to be inserted on the right.
+
 ### Styling
 The following custom properties are available for styling:
 
@@ -35,10 +43,10 @@ Custom property | Description | Default
 -->
 <dom-module id="px-footer">
   <!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-  
-<style include="px-partials-css"></style>
+
+
   <template strip-whitespace>
-    <style>
+    <style include="px-partials-css">
       :host {
         display: block;
       }
@@ -59,14 +67,14 @@ Custom property | Description | Default
         color: #B1B1BC;
       }
     </style>
-    <footer class="c-footer flex flex--justify flex--middle u-p-">
+    <footer class="c-footer flex flex--justify flex--middle u-p">
       <div class="c-footer__brand flex flex--center flex--middle">
         <content select="[left]"></content>
       </div>
       <div class="flex flex--right flex--middle">
         <nav class="c-footer__nav flex flex--right flex--spaced" role="navigation">
           <template is="dom-repeat" items="{{links}}">
-            <a href$="{{item.href}}" class="u-mr-" target="_blank">{{item.title}}</a>
+            <a href$="{{item.href}}" class="u-mr" target="_blank">{{item.title}}</a>
           </template>
         </nav>
         <span class="c-footer_copywrite">&copy;{{copywrite}}</span>

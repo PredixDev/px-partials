@@ -1,0 +1,82 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>px-title-bar</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-icon/iron-icon.html">
+		<link rel="import" href="../../iron-input/iron-input.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
+		<link rel="import" href="px-title-bar.html">
+
+		<style media="screen">
+
+			body{
+				margin: 0;
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+		</style>
+	</head>
+
+	<body unresolved>
+
+		<template id="scope" is="dom-bind">
+
+			<style is="custom-style" include="px-demo-template-css">
+				ul, li{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			</style>
+
+			<px-demo-template id="test"
+				repo-name="px-partials"
+				element-name="px-title-bar"
+				heading="px-title-bar"
+				description="The px-title-bar element provides an easy way to create the title-bar commonly used in Predix apps."
+				element-props="{{props}}">
+
+
+				<div properties>
+					<ul>
+						<li class="u-mb-">
+							<label for="Title">Title</label>
+							<input is="iron-input" bind-value="{{props.title}}" type="text" class="text-input">
+						</li>
+
+					</ul>
+				</div>
+
+				<div demo>
+					<div class="position-relative">
+						<px-title-bar title="{{props.title}}"></px-title-bar>
+					</div>
+				</div>
+
+			</px-demo-template>
+		</template>
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#scope');
+
+				//px-footer
+				scope.props = {
+					title: 'Section Name'
+				};
+
+			});
+		</script>
+
+
+
+
+	</body>
+
+</html>

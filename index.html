@@ -85,7 +85,7 @@
       </style>
 		<!-- Element Description -->
     <div class="hero u-p++ text--shadow">
-      <a class="actionable flex flex--right flex--middle" href="https://github.com/PredixDev/px-navbar" target="_blank"><iron-icon class="menu__open" icon="fa:fa-github"></iron-icon>View on Github</a>
+      <a class="actionable flex flex--right flex--middle" href="https://github.com/PredixDev/px-partials" target="_blank"><iron-icon class="menu__open" icon="fa:fa-github"></iron-icon>View on Github</a>
   		<h1 class="delta">px-partials</h1>
       <div class="description-text">
         <p>
@@ -100,321 +100,36 @@
   	</div>
 
 		<!--  Element Demo -->
-		<div class="flex flex--col">
-			<div class="demoContainer flex__item">
-				<div class="u-p++">
-          <px-tab-set id="tabs" bare="true" selected="{{selected}}">
-            <template is="dom-repeat" items="[[elements]]">
-              <px-tab id="{{item}}">{{item}}</px-tab>
-            </template>
+	<div class="apiContainer">
+		<div class="flex flex--col api">
+			<div class="flex__item">
+				<div class="flex flex--col childrenAssociated">
+					<div class="componentHeader">Children Components</div>
+					<div class="componentList">
+						<ul>
+							<li><a href="px-button/index.html">px-button</a></li>
+							<li><a href="px-brand/index.html">px-brand</a></li>
 
-
-          </px-tab-set>
-            <px-tab-pages selected="{{selected}}" class="u-pt">
-              <div>
-                <section class="tab-page">
-                  <div class="flex flex--wrap">
-                    <div class="u-ph u-pb+ properties u-1/3">
-                      <p class="epsilon">Properties</p>
-                      <px-table-view>
-                        <px-table-row label2="Title">
-                          <input is="iron-input" bind-value="{{headerProps.title}}" type="text" class="text-input">
-                        </px-table-row>
-                        <px-table-row label2="Subtitle">
-                          <input is="iron-input" bind-value="{{headerProps.subtitle}}" type="text" class="text-input">
-                        </px-table-row>
-                        <px-table-row label2="Powered">
-                          <input is="iron-input" bind-value="{{headerProps.powered}}" type="text" class="text-input">
-                        </px-table-row>
-                        <px-table-row label2="Username">
-                          <input is="iron-input" bind-value="{{headerProps.username}}" type="text" class="text-input">
-                        </px-table-row>
-
-                      </px-table-view>
-                    </div>
-                    <div class="flex__item u-ml+ demo u-p+">
-                      <div class="position-relative bg--dark">
-                        <px-header
-                          title="{{headerProps.title}}"
-                          powered="{{headerProps.powered}}"
-                          subtitle="{{headerProps.subtitle}}"
-                          username="{{headerProps.username}}"></px-header>
-                      </div>
-                      <px-demo-snippet element-properties="{{headerProps}}" element-name="px-header"></px-demo-snippet>
-                    </div>
-                  </div>
-                </section>
-              </div>
-
-              <!-- TODO: px-title-bar -->
-              <div id="tab-page-2">
-                <div class="flex flex--wrap">
-                  <div class="u-ph u-pb+ properties u-1/3">
-                    <p class="epsilon">Properties</p>
-                    <px-table-view>
-                      <px-table-row label2="Title">
-                        <input is="iron-input" bind-value="{{titlebarProps.title}}" type="text" class="text-input">
-                      </px-table-row>
-                    </px-table-view>
-                  </div>
-                  <div class="flex__item u-ml+ demo u-p+">
-                    <div class="position-relative">
-                      <px-title-bar title="{{titlebarProps.title}}"></px-title-bar>
-                    </div>
-                    <px-demo-snippet element-properties="{{titlebarProps}}" element-name="px-title-bar"></px-demo-snippet>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TODO: px-button -->
-              <div id="tab-page-3">
-
-                <div class="flex flex--wrap">
-                  <div class="u-ph+ u-pb+ properties u-1/3">
-                    <p class="epsilon">Properties</p>
-                    <px-table-view>
-                      <px-table-row label2="Label">
-                        <input is="iron-input" bind-value="{{buttonProps.label}}" type="text" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Type">
-                        <input is="iron-input" bind-value="{{buttonProps.type}}" type="text" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Icon">
-												<select class="text-input" name="icon" on-change="_onButtonIconSelect" row-content>
-                          <template is="dom-repeat" items="[[icons]]">
-                            <option>fa:{{item}}</option>
-                          </template>
-                        </select>
-                      </px-table-row>
-                      <px-table-row label2="Icon Size">
-                        <input is="iron-input" bind-value="{{buttonProps.iconSize}}" type="number" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Icon Color">
-                        <input is="iron-input" bind-value="{{buttonProps.iconColor}}" type="text" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Modifier">
-                        <input is="iron-input" bind-value="{{buttonProps.modifier}}" type="text" class="text-input">
-                      </px-table-row>
-                    </px-table-view>
-                  </div>
-                  <div class="flex__item u-ml+ demo u-p+">
-                    <div class="position-relative">
-                      <px-button
-                        label="{{buttonProps.label}}"
-                        type="{{buttonProps.type}}"
-                        icon="{{buttonProps.icon}}"
-                        icon-color="{{buttonProps.iconColor}}"
-                        icon-size="{{buttonProps.iconSize}}"
-                        modifier="{{buttonProps.modifier}}"
-                        ></px-button>
-                    </div>
-                    <px-demo-snippet element-properties="{{buttonProps}}" element-name="px-button"></px-demo-snippet>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- TODO: px-brand -->
-              <div id="tab-page-4">
-                <div class="flex flex--wrap">
-                  <div class="u-ph+ u-pb+ properties u-1/3">
-                    <p class="epsilon">Properties</p>
-                    <px-table-view>
-                      <px-table-row label2="Color">
-                        <input is="iron-input" bind-value="{{brandProps.color}}" type="text" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Height">
-                        <input is="iron-input" bind-value="{{brandProps.height}}" type="number" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Width">
-                        <input is="iron-input" bind-value="{{brandProps.width}}" type="number" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Size (H x W)">
-                        <input is="iron-input" bind-value="{{brandProps.size}}" type="number" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="GE Monogram">
-                        <px-table-row-checkbox checked="{{brandProps.monogram}}" label=""></px-table-row-checkbox>
-                      </px-table-row>
-                      <px-table-row label2="GE Word">
-                        <px-table-row-checkbox checked="{{brandProps.wordmark}}" label=""></px-table-row-checkbox>
-                      </px-table-row>
-                      <px-table-row label2="Predix Icon">
-                        <px-table-row-checkbox checked="{{brandProps.predix}}" label=""></px-table-row-checkbox>
-                      </px-table-row>
-                      <px-table-row label2="Predix Word">
-                        <px-table-row-checkbox checked="{{brandProps.predixWordmark}}" label=""></px-table-row-checkbox>
-                      </px-table-row>
-                    </px-table-view>
-                  </div>
-                  <div class="flex__item u-ml+ demo u-p+">
-                    <div class="position-relative">
-                      <px-brand
-                        color="{{brandProps.color}}"
-                        monogram="{{brandProps.monogram}}"
-                        predix="{{brandProps.predix}}"
-                        predix-wordmark="{{brandProps.predixWordmark}}"
-                        wordmark="{{brandProps.wordmark}}"
-                        size="{{brandProps.size}}"
-                        height="{{brandProps.height}}"
-                        width="{{brandProps.width}}"
-                        ></px-brand>
-                    </div>
-                    <px-demo-snippet element-properties="{{brandProps}}" element-name="px-brand"></px-demo-snippet>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TODO: px-icon -->
-              <div id="tab-page-5">
-                <div class="flex flex--wrap">
-                  <div class="u-ph+ u-pb+ properties u-1/3">
-                    <p class="epsilon">Properties</p>
-                    <px-table-view>
-                      <px-table-row label2="Icon">
-												<select class="text-input" name="icon" on-change="_onIconSelect" row-content>
-                          <template is="dom-repeat" items="[[icons]]">
-                            <option>fa:{{item}}</option>
-                          </template>
-                        </select>
-                      </px-table-row>
-                      <px-table-row label2="Color">
-                        <input is="iron-input" bind-value="{{iconProps.color}}" type="text" class="text-input">
-                      </px-table-row>
-                      <px-table-row label2="Size">
-                        <input is="iron-input" bind-value="{{iconProps.size}}" type="number" class="text-input">
-                      </px-table-row>
-                    </px-table-view>
-                  </div>
-                  <div class="flex__item u-ml+ demo u-p+">
-                    <div class="position-relative">
-                      <px-icon
-                        icon="{{iconProps.icon}}"
-                        size="{{iconProps.size}}"
-                        color="{{iconProps.color}}"
-                        ></px-icon>
-                    </div>
-                    <px-demo-snippet element-properties="{{iconProps}}" element-name="px-icon"></px-demo-snippet>
-                  </div>
-                </div>
-              </div>
-            </px-tab-pages>
-
-
-		      </div>
-		    </div>
-		</div>
-
-    <!--  Element API -->
-    <div class="flex flex--col">
-      <div class="apiContainer flex__item">
-        <div class="u-p++">
-          <px-api-viewer source="px-partials" element-name="{{selectedElement}}"></px-api-viewer>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-		<!-- Element Footer -->
-		<footer class="footer flex flex--center">
-			<div class="footer__container u-pv++">
-				<div>
-					<a href="https://ge.com/digital" >
-						<img src="monogram-wdmk.png" alt="GE Monogram" class="footer__img">
-					</a>
-				</div>
-				<div class="footer__list">
-					<ul class="list-inline list-inline--delimited">
-						<li>
-							<a href="http://predix.io/legal" class="footer__list--lnk">Legal</a>
-						</li>
-						<li>
-							<a href="mailto:info@predix.io" class="footer__list--lnk">Contact Us</a>
-						</li>
-						<li>Copyright &copy; {{year}} General Electric Company. All rights reserved.</li>
-					</ul>
+							<li><a href="px-icon/index.html">px-icon</a></li>
+							<li><a href="px-header/index.html">px-header</a></li>
+							<li><a href="px-footer/index.html">px-footer</a></li>
+							<li><a href="px-title-bar/index.html">px-title-bar</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</footer>
+		</div>
+	</div>
+
+
 
 		</template>
 
 		<script type="text/javascript">
 			document.addEventListener('WebComponentsReady', function() {
 				var scope = document.querySelector('#app');
-        scope.selected = 0;
-        scope.elements = [
-          'px-header',
-          'px-title-bar',
-          'px-button',
-          'px-brand',
-          'px-icon'
-        ];
-        scope.selectedElement = scope.elements[scope.selected];
-
-				scope.icons = window.FONT_AWESOME_ICONS.icons;
-
-				scope._onButtonIconSelect = function(e){
-					scope.set('buttonProps.icon', e.target.value);
-				};
-				scope._onIconSelect = function(e){
-					scope.set('iconProps.icon', e.target.value);
-				};
-
-        document.getElementById('tabs').addEventListener('iron-select', function(e){
-          console.log(e);
-          scope.selectedElement = scope.elements[scope.selected];
-        });
 
 
-        //px-header
-      	scope.headerProps = {
-					title: 'App Name',
-					powered: 'Powered By Predix',
-          //username: 'Tom Edison',
-					subtitle: 'Sub Title'
-				};
-
-        //px-title-bar
-        scope.titlebarProps = {
-          title: 'Section Title'
-        };
-
-        //px-icon
-        scope.iconProps = {
-          icon: 'fa:fa-home',
-          color: 'black',
-          size: 32
-        };
-
-        //px-brand
-        scope.brandProps = {
-          color: 'gray',
-          height: 150,
-          width: 250,
-          monogram: true,
-          predix: false,
-          predixWordmark: false,
-          wordmark: true
-        };
-
-        //px-button
-        scope.buttonProps = {
-          label: 'Home',
-          type: 'submit',
-          modifier: 'primary huge',
-          icon: 'fa:fa-home',
-          iconColor: 'white',
-          iconSize: 32
-        };
-
-				scope.year = new Date().getFullYear();
 			});
 		</script>
 
