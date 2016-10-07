@@ -55,13 +55,15 @@
     "px-tabs": "^0.5.2",
     "px-actionable-text-icons-design": "^0.0.3",
     "px-toggle-design": "^0.2.12",
-    "px-list-inline-design": "^0.2.11"
+    "px-list-inline-design": "^0.2.11",
+    "px-demo-template": "https://github.com/jonniespratley/px-demo-template.git"
   },
   "resolutions": {
     "polymer": "^1.5.0",
     "px-theme": "^1.1.2",
     "polymer-font-awesome": "^0.1.9",
     "px-layout": "*",
-    "px-typography-design": "^1.1.0"
+    "px-typography-design": "^1.1.0",
+    "px-demo-template": "44e5e664fd"
   }
 }
