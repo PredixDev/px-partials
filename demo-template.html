@@ -1,0 +1,128 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../px-api-viewer/px-api-viewer.html">
+<link rel="import" href="../px-demo-snippet/px-demo-snippet.html">
+<link rel="import" href="./px-partials-demo-styles.html">
+<dom-module id="demo-template">
+
+  <style include="px-partials-demo-css">
+     :host {
+      display: block;
+    }
+    :host .position-relative{
+      position: relative;
+    }
+  </style>
+  <template>
+    <header class="hero u-p++ text--shadow">
+      <a class="actionable flex flex--right flex--middle" href$="https://github.com/PredixDev/{{repoName}}" target="_blank"><iron-icon class="menu__open" icon="fa:fa-github"></iron-icon>View on Github</a>
+  		<h1 class="delta">{{heading}}</h1>
+      <div class="description-text">
+        <p>{{description}}</p>
+      </div>
+  		<div class="flex">
+  			<img class="u-mr--" src="https://img.shields.io/travis/PredixDev/{{repoName}}.svg?style=flat-square" alt="Travis"/>
+  			<img class="u-mr--" src="https://img.shields.io/bower/v/{{repoName}}.svg?style=flat-square" alt="Bower"/>
+  			<img class="u-mr--" src="https://img.shields.io/github/issues-raw/PredixDev/{{repoName}}.svg?style=flat-square" alt="Issues"/>
+  		</div>
+  	</header>
+		<article class="flex flex--col">
+			<section class="demo-page">
+          <!-- TODO: Demo Options -->
+
+          <div class="mega-demo flex u-ph++ u-pb++">
+            <!-- TODO: Props -->
+              <div class="properties u-ph+ u-pb+ u-mt+">
+                <p class="epsilon">Properties</p>
+                <content select="[properties]"></content>
+              </div>
+
+              <!-- TODO: Demo -->
+              <div class="demoContainer u-mt+">
+                <div class="flex flex--col">
+                  <!-- TODO: Visual -->
+                  <div class="position-relative demo u-p+">
+                    <content select="[demo]"></content>
+                  </div>
+                  <!-- TODO: Snippet -->
+                  <div class="">
+                    <px-demo-snippet element-properties="{{elementProps}}" element-name="{{elementName}}"></px-demo-snippet>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+
+          <!-- TODO: API Docs -->
+          <section class="apiContainer">
+            <div class="flex flex--col api u-mt++">
+              <div class="u-p++">
+                <px-api-viewer source="{{elementName}}"></px-api-viewer>
+              </div>
+            </div>
+
+          </section>
+      </section>
+
+    </article>
+
+    <!-- Element Footer -->
+    <footer class="footer flex flex--center">
+      <div class="footer__container u-pv++">
+        <div>
+          <a href="https://ge.com/digital" target="_blank" title="GE Digital">
+            <img src="monogram-wdmk.png" alt="GE Monogram" class="footer__img">
+          </a>
+        </div>
+        <div class="footer__list">
+          <ul class="list-inline list-inline--delimited">
+            <li>
+              <a href="http://predix.io/legal" class="footer__list--lnk">Legal</a>
+            </li>
+            <li>
+              <a href="mailto:info@predix.io" class="footer__list--lnk">Contact Us</a>
+            </li>
+            <li>Copyright &copy; {{year}} General Electric Company. All rights reserved.</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  </template>
+  <script type="text/javascript">
+    Polymer({
+      is: "demo-template",
+      properties: {
+        //The name of your github repo
+        repoName: {
+          type: String
+        },
+        //The name of the element
+        elementName: {
+          type: String
+        },
+        //The props of the element
+        elementProps: {
+          type: Object
+        },
+        //The heading text
+        heading: {
+          type: String,
+          value: 'Heading'
+        },
+        //The description text
+        description: {
+          type: String,
+          value: 'This is the description'
+        },
+        //The current year
+        year: {
+          type: String,
+          value: function() {
+            return new Date().getFullYear();
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,143 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>px-button</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-icon/iron-icon.html">
+		<link rel="import" href="../../iron-input/iron-input.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
+		<link rel="import" href="px-button.html">
+    <script src="../demo/demo.js"></script>
+		<style media="screen">
+			body{
+				margin: 0;
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+		</style>
+	</head>
+
+	<body unresolved>
+
+		<template id="scope" is="dom-bind">
+
+			<style is="custom-style" include="px-demo-template-css">
+				ul, li{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			</style>
+
+			<px-demo-template id="test"
+				repo-name="px-partials"
+				element-name="px-button"
+				heading="px-button"
+				description="The px-button element provides an easy way to use Font Awesome SVG icons."
+				element-props="{{buttonProps}}">
+
+
+				<div properties>
+					<ul>
+						<li class="u-mb-">
+							<label for="color">Label</label>
+							<input is="iron-input" bind-value="{{buttonProps.label}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="color">Type</label>
+							<input is="iron-input" bind-value="{{buttonProps.type}}" type="text" class="text-input" list="buttonTypes">
+              <datalist id="buttonTypes">
+                <option>button</option>
+                <option>submit</option>
+                <option>reset</option>
+              </datalist>
+						</li>
+						<li class="u-mb-">
+							<label for="color">Modifier</label>
+							<input is="iron-input" bind-value="{{buttonProps.modifier}}" type="text" class="text-input" list="buttonModifiers">
+              <datalist id="buttonModifiers">
+
+                <option>small</option>
+                <option>regular</option>
+                <option>large</option>
+                <option>huge</option>
+      
+              </datalist>
+						</li>
+            <li class="u-mb-">
+              <label for="icon">Icon</label>
+              <select class="text-input" name="icon" on-change="_onButtonIconSelect" row-content>
+                <template is="dom-repeat" items="[[icons]]">
+                  <option>fa:{{item}}</option>
+                </template>
+              </select>
+            </li>
+						<li class="u-mb-">
+							<label for="color">Icon Color</label>
+							<input is="iron-input" bind-value="{{buttonProps.iconColor}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="size">Icon Size</label>
+							  <input is="iron-input" bind-value="{{buttonProps.iconSize}}" type="number" class="text-input">
+						</li>
+					</ul>
+				</div>
+
+				<div demo>
+					<div class="position-relative u-p flex flex--center flex--middle">
+            <px-button
+              label="{{buttonProps.label}}"
+              type="{{buttonProps.type}}"
+              icon="{{buttonProps.icon}}"
+              icon-color="{{buttonProps.iconColor}}"
+              icon-size="{{buttonProps.iconSize}}"
+              modifier="{{buttonProps.modifier}}"
+              ></px-button>
+					</div>
+				</div>
+
+			</px-demo-template>
+		</template>
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#scope');
+				scope.selected = 0;
+
+        scope.icons = window.FONT_AWESOME_ICONS.icons.sort();
+
+				scope.options = [
+					'Option 1',
+					'Option 2',
+					'Option 3',
+					'Option 4'
+				];
+        //px-button
+        scope.buttonProps = {
+          label: 'Home',
+          type: 'submit',
+          modifier: 'primary huge',
+          icon: 'fa:fa-home',
+          iconColor: 'white',
+          iconSize: 32
+        };
+
+        scope._onButtonIconSelect = function(e){
+          scope.set('buttonProps.icon', e.target.value);
+          console.log('button.icon', e.target.value);
+        };
+
+			});
+		</script>
+
+
+
+
+	</body>
+
+</html>

@@ -1,0 +1,139 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>px-brand</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-icon/iron-icon.html">
+		<link rel="import" href="../../iron-input/iron-input.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
+		<link rel="import" href="px-brand.html">
+
+		<style media="screen">
+			body{
+				margin: 0;
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+		</style>
+	</head>
+
+	<body unresolved>
+
+		<template id="scope" is="dom-bind">
+
+			<style is="custom-style" include="px-demo-template-css">
+				ul, li{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			</style>
+
+			<px-demo-template id="test"
+				repo-name="px-partials"
+				element-name="px-brand"
+				heading="px-brand"
+				description="The px-brand element provides an easy way to use the GE brands commonly displayed in Predix apps."
+				element-props="{{iconProps}}">
+
+
+				<div properties>
+					<ul>
+						<li class="u-mb-">
+							<label for="color">Color</label>
+							<input is="iron-input" bind-value="{{brandProps.color}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="height">Height</label>
+							  <input is="iron-input" bind-value="{{brandProps.height}}" type="number" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="width">Width</label>
+							  <input is="iron-input" bind-value="{{brandProps.width}}" type="number" class="text-input">
+						</li>
+            <li class="u-mb-">
+              <div class="flex u-mb-">
+                <input id="monogram" class="toggle__input toggle__input--small" type="checkbox" checked="{{brandProps.monogram::change}}">
+                <label for="monogram" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">GE Monogram</div>
+              </div>
+            </li>
+            <li class="u-mb-">
+              <div class="flex u-mb-">
+                <input id="wordmark" class="toggle__input toggle__input--small" type="checkbox" checked="{{brandProps.wordmark::change}}">
+                <label for="wordmark" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">GE Wordmark</div>
+              </div>
+            </li>
+            <li class="u-mb-">
+              <div class="flex u-mb-">
+                <input id="predix" class="toggle__input toggle__input--small" type="checkbox" checked="{{brandProps.predix::change}}">
+                <label for="predix" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Predix Icon</div>
+              </div>
+            </li>
+            <li class="u-mb-">
+              <div class="flex u-mb-">
+                <input id="predixWordmark" class="toggle__input toggle__input--small" type="checkbox" checked="{{brandProps.predixWordmark::change}}">
+                <label for="predixWordmark" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Predix Wordmark</div>
+              </div>
+            </li>
+					</ul>
+				</div>
+
+				<div demo>
+					<div class="position-relative u-p flex flex--center flex--middle">
+            <px-brand
+              color="{{brandProps.color}}"
+              monogram="{{brandProps.monogram}}"
+              predix="{{brandProps.predix}}"
+              predix-wordmark="{{brandProps.predixWordmark}}"
+              wordmark="{{brandProps.wordmark}}"
+              height="{{brandProps.height}}"
+              width="{{brandProps.width}}"
+              ></px-brand>
+					</div>
+				</div>
+
+			</px-demo-template>
+		</template>
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#scope');
+				scope.selected = 0;
+
+
+				scope.options = [
+					'Option 1',
+					'Option 2',
+					'Option 3',
+					'Option 4'
+				];
+        //px-brand
+        scope.brandProps = {
+          color: '#000',
+          height: 150,
+          width: 600,
+          monogram: false,
+          predix: false,
+          predixWordmark: true,
+          wordmark: false
+        };
+
+
+			});
+		</script>
+
+
+
+
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>px-icon</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-icon/iron-icon.html">
+		<link rel="import" href="../../iron-input/iron-input.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
+		<link rel="import" href="px-icon.html">
+    <script src="../demo/demo.js"></script>
+		<style media="screen">
+			body{
+				margin: 0;
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+		</style>
+	</head>
+
+	<body unresolved>
+
+		<template id="scope" is="dom-bind">
+
+			<style is="custom-style" include="px-demo-template-css">
+				ul, li{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			</style>
+
+			<px-demo-template id="test"
+				repo-name="px-partials"
+				element-name="px-icon"
+				heading="px-icon"
+				description="The px-icon element provides an easy way to use Font Awesome SVG icons."
+				element-props="{{iconProps}}">
+
+
+				<div properties>
+					<ul>
+						<li class="u-mb-">
+							<label for="icon">Icon</label>
+              <select class="text-input" name="icon" on-change="_onIconSelect" row-content>
+                <template is="dom-repeat" items="[[icons]]">
+                  <option>fa:{{item}}</option>
+                </template>
+              </select>
+						</li>
+						<li class="u-mb-">
+							<label for="color">Color</label>
+							<input is="iron-input" bind-value="{{iconProps.color}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="size">Size</label>
+							  <input is="iron-input" bind-value="{{iconProps.size}}" type="number" class="text-input">
+						</li>
+					</ul>
+				</div>
+
+				<div demo>
+					<div class="position-relative u-p flex flex--center flex--middle">
+            <px-icon
+              icon="{{iconProps.icon}}"
+              size="{{iconProps.size}}"
+              color="{{iconProps.color}}"
+              ></px-icon>
+					</div>
+				</div>
+
+			</px-demo-template>
+		</template>
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#scope');
+				scope.selected = 0;
+
+        scope.icons = window.FONT_AWESOME_ICONS.icons.sort();
+
+				scope.options = [
+					'Option 1',
+					'Option 2',
+					'Option 3',
+					'Option 4'
+				];
+        //px-icon
+        scope.iconProps = {
+          icon: 'fa:fa-home',
+          color: '#000',
+          size: 256
+        };
+
+        scope._onIconSelect = function(e){
+          scope.set('iconProps.icon', e.target.value);
+        };
+
+			});
+		</script>
+
+
+
+
+	</body>
+
+</html>

@@ -1,0 +1,110 @@
+<html>
+
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>px-header</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="../../iron-icon/iron-icon.html">
+		<link rel="import" href="../../iron-input/iron-input.html">
+		<link rel="import" href="../../px-demo-template/px-demo-template.html">
+		<link rel="import" href="px-header.html">
+
+		<style media="screen">
+
+			body{
+				margin: 0;
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+		</style>
+	</head>
+
+	<body unresolved>
+
+		<template id="scope" is="dom-bind">
+
+			<style is="custom-style" include="px-demo-template-css">
+				ul, li{
+					list-style-type: none;
+					padding: 0;
+					margin: 0;
+				}
+			</style>
+
+			<px-demo-template id="test"
+				repo-name="px-partials"
+				element-name="px-header"
+				heading="px-header"
+				description="The px-header element provides an easy way to create the header commonly used in Predix apps."
+				element-props="{{headerProps}}">
+
+
+				<div properties>
+					<ul>
+						<li class="u-mb-">
+							<label for="Title">Title</label>
+							<input is="iron-input" bind-value="{{headerProps.title}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="Subtitle">Subtitle</label>
+							<input is="iron-input" bind-value="{{headerProps.subtitle}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="Powered">Powered</label>
+							<input is="iron-input" bind-value="{{headerProps.powered}}" type="text" class="text-input">
+						</li>
+						<li class="u-mb-">
+							<label for="username">Username</label>
+							<input is="iron-input" bind-value="{{headerProps.username}}" type="text" class="text-input">
+						</li>
+					</ul>
+				</div>
+
+				<div demo>
+					<div class="position-relative bg--dark">
+						<px-header
+							title="{{headerProps.title}}"
+							powered="{{headerProps.powered}}"
+							subtitle="{{headerProps.subtitle}}"
+							username="{{headerProps.username}}"></px-header>
+					</div>
+				</div>
+
+			</px-demo-template>
+		</template>
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#scope');
+				scope.demoProps = {
+					title: 'Test Title',
+					subtitle: 'Test subtitle'
+				};
+				scope.selected = 0;
+				scope.options = [
+					'Option 1',
+					'Option 2',
+					'Option 3',
+					'Option 4'
+				];
+				//px-header
+				scope.headerProps = {
+					title: 'Application Name',
+					//powered: 'Powered By Predix',
+					username: 'Tom Edison',
+					subtitle: 'Business'
+				};
+
+			});
+		</script>
+
+
+
+
+	</body>
+
+</html>
