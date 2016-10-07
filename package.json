@@ -1,8 +1,10 @@
 {
   "name": "px-partials",
-  "version": "0.0.1",
-  "description": "A Px component",
-  "keywords": [],
+  "version": "0.0.8",
+  "description": "Simple web components as UI partials.",
+  "keywords": [
+    "web-components"
+  ],
   "homepage": "http://predix.io/",
   "author": "General Electric",
   "repository": {
@@ -13,7 +15,7 @@
     "postinstall": "bower install",
     "start": "grunt",
     "test": "wct",
-    "posttest": "COVERALLS_GIT_COMMIT=HEAD && istanbul-coveralls",
+    "coveralls": "COVERALLS_GIT_COMMIT=HEAD && istanbul-coveralls",
     "watch": "grunt watch"
   },
   "devDependencies": {
@@ -34,7 +36,6 @@
     "node-sass": "^3.10.0",
     "node-sass-import-once": "^1.2.0",
     "polymer-css-compiler": "git+https://github.com/jonniespratley/polymer-css-compiler.git",
-    "web-component-tester": "*",
-    "web-component-tester-istanbul": "https://github.com/t2ym/web-component-tester-istanbul/tarball/0.10.1"
+    "web-component-tester": "*"
   }
 }
