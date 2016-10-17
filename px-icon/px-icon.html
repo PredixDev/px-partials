@@ -26,6 +26,10 @@ The following custom properties are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
+`--px-icon` | Mixin applied to the element | {}
+`--px-icon-height` | Height of the element | null
+`--px-icon-width` | Width of the element | null
+`--px-icon-size` | Height and Width of the element | null
 
 
 @element px-icon
@@ -37,10 +41,13 @@ Custom property | Description | Default
 	<style>
 		:host {
 			display: inline-block;
+      @apply(--px-icon);
 		}
 		:host #icon {
 			--iron-icon-height: var(--px-icon-size);
 			--iron-icon-width: var(--px-icon-size);
+			--iron-icon-height: var(--px-icon-height);
+			--iron-icon-width: var(--px-icon-width);
 		}
 	</style>
 	<template strip-whitespace>

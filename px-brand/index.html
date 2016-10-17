@@ -40,7 +40,7 @@
 				element-name="px-brand"
 				heading="px-brand"
 				description="The px-brand element provides an easy way to use the GE brands commonly displayed in Predix apps."
-				element-props="{{iconProps}}">
+				element-props="{{brandProps}}">
 
 
 				<div properties>
@@ -107,18 +107,10 @@
 		<script type="text/javascript">
 			document.addEventListener('WebComponentsReady', function() {
 				var scope = document.querySelector('#scope');
-				scope.selected = 0;
 
-
-				scope.options = [
-					'Option 1',
-					'Option 2',
-					'Option 3',
-					'Option 4'
-				];
         //px-brand
         scope.brandProps = {
-          color: '#000',
+          //color: '#000',
           height: 150,
           width: 600,
           monogram: false,
@@ -126,8 +118,6 @@
           predixWordmark: true,
           wordmark: false
         };
-
-
 			});
 		</script>
 

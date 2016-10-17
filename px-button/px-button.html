@@ -34,6 +34,7 @@ The following custom properties are available for styling:
 Custom property | Description | Default
 ----------------|-------------|----------
 `--px-button` | Mixin applied to the element | {}
+`--px-button-icon` | Mixin applied to the icon element | {}
 
 @element px-button
 @blurb Element for creating buttons.
@@ -62,15 +63,12 @@ Custom property | Description | Default
 			:host .btn.btn--primary{
 				@apply(--px-button-primary);
 			}
-
 		</style>
 		<button id="btn" type$="{{type}}" class="btn" on-tap="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
 				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}" color$="{{iconColor}}"></px-icon>
 			</template>
-			<template is="dom-if" if="{{label}}">
-			{{label}}
-		</template>
+			<template is="dom-if" if="{{label}}">{{label}}</template>
 			<content></content>
 		</button>
 	</template>
@@ -132,10 +130,8 @@ Custom property | Description | Default
 			_clickHandler: function (e) {
 				this.fire('px-button-tap', e);
 			},
-
 			_handleModifier: function (newVal, oldVal) {
-        var _this = this,
-				len,
+				var len,
           klass,
           types;
         klass = 'btn--' + oldVal;
@@ -154,8 +150,7 @@ Custom property | Description | Default
             for (var i = 0; i < len; i++) {
 							if(types[i] !== ''){
 								klass = 'btn--' + types[i];
-								//this.$.btn.classList.add(klass);
-	              _this.toggleClass(klass, true, this.$.btn);
+	              this.toggleClass(klass, true, this.$.btn);
 							}
             }
           }

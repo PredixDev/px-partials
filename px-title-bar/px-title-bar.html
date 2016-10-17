@@ -29,6 +29,7 @@ The following custom properties are available for styling:
 Custom property | Description | Default
 ----------------|-------------|----------
 `--px-title-bar` | Mixin applied to the element | {}
+`--px-title-bar-title` | Mixin applied to the title element | {}
 `--px-title-bar-spacer` | Mixin applied to the spacer element | {}
 
 @element px-title-bar
@@ -36,20 +37,20 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-title-bar">
-  <!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-  <style include="px-partials-css"></style>
-  <template>
-    <style>
+  <template strip-whitespace>
+    <style include="px-partials-css">
       :host {
         display: block;
       }
       :host .title-bar {
         @apply(--px-title-bar);
       }
+      :host .title-bar .title-bar__title {
+        @apply(--px-title-bar-title);
+      }
       :host .title-bar .title-bar__spacer {
         @apply(--px-title-bar-spacer);
       }
-      :host .title-bar h3 {}
       :host .title-bar .title-bar__actions ::content .btn {
         margin-right: 0.3333333333rem;
       }
@@ -66,12 +67,13 @@ Custom property | Description | Default
     Polymer({
       is: 'px-title-bar',
       properties: {
-        //The title for the title bar
+        /**
+         * The title to display in the bar.
+         */
         title: {
           type: String
         }
-      },
-      created: function () {}
+      }
     });
   </script>
 </dom-module>

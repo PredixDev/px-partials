@@ -43,14 +43,12 @@
 				description="The px-title-bar element provides an easy way to create the title-bar commonly used in Predix apps."
 				element-props="{{props}}">
 
-
 				<div properties>
 					<ul>
 						<li class="u-mb-">
 							<label for="Title">Title</label>
 							<input is="iron-input" bind-value="{{props.title}}" type="text" class="text-input">
 						</li>
-
 					</ul>
 				</div>
 
@@ -65,18 +63,10 @@
 		<script type="text/javascript">
 			document.addEventListener('WebComponentsReady', function() {
 				var scope = document.querySelector('#scope');
-
-				//px-footer
 				scope.props = {
 					title: 'Section Name'
 				};
-
 			});
 		</script>
-
-
-
-
 	</body>
-
 </html>

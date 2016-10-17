@@ -25,6 +25,13 @@ The `px-header` element provides an easy way to create the header commonly used 
 <px-header title="My Application Name" subtitle="My Product Name"></px-header>
 ```
 
+### Content attributes
+Name | Description
+----------------|-------------
+`left` | Content to be inserted on the left.
+`right` | Content to be inserted on the right.
+`brand` | Content to be inserted inside the brand.
+
 ### Styling
 The following custom properties are available for styling:
 
@@ -134,16 +141,18 @@ Custom property | Description | Default
 				 */
 				title: {
 					type: String,
-					value: 'Seed Application'
+					value: function(){
+						return 'Seed Application';
+					}
 				},
 				/**
-				 * The subtitle to display
+				 * The sub-title to display
 				 */
 				subtitle: {
 					type: String
 				},
 				/**
-				 * The powered by to display
+				 * The powered by string to display
 				 */
 				powered: {
 					type: String
@@ -155,17 +164,16 @@ Custom property | Description | Default
           type: String
         },
 				/**
-				 * Array of menu items to display with keys (label, href)
+				 * Array of items to display with keys (`label`, `href`)
 				 */
 				navItems: {
 					type: Array
 				},
 				/**
-				 * No brand
+				 * Do not display a brand
 				 */
 				bare: {
-					type: Boolean,
-					value: false
+					type: Boolean
 				},
 				/**
 				 * The selected nav item index
