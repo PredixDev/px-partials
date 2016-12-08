@@ -9,13 +9,6 @@
         "type": "git",
         "url": "https://github.com/PredixDev/px-partials.git"
     },
-    "scripts": {
-        "postinstall": "bower install",
-        "start": "grunt",
-        "test": "wct",
-        "posttest": "COVERALLS_GIT_COMMIT=HEAD && istanbul-coveralls",
-        "watch": "grunt watch"
-    },
     "devDependencies": {
         "bower": "*",
         "grunt": "~v0.4.5",
