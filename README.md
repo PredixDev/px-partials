@@ -21,7 +21,7 @@ $ grunt
 From the component's directory
 
 ```
-$ grunt depserve
+$ gulp serve
 ```
 
 Starts a local server. Navigate to the root of that server (e.g. http://localhost:8080/) in a browser to open the API documentation page, with link to the "Demo" / working examples.
