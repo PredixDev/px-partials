@@ -1,6 +1,6 @@
 {
   "name": "px-partials",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Px component",
   "keywords": [],
   "homepage": "http://predix.io/",
@@ -8,13 +8,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/PredixDev/px-partials.git"
-  },
-  "scripts": {
-    "postinstall": "bower install",
-    "start": "grunt",
-    "test": "wct",
-    "posttest": "COVERALLS_GIT_COMMIT=HEAD && istanbul-coveralls",
-    "watch": "grunt watch"
   },
   "devDependencies": {
     "bower": "*",
