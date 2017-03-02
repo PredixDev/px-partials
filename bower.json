@@ -64,6 +64,24 @@
     "polymer-font-awesome": "^0.1.9",
     "px-layout": "*",
     "px-typography-design": "^1.1.0",
-    "px-demo-template": "44e5e664fd"
+    "px-demo-template": "44e5e664fd",
+    "px-forms-design": "^1.1.0",
+    "px-input-group-design": "^1.1.0",
+    "px-normalize-design": "^0.4.0",
+    "px-widths-responsive-design": "^0.4.0",
+    "px-code-design": "^1.1.0",
+    "px-spacing-responsive-design": "^0.4.0",
+    "px-flexbox-design": "^0.5.0",
+    "px-iconography-design": "^0.3.1",
+    "px-colors-design": "^0.3.0",
+    "px-buttons-design": "^1.1.0",
+    "px-polymer-font-awesome": "^1.1.0",
+    "px-demo-snippet": "^0.6.0",
+    "px-actionable-text-icons-design": "^1.1.0",
+    "px-defaults-design": "^1.0.2",
+    "px-spacing-design": "^0.4.0",
+    "px-mixins-design": "^0.3.0",
+    "px-clipboard": "^0.2.0",
+    "px-functions-design": "~1.0.0"
   }
 }
