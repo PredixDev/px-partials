@@ -1,14 +1,39 @@
 {
-	"suites": ["test/px-partials-test-fixture.html"],
-	"verbose": true,
-	"plugins": {
-		"sauce": {
-			"disabled": true
-		},
-		"local": {
-			"browsers": [
-				"chrome"
-			]
-		}
-	}
+  "verbose": true,
+  "testTimeout": 300000,
+  "plugins": {
+    "local": {
+      "browsers": [
+        "chrome"
+      ]
+    },
+    "sauce": {
+      "name": "px-partials",
+      "disabled": true,
+      "browsers": [
+        "Windows 8.1/internet explorer",
+        "OS X 10.10/chrome",
+        "OS X 10.10/firefox",
+        "OS X 10.10/safari",
+        {
+          "browserName": "firefox",
+          "platform": "OS X 10.11"
+        }
+      ]
+    },
+    "istanbul": {
+      "dir": "./coverage",
+      "reporters": [
+        "text-summary",
+        "lcov"
+      ],
+      "include": [
+        "/px-*.html"
+      ],
+      "exclude": []
+    }
+  },
+  "suites": [
+    "test/px-partials-test-fixture.html"
+  ]
 }
