@@ -26,6 +26,7 @@ module.exports = function(grunt) {
           //'css/noprefix/px-table-view-sketch.css': 'sass/px-table-view-sketch.scss',
           //'css/noprefix/px-table-view.css': 'sass/px-table-view-predix.scss'
           //  '<%= pkg.name %>.css': 'sass/<%= pkg.name %>-sketch.scss',
+          'css/noprefix/px-partials-demo.css': 'sass/px-partials-demo.scss',
           'css/noprefix/px-partials-sketch.css': 'sass/px-partials-sketch.scss',
           'css/noprefix/px-partials.css': 'sass/px-partials-predix.scss'
         }
@@ -153,6 +154,7 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         files: {
+          'css/<%= pkg.name %>-demo.min.css': ['css/<%= pkg.name %>-demo.css'],
           'css/<%= pkg.name %>.min.css': ['css/<%= pkg.name %>.css']
         }
       }
@@ -161,7 +163,8 @@ module.exports = function(grunt) {
       target: {
         filename: '-styles',
         files: {
-          './<%= pkg.name %>.html': ['css/<%= pkg.name %>.min.css']
+          './<%= pkg.name %>.html': ['css/<%= pkg.name %>.min.css'],
+          './<%= pkg.name %>-demo.html': ['css/<%= pkg.name %>-demo.min.css']
         }
       }
     }
@@ -173,8 +176,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-dep-serve');
-  grunt.loadNpmTasks('webdriver-support');
+  //grunt.loadNpmTasks('grunt-dep-serve');
+  //grunt.loadNpmTasks('webdriver-support');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('polymer-css-compiler');

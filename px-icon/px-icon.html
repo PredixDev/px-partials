@@ -10,7 +10,7 @@
  */
  -->
 <link rel="import" href="../../polymer/polymer.html">
-<link rel="import" href="../../polymer-font-awesome/polymer-font-awesome.html"/>
+<link rel="import" href="../../px-polymer-font-awesome/polymer-font-awesome-all.html"/>
 <!--
 The `px-icon` element provides an easy way to use Font Awesome SVG icons.
 
@@ -26,6 +26,10 @@ The following custom properties are available for styling:
 
 Custom property | Description | Default
 ----------------|-------------|----------
+`--px-icon` | Mixin applied to the element | {}
+`--px-icon-height` | Height of the element | null
+`--px-icon-width` | Width of the element | null
+`--px-icon-size` | Height and Width of the element | null
 
 
 @element px-icon
@@ -37,10 +41,13 @@ Custom property | Description | Default
 	<style>
 		:host {
 			display: inline-block;
+      @apply(--px-icon);
 		}
 		:host #icon {
 			--iron-icon-height: var(--px-icon-size);
 			--iron-icon-width: var(--px-icon-size);
+			--iron-icon-height: var(--px-icon-height);
+			--iron-icon-width: var(--px-icon-width);
 		}
 	</style>
 	<template strip-whitespace>
@@ -51,20 +58,20 @@ Custom property | Description | Default
 			is: "px-icon",
 			properties: {
 				/**
-				 * The name of the icon (`fa:fa-mobile`)
+				 * The name of the icon (`fa:fa-home`, etc)
 				 */
 				icon: {
 					type: String
 				},
 				/**
-				 * The fill color for the icon (`crimson`)
+				 * The fill color for the icon ( `#FFF`, `#000`, `crimson`, etc)
 				 */
 				color: {
 					type: String,
 					observer: '_handleColor'
 				},
 				/**
-				 * The size of the icon. (`16, 24, 32, 48, etc`)
+				 * The size of the icon. (`16`, `32`, `56`, `256`, `512`, etc)
 				 */
 				size: {
 					type: Number,

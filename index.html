@@ -1,22 +1,137 @@
 <html>
 
 	<head>
-		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="apple-mobile-web-app-capable" content="yes">
 		<!-- TODO: dependencies -->
-		<script src="../webcomponentsjs/webcomponents.min.js"></script>
+		<script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
 
-		<!-- TODO: Extra components -->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="import" href="../iron-icon/iron-icon.html">
+		<link rel="import" href="../iron-input/iron-input.html">
+
+		<link rel="import" href="../px-theme/px-theme-styles.html">
+		<style include="px-theme-styles" is="custom-style"></style>
+		<link rel="import" href="../px-tabs/px-tab-set.html">
+		<link rel="import" href="../px-tabs/px-tab-pages.html">
+
+		<link rel="import" href="../px-demo-helpers/px-demo-helpers.html" />
+		<link rel="import" href="../px-demo-snippet/px-demo-snippet.html">
+		<link rel="import" href="../px-api-viewer/px-api-viewer.html">
+		<link rel="import" href="../px-polymer-font-awesome/polymer-font-awesome.html" />
 		<link rel="import" href="../iron-component-page/iron-component-page.html">
+		<link rel="import" href="../px-table-view/px-table-view.html">
+		<link rel="import" href="px-partials.html">
+		<link rel="stylesheet" href="css/px-partials-demo.css">
+
+	 	<script src="demo/demo.js">
+
+	 	</script>
 
 		<title>px-partials</title>
+		<style media="screen">
+			.1box {
+				background: transparent;
+				border: none;
+				padding: 10px;
+			}
 
+			.actionable {
+				text-decoration: none;
+			}
+
+			.position-relative {
+				position: relative;
+        	margin-bottom: 1rem;
+
+			}
+
+      .bg--dark{
+        background: #333;
+      }
+
+
+
+			.hero {
+				background: #fff;
+			}
+
+			body,
+			html {
+				background: #f7f7fc !important;
+				overflow: hidden;
+				overflow-y: scroll;
+				overflow-y: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+
+			.mega-demo {
+				background: #f7f7fc;
+				width: 100%;
+			}
+
+		</style>
 	</head>
 
-	<body>
+	<body unresolved>
 
-		<!-- TODO: docs -->
-		<iron-component-page id="px-docs" src="./px-partials.html"></iron-component-page>
+		<template id="app" is="dom-bind">
+
+      <style is="custom-style">
+      --px-table-row-label2:{
+        width: 100px;
+      }
+      </style>
+		<!-- Element Description -->
+    <div class="hero u-p++ text--shadow">
+      <a class="actionable flex flex--right flex--middle" href="https://github.com/PredixDev/px-partials" target="_blank"><iron-icon class="menu__open" icon="fa:fa-github"></iron-icon>View on Github</a>
+  		<h1 class="delta">px-partials</h1>
+      <div class="description-text">
+        <p>
+        Simple web component partials to enable rapid prototyping of user interfaces.
+        </p>
+      </div>
+  		<div class="flex">
+  			<img class="u-mr--" src="https://img.shields.io/travis/PredixDev/px-partials.svg?style=flat-square" alt="Travis"/>
+  			<img class="u-mr--" src="https://img.shields.io/bower/v/px-partials.svg?style=flat-square" alt="Bower"/>
+  			<img class="u-mr--" src="https://img.shields.io/github/issues-raw/PredixDev/px-partials.svg?style=flat-square" alt="Issues"/>
+  		</div>
+  	</div>
+
+		<!--  Element Demo -->
+	<div class="apiContainer">
+		<div class="flex flex--col api">
+			<div class="flex__item">
+				<div class="flex flex--col childrenAssociated">
+					<div class="componentHeader">Children Components</div>
+					<div class="componentList">
+						<ul>
+							<li><a href="px-button/index.html">px-button</a></li>
+							<li><a href="px-brand/index.html">px-brand</a></li>
+
+							<li><a href="px-icon/index.html">px-icon</a></li>
+							<li><a href="px-header/index.html">px-header</a></li>
+							<li><a href="px-footer/index.html">px-footer</a></li>
+							<li><a href="px-title-bar/index.html">px-title-bar</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+		</template>
+
+		<script type="text/javascript">
+			document.addEventListener('WebComponentsReady', function() {
+				var scope = document.querySelector('#app');
+
+
+			});
+		</script>
 
 	</body>
 

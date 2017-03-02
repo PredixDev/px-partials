@@ -11,8 +11,10 @@
  -->
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-selector/iron-selector.html">
+<link rel="import" href="../px-icon/px-icon.html">
 <link rel="import" href="../px-brand/px-brand.html">
 <link rel="import" href="../px-partials-styles.html">
+
 <!--
 The `px-header` element provides an easy way to create the header commonly used in Predix apps.
 
@@ -22,6 +24,13 @@ The `px-header` element provides an easy way to create the header commonly used 
 ```
 <px-header title="My Application Name" subtitle="My Product Name"></px-header>
 ```
+
+### Content attributes
+Name | Description
+----------------|-------------
+`left` | Content to be inserted on the left.
+`right` | Content to be inserted on the right.
+`brand` | Content to be inserted inside the brand.
 
 ### Styling
 The following custom properties are available for styling:
@@ -44,9 +53,9 @@ Custom property | Description | Default
 -->
 <dom-module id="px-header">
 	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-<style include="px-partials-css"></style>
+
 	<template strip-whitespace>
-		<style>
+		<style include="px-partials-css">
 			:host {
 				display: block;
 			}
@@ -106,16 +115,16 @@ Custom property | Description | Default
 					<template is="dom-if" if="{{username}}">
 	          <a class="c-header__link user" on-tap="_handleUserTap">
 	            <span class="c-header__circle">
-	              <i class="fa fa-lg fa-user"></i>
+	              <px-icon icon="fa:fa-user" size="16"></px-icon>
 	            </span>
-	            <span class="c-header__username is-hidden@xs-">
+	            <span class="c-header__username is-hidden@xs- flex flex--middle">
 	              {{username}}
 	            </span>
 	          </a>
 	        </template>
         </div>
 				<content id="rightContent" select="[right]"></content>
-				<span class="c-header__powered is-hidden@xs-" hidden$="{{!powered}}">{{powered}}</span>
+				<span class="c-header__powered is-hidden@xs- flex flex--middle" hidden$="{{!powered}}">{{powered}}</span>
 			</div>
 
 		</div>
@@ -132,16 +141,18 @@ Custom property | Description | Default
 				 */
 				title: {
 					type: String,
-					value: 'Seed Application'
+					value: function(){
+						return 'Seed Application';
+					}
 				},
 				/**
-				 * The subtitle to display
+				 * The sub-title to display
 				 */
 				subtitle: {
 					type: String
 				},
 				/**
-				 * The powered by to display
+				 * The powered by string to display
 				 */
 				powered: {
 					type: String
@@ -153,17 +164,16 @@ Custom property | Description | Default
           type: String
         },
 				/**
-				 * Array of menu items to display with keys (label, href)
+				 * Array of items to display with keys (`label`, `href`)
 				 */
 				navItems: {
 					type: Array
 				},
 				/**
-				 * No brand
+				 * Do not display a brand
 				 */
 				bare: {
-					type: Boolean,
-					value: false
+					type: Boolean
 				},
 				/**
 				 * The selected nav item index

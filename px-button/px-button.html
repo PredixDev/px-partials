@@ -11,6 +11,7 @@
  -->
 <link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../iron-form-element-behavior/iron-form-element-behavior.html">
+<link rel="import" href="../px-icon/px-icon.html">
 <link rel="import" href="../px-partials-styles.html">
 <!--
 
@@ -33,6 +34,7 @@ The following custom properties are available for styling:
 Custom property | Description | Default
 ----------------|-------------|----------
 `--px-button` | Mixin applied to the element | {}
+`--px-button-icon` | Mixin applied to the icon element | {}
 
 @element px-button
 @blurb Element for creating buttons.
@@ -40,10 +42,8 @@ Custom property | Description | Default
 @homepage ../index.html
 -->
 <dom-module id="px-button">
-	<!-- <link rel="import" type="css" href="../css/px-partials.css"> -->
-	<style include="px-partials-css"></style>
 	<template strip-whitespace>
-		<style>
+		<style include="px-partials-css">
 			:host {
 				display: flex;
 			}
@@ -63,13 +63,12 @@ Custom property | Description | Default
 			:host .btn.btn--primary{
 				@apply(--px-button-primary);
 			}
-
 		</style>
-		<button id="btn" type$="{{type}}" class="btn flex flex--center flex--middle" on-tap="_clickHandler">
+		<button id="btn" type$="{{type}}" class="btn" on-tap="_clickHandler">
 			<template is="dom-if" if="{{icon}}">
 				<px-icon id="ico" icon$="{{icon}}" size$="{{iconSize}}" color$="{{iconColor}}"></px-icon>
 			</template>
-			<span hidden$="{{!label}}">{{label}}</span>
+			<template is="dom-if" if="{{label}}">{{label}}</template>
 			<content></content>
 		</button>
 	</template>
@@ -84,6 +83,7 @@ Custom property | Description | Default
 				 * The button label
 				 */
 				label: {
+					notify: true,
 					type: String
 				},
 				/**
@@ -91,24 +91,29 @@ Custom property | Description | Default
 				 */
 				type: {
 					type: String,
-					value: 'button'
+					value: function(){
+						return 'button';
+					}
 				},
 				/**
 				 * The `px-icon` icon name
 				 */
 				icon: {
+					notify: true,
 					type: String
 				},
 				/**
 				 * The `px-icon` size
 				 */
 				iconSize: {
+					notify: true,
 					type: String
 				},
 				/**
 				 * The `px-icon` color
 				 */
 				iconColor: {
+					notify: true,
 					type: String
 				},
 				/**
@@ -121,19 +126,36 @@ Custom property | Description | Default
 					observer: '_handleModifier'
 				}
 			},
+			_debounce: 200,
 			_clickHandler: function (e) {
 				this.fire('px-button-tap', e);
 			},
 			_handleModifier: function (newVal, oldVal) {
-				var types;
-				var klass = 'btn--' + oldVal;
-				this.toggleClass(klass, false, this.$.btn);
-				types = newVal.split(' ');
-				for (var i = 0; i < types.length; i++) {
-					klass = 'btn--' + types[i];
-					this.toggleClass(klass, true, this.$.btn);
-				}
-			}
+				var len,
+          klass,
+          types;
+        klass = 'btn--' + oldVal;
+
+        this.debounce('toggleClass', function(){
+          if(oldVal){
+            types = oldVal.split(' ');
+            for (var i = 0; i < types.length; i++) {
+              klass = 'btn--' + types[i];
+              this.$.btn.classList.remove(klass);
+            }
+          }
+          if (newVal) {
+            types = this.modifier.split(' ');
+						len = types.length;
+            for (var i = 0; i < len; i++) {
+							if(types[i] !== ''){
+								klass = 'btn--' + types[i];
+	              this.toggleClass(klass, true, this.$.btn);
+							}
+            }
+          }
+        }, this._debounce);
+      }
 			/**
 			 * Fires when button is pressed
 			 * @event px-button-tap

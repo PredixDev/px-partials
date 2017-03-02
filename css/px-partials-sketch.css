@@ -53,6 +53,135 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 /**
      * Dark
      */
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Regular-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Regular-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Regular-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Regular-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Regular-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: normal;
+  font-style: italic;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Italic-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Italic-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Italic-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Italic-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Italic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: normal;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Bold-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Bold-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Bold-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Bold-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-Bold-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Sans";
+  font-weight: bold;
+  font-style: italic;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-BoldItalic-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-BoldItalic-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-BoldItalic-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSans-BoldItalic-v01.svg#GE Inspira Sans") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: normal;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Regular-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Regular-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Regular-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Regular-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Regular-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: normal;
+  font-style: italic;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Italic-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Italic-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Italic-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Italic-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Italic-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: normal;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Bold-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Bold-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Bold-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Bold-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-Bold-v01.svg#GE Inspira Serif") format("svg"); }
+
+@font-face {
+  font-family: "GE Inspira Serif";
+  font-weight: bold;
+  font-style: italic;
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-BoldItalic-v01.eot");
+  src: url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-BoldItalic-v01.eot?#iefix") format("embedded-opentype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-BoldItalic-v01.woff") format("woff"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-BoldItalic-v01.ttf") format("truetype"), url("//dzlpbrbc7yvq0.cloudfront.net/predixdev/fonts/1.0.0/GEInspiraSerif-BoldItalic-v01.svg#GE Inspira Serif") format("svg"); }
+
+html {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+/**
+ * Font weights
+ */
+.weight--light {
+  font-weight: 300 !important; }
+
+.weight--normal {
+  font-weight: 400 !important; }
+
+.weight--semibold {
+  font-weight: 600 !important; }
+
+/**
+ * the html and :host declarations cannot be adjacent to one other
+ * or cssmin will combine them into a single rule, breaking in
+ * Safari and Firefox.
+ */
+:host {
+  font-family: "GE Inspira Sans", sans-serif; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
 .alpha {
   font-size: 5rem;
   line-height: 1.0666666667; }
@@ -80,6 +209,10 @@ Predix branding rules go in px-partials-predix.scss, not in this file.
 .flex {
   display: -ms-flexbox;
   display: flex; }
+
+.inline--flex {
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
 
 .flex--row {
   -ms-flex-direction: row;
@@ -270,6 +403,7 @@ select {
   padding: 0 3em 0 1em;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   line-height: calc(2em - 2px);
+  height: calc(2em - 2px);
   cursor: pointer;
   background-color: #e4e4ea;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20viewBox%3D%220%200%20658%201024%22%3E%3Cpath%20fill%3D%22%233b3b3f%22%20d%3D%22M614.286%20420.571q0%207.429-5.714%2013.143l-266.286%20266.286q-5.714%205.714-13.143%205.714t-13.143-5.714l-266.286-266.286q-5.714-5.714-5.714-13.143t5.714-13.143l28.571-28.571q5.714-5.714%2013.143-5.714t13.143%205.714l224.571%20224.571%20224.571-224.571q5.714-5.714%2013.143-5.714t13.143%205.714l28.571%2028.571q5.714%205.714%205.714%2013.143z%22%2F%3E%3C%2Fsvg%3E");
@@ -461,11 +595,23 @@ button.btn {
   border: 0;
   border-radius: 0;
   padding: 0;
-  line-height: inherit; }
+  line-height: inherit;
+  font-size: 1.2rem;
+  width: 2.2666666667rem;
+  height: 2.2666666667rem;
+  box-shadow: none;
+  background: none;
+  outline: none; }
   .btn--bare, .btn--bare:link, .btn--bare:visited, .btn--bare:hover, .btn--bare:active, .btn--bare:focus {
     box-shadow: none;
     background: none;
-    color: inherit; }
+    outline: none; }
+  .btn--bare, .btn--bare:link, .btn--bare:visited {
+    color: #525156; }
+  .btn--bare:hover {
+    color: #3e87e8; }
+  .btn--bare:active, .btn--bare:focus {
+    color: #2b5ea2; }
 
 /**
    * Change button colors for primary buttons
@@ -522,7 +668,7 @@ button.btn {
 .btn--small {
   height: 1.6666666667em;
   font-size: 0.8rem;
-  line-height: calc($inuit-btn-height--small - 2px); }
+  line-height: calc(1.6666666667em - 2px); }
 
 /** Workaround for FF since it does not support calc().
     * Other buttons appear ok with the height declaration, but non-button elements do not.
@@ -747,12 +893,17 @@ pre {
 html {
   box-sizing: border-box; }
 
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/**
+ * the html and :host declarations cannot be adjacent to one other
+ * or cssmin will combine them into a single rule, breaking in
+ * Safari and Firefox.
+ */
 :host {
   /*! Comment to prevent cssmin munging this rule with html above and borking Safari */
   box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit; }
 
 /**
  * A series of helper classes to use arbitrarily. Only use a helper class if an
